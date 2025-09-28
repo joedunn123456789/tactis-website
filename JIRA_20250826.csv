@@ -1,0 +1,245 @@
+Summary,Issue key,Issue id,Issue Type,Status,Project key,Project name,Project type,Project lead,Project lead id,Project description,Project url,Priority,Resolution,Assignee,Assignee Id,Reporter,Reporter Id,Creator,Creator Id,Created,Updated,Last Viewed,Resolved,Due date,Votes,Description,Environment,Watchers,Watchers,Watchers Id,Watchers Id,Original estimate,Remaining Estimate,Time Spent,Work Ratio,Σ Original Estimate,Σ Remaining Estimate,Σ Time Spent,Security Level,Inward issue link (Cloners),Outward issue link (Cloners),Attachment,Attachment,Attachment,Custom field (Acceptance Criteria),Custom field (Affected hardware),Custom field (Affected services),Custom field (Approvals),Custom field (Backout plan),Custom field (Category),Custom field (Change completion date),Custom field (Change reason),Custom field (Change risk),Custom field (Change start date),Custom field (Change type),Custom field (Charge Project),Custom field (Customer Inactivity),Custom field (Customer Request Type),Custom field (Developer),Custom field (Development),Custom field (Epic Color),Custom field (Epic Name),Custom field (Epic Status),Custom field (Estimate),Custom field (Focus Areas),Custom field (Goals),Custom field (Impact),Custom field (Implementation Notes),Custom field (Implementation plan),Custom field (Investigation reason),Custom field (Issue Completed In A Standard Business Week),Custom field (Issue color),Custom field (Locked forms),Custom field (Major incident),Custom field (Open forms),Custom field (Operational categorization),Custom field (Pending reason),Custom field (Planned end),Custom field (Planned start),Custom field (Product categorization),Custom field (Project overview key),Custom field (Project overview status),Custom field (Rank),Custom field (Recurring Security Updates),Custom field (Reopen Recurring Tasks),Custom field (Request language),Custom field (Request participants),Custom field (Responders),Custom field (Root cause),Satisfaction rating,Custom field (Satisfaction date),Custom field (Sentiment),Custom field (Severity),Custom field (Source),Sprint,Custom field (Start date),Custom field (Story Points),Custom field (Story point estimate),Custom field (Submitted forms),Custom field (Target end),Custom field (Target start),Custom field (Team),Custom field (Test plan),Custom field (Testing Steps),Custom field (Time to approve normal change),Custom field (Time to close after resolution),Custom field (Time to first response),Custom field (Time to resolution),Custom field (Total forms),Custom field (Urgency),Custom field (Vulnerability),Custom field (Work category),Custom field (Workaround),Custom field ([CHART] Date of First Response),Custom field ([CHART] Time in Status),Comment,Comment,Comment,Comment,Comment,Comment,Comment,Status Category,Status Category Changed
+DEV: Create New Header & Navigation,TAC-225,76445,Task,Code Review/Merge,TAC,Tactis,software,Todd Coen,611161833900e6007040fe85,,https://www.tactis.com,Major,,Joseph Dunn,63f651e88ab3d6a635ed6a76,Jake Corbin,557058:c7296bf0-09a1-45cc-8f67-3909912ac874,Jake Corbin,557058:c7296bf0-09a1-45cc-8f67-3909912ac874,6/10/25 12:41,7/15/25 16:39,8/15/25 20:06,,,0,"*Update the header & navigation to be exposed instead of behind the hamburger menu (on desktop & tablet)…*
+
+# Add white header bar at top with logo, main nav links exposed, a search icon, and contact button.
+# Contact button hover effect is a plum background (#AF0061) with white text
+# Main navigation text hover turns the text plum (#AF0061)
+# Let’s have a discussion about the search functionality, as I have something in mind, but it’s hard to type out.
+
+*Update the mobile navigation*
+
+# Re-order the links
+# Apply hierarchy of links and font weights
+# Left-aligned
+
+*Figma Link*
+[https://www.figma.com/design/gZ9a6C2WYEAo7UaFahwbhM/Tactis-2.0?node-id=1083-2&t=Wwe8o6bSteKWDc3F-1|https://www.figma.com/design/gZ9a6C2WYEAo7UaFahwbhM/Tactis-2.0?node-id=1083-2&t=Wwe8o6bSteKWDc3F-1|smart-link] ",,Jake Corbin,Joseph Dunn,557058:c7296bf0-09a1-45cc-8f67-3909912ac874,63f651e88ab3d6a635ed6a76,,,,,,,,,,,15/Jul/25 4:29 PM;63f651e88ab3d6a635ed6a76;Screenshot 2025-07-15 at 1.28.19 PM.png;https://team-tactis.atlassian.net/rest/api/3/attachment/content/61618,15/Jul/25 4:29 PM;63f651e88ab3d6a635ed6a76;Screenshot 2025-07-15 at 1.28.29 PM.png;https://team-tactis.atlassian.net/rest/api/3/attachment/content/61619,15/Jul/25 4:29 PM;63f651e88ab3d6a635ed6a76;Screenshot 2025-07-15 at 1.28.32 PM.png;https://team-tactis.atlassian.net/rest/api/3/attachment/content/61617,,,,com.atlassian.servicedesk.plugins.approvals.internal.customfield.ApprovalsCFValue@47090299,,,,,,,,,,,,"{pullrequest={dataType=pullrequest, state=OPEN, stateCount=1}, json={""cachedValue"":{""errors"":[],""summary"":{""pullrequest"":{""overall"":{""count"":1,""lastUpdated"":""2025-07-15T16:45:26.174-0400"",""stateCount"":1,""state"":""OPEN"",""dataType"":""pullrequest"",""open"":true},""byInstanceType"":{""bitbucket"":{""count"":1,""name"":""Bitbucket Cloud""}}}}},""isStale"":true}}",,,,,,,,"[~accountid:63f651e88ab3d6a635ed6a76] The real trick here is the sticky header and the folding hero section.  None of the heights should be hard coded in CSS, use variables.  They are already defined for most of the things you will need.  Sticky headers should work with or without the admin menu.  Nothing should be sticky sitting behind the admin menu.",,,,,,,,,,,,,,,1|r02ah1:,,,,,,,,,,,,2025 Website Enhancements,,,,,,,,,,,,,,,,,,,02:30.1,,"24/Jun/25 3:02 PM;63f651e88ab3d6a635ed6a76;[~accountid:557058:c7296bf0-09a1-45cc-8f67-3909912ac874] *SITREP (24 JUN):*
+
+* Good - Implemented sticky header using {{position-sticky top-0}}  matches Figma and guidance 
+* Good - Primary menu pulled from Drupal admin > Primary Menu region 
+* Good - Logo using Site Branding block 
+* Good - No Bootstrap {{.collapse}} or extra JS static menu as expected 
+* Issue - Working - Contact button currently pulling from Navigation region it needs correction to pull from Contact block 
+* Issue - Working - “Navigation” region content is displaying in header this is not per guidance (navigation intended for footer) 
+
+Next steps:
+Update twig to only pull correct blocks for header (Contact + Search)
+Remove “Navigation” region from header
+Final check for spacing vs. Figma","26/Jun/25 1:08 PM;63f651e88ab3d6a635ed6a76;[~accountid:557058:c7296bf0-09a1-45cc-8f67-3909912ac874] SITREP (26 JUN)
+
+Update – Header Logo Missing on Tactis Homepage
+
+*Issue:*
+The Tactis logo is currently not displaying in the site header.
+
+*Root Cause:*
+The “Site Branding” block relies on the theme-supplied logo (enabled by default). However, in the Appearance → Evolve theme settings, the option “Use the logo supplied by the theme” was unselected, and no fallback logo file or path was defined. As a result, the branding block has no source image to render.
+
+*How it happened:*
+
+* While adjusting layout overrides (via Layout Builder), the header region persisted without the {{tactis_logo.svg}}.
+* Reverting the homepage layout to default fixed layout inconsistencies, but logo dependency was not reset.
+* Current {{page.html.twig}} correctly renders the {{{{ page.header['tactis_evolve_branding'] }}}}, but the block’s logic fails silently when no file path is present.
+
+*Resolution Plan:*
+
+# Navigate to Appearance → Evolve theme → Settings tab.
+# Under *Logo image*, upload the correct Tactis logo ({{tactis-logo.svg}}) or provide the path (e.g. {{themes/custom/tactis_evolve/logo.svg}}).
+# Save configuration.
+# Clear Drupal cache.
+
+*Next Steps:*
+Once saved, the logo will automatically display via the {{page.html.twig}} render array.
+Can you export a tactis logo for me in PNG? (not sure if its the same as the footer logo which I have)","27/Jun/25 12:16 PM;63f651e88ab3d6a635ed6a76;
+[~accountid:557058:c7296bf0-09a1-45cc-8f67-3909912ac874] 
+*TAC-225 Progress Update*
+
+*Completed Work:*
+
+# *Header & Navigation Exposure*
+#* Header and navigation are now visible on desktop and tablet as required.
+# *Sticky Header Behavior*
+#* Sticky header is working as expected on scroll.
+# *Branding Block*
+#* Site branding block is placed in the Header region via Block Layout.
+#* Site title is suppressed using visually hidden classes.
+#* Custom Twig override in {{block--tactis-evolve-branding.html.twig}} is used to render the logo cleanly with alt tag.
+# *Logo Integration*
+#* Inline {{logo.svg}} is placed under {{/themes/custom/tactis_evolve/}}.
+#* Rendered using the {{site_logo}} variable:
+{{<img src=""{{ site_logo }}"" alt=""Tactis logo"" />}}
+#* Logo displays correctly and matches Figma in position and scale.
+# *Twig Debugging Removed*
+#* All temporary debug dumps have been removed.
+
+*In Progress:*
+
+* Mobile header layout and behavior
+** Working on mobile responsiveness: collapsing nav, logo alignment, and menu toggle layout.
+
+*Remaining Work (per ticket):*
+
+* Finish styling mobile header responsiveness
+* Position and style the Contact button correctly
+* Final responsive and cross-device QA",02/Jul/25 3:24 PM;63f651e88ab3d6a635ed6a76;[~accountid:557058:c7296bf0-09a1-45cc-8f67-3909912ac874] Desktop is done. Working on mobile.,03/Jul/25 12:40 PM;63f651e88ab3d6a635ed6a76;[~accountid:557058:c7296bf0-09a1-45cc-8f67-3909912ac874] Is there an animation requirement for the mobile menu open hamburger action?,09/Jul/25 10:46 PM;63f651e88ab3d6a635ed6a76;[~accountid:557058:c7296bf0-09a1-45cc-8f67-3909912ac874]  Desktop header is stable. mobile header and menu are now stable. moving to minor fixes to be IAW figma design. ,"15/Jul/25 4:29 PM;63f651e88ab3d6a635ed6a76;TAC-225: Implement sticky header and responsive mobile menu
+
+* Built responsive header layout in {{page.html.twig}}:
+** Added site branding, desktop nav, mobile/desktop search buttons, contact button (desktop only), and mobile menu toggle
+** Conditional visibility applied using Bootstrap utility classes (e.g., d-lg-none)
+* Created {{mobile-menu.html.twig}}:
+** Added slide-in {{.mobile-nav}} with white header and pink background
+** Included mobile nav links, close/search buttons, address block, and social icons
+** Updated to use {{logo.png}} instead of {{logo-white.png}} to match design
+* Updated {{_header.scss}}:
+** Set sticky desktop header (88px height, white bg, border-bottom)
+** Set mobile header height (64px), spacing, and icon sizes
+** Styled {{.mobile-nav__toggle}} and search icons per Figma
+** Ensured pink background and icon contrast in mobile menu
+** Fixed visibility of mobile social icons (white color override)
+* Fixed missing icons:
+** Bootstrap Icons added via {{tactis_evolve.libraries.yml}}
+** Attached {{bootstrap-icons}} library to {{page.html.twig}}
+* Fixed search icon visibility in both views
+* Verified that all elements matched Figma spacing and behavior
+
+
+!Screenshot 2025-07-15 at 1.28.32 PM.png|width=1728,height=1117,alt=""Screenshot 2025-07-15 at 1.28.32 PM.png""!
+!Screenshot 2025-07-15 at 1.28.29 PM.png|width=1728,height=1117,alt=""Screenshot 2025-07-15 at 1.28.29 PM.png""!
+!Screenshot 2025-07-15 at 1.28.19 PM.png|width=1728,height=1117,alt=""Screenshot 2025-07-15 at 1.28.19 PM.png""!",In Progress,6/23/25 14:08
+DEV: Create New Hero Layout,TAC-226,76447,Task,In Progress,TAC,Tactis,software,Todd Coen,611161833900e6007040fe85,,https://www.tactis.com,Major,,Joseph Dunn,63f651e88ab3d6a635ed6a76,Jake Corbin,557058:c7296bf0-09a1-45cc-8f67-3909912ac874,Jake Corbin,557058:c7296bf0-09a1-45cc-8f67-3909912ac874,6/10/25 12:46,8/7/25 14:59,8/26/25 18:55,,,0,"Remove the video and update the hero on the homepage accordingly…
+
+# Divide space 50/50 for a message and a corresponding image (No carousel)
+# Message block should have a plum colored tag, headline message (League Spartan, 60pt, SemiBold, #222222), and link button (white text and plum bg #AF0061).
+# Button bg turns dark plum (#682145) on hover. Button arrow assets are attached.
+# On mobile, the image goes below the hero message part.
+
+*Figma Link*
+[https://www.figma.com/design/gZ9a6C2WYEAo7UaFahwbhM/Tactis-2.0?node-id=1083-2&t=Wwe8o6bSteKWDc3F-1|https://www.figma.com/design/gZ9a6C2WYEAo7UaFahwbhM/Tactis-2.0?node-id=1083-2&t=Wwe8o6bSteKWDc3F-1|smart-link] ",,Jake Corbin,Joseph Dunn,557058:c7296bf0-09a1-45cc-8f67-3909912ac874,63f651e88ab3d6a635ed6a76,,,,,,,,,,,10/Jun/25 12:47 PM;jcorbin;tactis-button-arrow.png;https://team-tactis.atlassian.net/rest/api/3/attachment/content/60338,10/Jun/25 12:47 PM;jcorbin;tactis-button-arrow.svg;https://team-tactis.atlassian.net/rest/api/3/attachment/content/60339,,,,,com.atlassian.servicedesk.plugins.approvals.internal.customfield.ApprovalsCFValue@7e0ec78a,,,,,,,,,,,,"{branch={count=1, dataType=branch}, json={""cachedValue"":{""errors"":[],""summary"":{""branch"":{""overall"":{""count"":1,""lastUpdated"":""2025-04-01T00:06:06.000-0400"",""dataType"":""branch""},""byInstanceType"":{""bitbucket"":{""count"":1,""name"":""Bitbucket Cloud""}}}}},""isStale"":true}}",,,,,,,,"It is fairly easy to remove the folding logo from the home page.  Just edit it and choose a different hero style.
+
+Then see about making the changes Jake needs.  Keep in mind that we do not do any type of page development.  so there is no such thing as hero styling for the home page alone.  All pages have a hero component, so what you do will be available for all pages.  When you edit a page, the content author needs to have tool to format the header in this manner, as well as what every other page needs.",,,,,,,,,,,,,,,1|r02ahh:,,,,,,,,,,,,2025 Website Enhancements,,,,,,,,,,,,,,,,,,,59:38.3,,"07/Aug/25 2:59 PM;63f651e88ab3d6a635ed6a76; [~accountid:557058:c7296bf0-09a1-45cc-8f67-3909912ac874] [~accountid:557058:fa091f09-21a3-4e84-9e4d-e7887550b668]
+Implementation Plan
+Data Source - Use existing fields: field_hero_options, field_hero_image, body, field_show_title
+Layout Trigger - Add a new option to field_hero_options: tac226
+Logic - In region--hero.html.twig, check node.field_hero_options.value == 'tac226'
+Styling - Write layout-tac226 in hero.scss
+Author Experience - Editors use a dropdown to choose layout",,,,,,,In Progress,7/15/25 19:55
+DEV: Create New Solutions & Services Block,TAC-227,76448,Task,In Progress,TAC,Tactis,software,Todd Coen,611161833900e6007040fe85,,https://www.tactis.com,Major,,Joseph Dunn,63f651e88ab3d6a635ed6a76,Jake Corbin,557058:c7296bf0-09a1-45cc-8f67-3909912ac874,Jake Corbin,557058:c7296bf0-09a1-45cc-8f67-3909912ac874,6/10/25 12:54,7/30/25 18:50,,,,0,"Update the Solutions & Services block on the homepage accordingly…
+
+# Update background to dark plum (#682145) and change all text to white (#FFFFFF)
+# Create a block on the left with the title, teaser text, and ghost button (ghost button turns white on hover with dark plum text.
+# Move Solutions block to the right, remove the accordion click functionality and just have the solutions be text links to their corresponding detail pages.
+# Text links will have an underline on hover.
+
+*Figma Link*
+[https://www.figma.com/design/gZ9a6C2WYEAo7UaFahwbhM/Tactis-2.0?node-id=1083-2&t=Wwe8o6bSteKWDc3F-1|https://www.figma.com/design/gZ9a6C2WYEAo7UaFahwbhM/Tactis-2.0?node-id=1083-2&t=Wwe8o6bSteKWDc3F-1|smart-link] ",,Jake Corbin,,557058:c7296bf0-09a1-45cc-8f67-3909912ac874,,,,,,,,,,,,10/Jun/25 12:54 PM;jcorbin;tactis-button-arrow.png;https://team-tactis.atlassian.net/rest/api/3/attachment/content/60340,10/Jun/25 12:54 PM;jcorbin;tactis-button-arrow.svg;https://team-tactis.atlassian.net/rest/api/3/attachment/content/60341,,,,,com.atlassian.servicedesk.plugins.approvals.internal.customfield.ApprovalsCFValue@14963c95,,,,,,,,,,,,{},,,,,,,,"This is a view block.  You should be able to change it fairly easy.  Again, its not home page specific, a content author can place this block on any page, it should always look the same.
+
+I suggest, if its not already setup this way (I don’t remember), to allow a content author to create a section and choose the dark plum color as the background.  This allows that color to bleed to the edge of the browser.  Then the content author can place this block in the section.
+
+This means that the block should work in every possible background a section can have and that means, you have to make sure the font color is white when the background is dark, but black when the background is light.  I suggest setting the text color on the section, and allow everything in the section to inherit that color.",,,,,,,,,,,,,,,1|r02ahp:,,,,,,,,,,,,2025 Website Enhancements,,,,,,,,,,,,,,,,,,,,,,,,,,,,In Progress,7/30/25 18:50
+DEV: Create Our Work Block,TAC-228,76449,Task,In Progress,TAC,Tactis,software,Todd Coen,611161833900e6007040fe85,,https://www.tactis.com,Major,,Joseph Dunn,63f651e88ab3d6a635ed6a76,Jake Corbin,557058:c7296bf0-09a1-45cc-8f67-3909912ac874,Jake Corbin,557058:c7296bf0-09a1-45cc-8f67-3909912ac874,6/10/25 12:58,7/30/25 18:50,8/7/25 20:59,,,0,"Us the “our clients” block, featuring client logos (currently at the top of the Our Work page) and bring that block to the homepage.
+
+# Add a title and teaser text on the left
+# Add a plum bg button on the right to the Our Work page.
+
+*Figma Link*
+[https://www.figma.com/design/gZ9a6C2WYEAo7UaFahwbhM/Tactis-2.0?node-id=1083-2&t=Wwe8o6bSteKWDc3F-1|https://www.figma.com/design/gZ9a6C2WYEAo7UaFahwbhM/Tactis-2.0?node-id=1083-2&t=Wwe8o6bSteKWDc3F-1|smart-link] ",,Jake Corbin,,557058:c7296bf0-09a1-45cc-8f67-3909912ac874,,,,,,,,,,,,10/Jun/25 12:58 PM;jcorbin;tactis-button-arrow.png;https://team-tactis.atlassian.net/rest/api/3/attachment/content/60343,10/Jun/25 12:58 PM;jcorbin;tactis-button-arrow.svg;https://team-tactis.atlassian.net/rest/api/3/attachment/content/60342,,,,,com.atlassian.servicedesk.plugins.approvals.internal.customfield.ApprovalsCFValue@1b84f8b6,,,,,,,,,,,,{},,,,,,,,"I can’t remember if this is just a regular block or if we have a content type or something with all those logos??  you have to check that.  either way, in a perfect world the logos are SVGs, talk to Jake about that.  The reason is because this block should also be allowed in a section that has a dark background.  You can control the fill color of an SVG in your CSS.  So if the background is light, the fill color is the dark plum.  If the background is dark, the fill color is white.",,,,,,,,,,,,,,,1|r02ahx:,,,,,,,,,,,,2025 Website Enhancements,,,,,,,,,,,,,,,,,,,,,,,,,,,,In Progress,7/30/25 18:50
+DEV: Update About Tactis Block,TAC-229,76450,Task,In Progress,TAC,Tactis,software,Todd Coen,611161833900e6007040fe85,,https://www.tactis.com,Major,,Joseph Dunn,63f651e88ab3d6a635ed6a76,Jake Corbin,557058:c7296bf0-09a1-45cc-8f67-3909912ac874,Jake Corbin,557058:c7296bf0-09a1-45cc-8f67-3909912ac874,6/10/25 13:01,7/30/25 18:50,,,,0,"Update the Our Agency block on the homepage accordingly…
+
+# Change the title to ‘About Tactis’
+# Similar to the Solutions & Services block higher up on the page, create a section on the left for the title, teaser text, and button
+# Move the stats and their teaser text to a list on the right side
+
+*Figma Link*
+[https://www.figma.com/design/gZ9a6C2WYEAo7UaFahwbhM/Tactis-2.0?node-id=1083-2&t=Wwe8o6bSteKWDc3F-1|https://www.figma.com/design/gZ9a6C2WYEAo7UaFahwbhM/Tactis-2.0?node-id=1083-2&t=Wwe8o6bSteKWDc3F-1|smart-link] ",,Jake Corbin,,557058:c7296bf0-09a1-45cc-8f67-3909912ac874,,,,,,,,,,,,,,,,,,com.atlassian.servicedesk.plugins.approvals.internal.customfield.ApprovalsCFValue@133e5fcc,,,,,,,,,,,,{},,,,,,,,"This is currently using cards.  But I think what we have here is a new component.  I do not want you to change how the cards work at this point.
+
+So, a new component.  I am not really sure what this should be called.  we can take one of two approaches.  I am just typing out load at this point, so bare with me.
+
+# We can set this up in the CKEditor.  use a template to setup a two column flex box and just let the user add whatever they want to each column.  we’d need styles for buttons, etc.  But it could be done.  And maybe we allow something like that anyway for a basic two column layout.
+# However, if this is truly a new component, maybe we create a paragraph type.  How about calling it “Stats” which allows the user to enter everything in the left column (title, body, link), and then the user can “Add A Stat” which is just a stat (a title) and Description (body).
+
+I like #2, just do that for now.  We can create a new ticket for #1 if we really want to.  again, it should work on both dark and light section background.  if you are doing the section properly, the text color should already be changing for all the block in a section based on the bg-color.",,,,,,,,,,,,,,,1|r02ai5:,,,,,,,,,,,,2025 Website Enhancements,,,,,,,,,,,,,,,,,,,,,,,,,,,,In Progress,7/30/25 18:50
+DEV: Remove Parallax and Update Articles Block,TAC-230,76451,Task,In Progress,TAC,Tactis,software,Todd Coen,611161833900e6007040fe85,,https://www.tactis.com,Major,,Joseph Dunn,63f651e88ab3d6a635ed6a76,Jake Corbin,557058:c7296bf0-09a1-45cc-8f67-3909912ac874,Jake Corbin,557058:c7296bf0-09a1-45cc-8f67-3909912ac874,6/10/25 13:06,7/30/25 18:50,8/7/25 14:29,,,0,"# Remove the parallax/location block and functionality from the homepage
+# Update the Articles block on the homepage to be similar to the “our work” block above
+# Add title and teaser on the left and button on the right
+# Update the individual articles so it’s just the title and date showing. Remove the time and author.
+# On hover, only the titles should underline and link the blog detail page.
+
+*Figma Link*
+[https://www.figma.com/design/gZ9a6C2WYEAo7UaFahwbhM/Tactis-2.0?node-id=1083-2&t=Wwe8o6bSteKWDc3F-1|https://www.figma.com/design/gZ9a6C2WYEAo7UaFahwbhM/Tactis-2.0?node-id=1083-2&t=Wwe8o6bSteKWDc3F-1|smart-link] ",,Jake Corbin,,557058:c7296bf0-09a1-45cc-8f67-3909912ac874,,,,,,,,,,,,,,,,,,com.atlassian.servicedesk.plugins.approvals.internal.customfield.ApprovalsCFValue@4312d537,,,,,,,,,,,,{},,,,,,,,"There is nothing to do for #1, just remove the component from the home page, but you don’t need to change any css or functionality.
+
+2-5 is where the work is.  This is a view block and it looks like you have everything there already.  just change how that view is laid out.  Again, works on all background colors.",,,,,,,,,,,,,,,1|r02aid:,,,,,,,,,,,,2025 Website Enhancements,,,,,,,,,,,,,,,,,,,,,,,,,,,,In Progress,7/30/25 18:50
+DEV: Create Webform,TAC-231,76452,Task,In Progress,TAC,Tactis,software,Todd Coen,611161833900e6007040fe85,,https://www.tactis.com,Major,,Joseph Dunn,63f651e88ab3d6a635ed6a76,Jake Corbin,557058:c7296bf0-09a1-45cc-8f67-3909912ac874,Jake Corbin,557058:c7296bf0-09a1-45cc-8f67-3909912ac874,6/10/25 13:09,8/6/25 18:28,8/6/25 18:27,,,0,"I left [~accountid:557058:c7296bf0-09a1-45cc-8f67-3909912ac874] ‘s instruction below, however, I have to ask that we don’t change the webform.  It is part of an integration with mautic.  We need first and last name to be separated.  And we use Re-Captcha v3, it will not show up on the form.
+
+_________
+
+Create a new “Let’s Get Started” webform and place it on the homepage
+
+# Ideally the webform will email Todd & Daniel when a visitor submits it
+# Add a captcha at the bottom
+# Form fields should be name, email, company name, and a ‘how can we help’ dropdown
+
+*Figma Link*
+[https://www.figma.com/design/gZ9a6C2WYEAo7UaFahwbhM/Tactis-2.0?node-id=1083-2&t=Wwe8o6bSteKWDc3F-1|https://www.figma.com/design/gZ9a6C2WYEAo7UaFahwbhM/Tactis-2.0?node-id=1083-2&t=Wwe8o6bSteKWDc3F-1|smart-link] ",,Jake Corbin,Joseph Dunn,557058:c7296bf0-09a1-45cc-8f67-3909912ac874,63f651e88ab3d6a635ed6a76,,,,,,,,,,,,,,,,,com.atlassian.servicedesk.plugins.approvals.internal.customfield.ApprovalsCFValue@1a836b67,,,,,,,,,,,,{},,,,,,,,,,,,,,,,,,,,,,,1|r02ail:,,,,,,,,,,,,2025 Website Enhancements,,,,,,,,,,,,,,,,,,,28:21.9,,"06/Aug/25 6:28 PM;63f651e88ab3d6a635ed6a76;In production, I see a first and last name field. I do not see Re-Captcha v3 at the bottom. Investigating. ",,,,,,,In Progress,7/30/25 18:50
+DEV: Simplify Footer,TAC-232,76453,Task,Code Review/Merge,TAC,Tactis,software,Todd Coen,611161833900e6007040fe85,,https://www.tactis.com,Major,,Joseph Dunn,63f651e88ab3d6a635ed6a76,Jake Corbin,557058:c7296bf0-09a1-45cc-8f67-3909912ac874,Jake Corbin,557058:c7296bf0-09a1-45cc-8f67-3909912ac874,6/10/25 13:17,7/30/25 18:09,7/30/25 18:52,,,0,"Please update the footer on all pages accordingly…
+
+# Change background to black (#000000)
+# Add tactis logo, address, and social media links to left side (assets attached)
+# Add ‘Stay Connected’ block to the right to collect subscribers email address (discuss location and functionality with Anthony & Daniel)
+# In bottom section of footer, place the copyright info on the left and main links on the right.
+
+*Figma Link*
+[https://www.figma.com/design/gZ9a6C2WYEAo7UaFahwbhM/Tactis-2.0?node-id=1083-2&t=Wwe8o6bSteKWDc3F-1|https://www.figma.com/design/gZ9a6C2WYEAo7UaFahwbhM/Tactis-2.0?node-id=1083-2&t=Wwe8o6bSteKWDc3F-1|smart-link] ",,Jake Corbin,Joseph Dunn,557058:c7296bf0-09a1-45cc-8f67-3909912ac874,63f651e88ab3d6a635ed6a76,,,,,,,,,TAC-235,,10/Jun/25 1:17 PM;jcorbin;Tactis-Logo-Footer.png;https://team-tactis.atlassian.net/rest/api/3/attachment/content/60344,10/Jun/25 1:17 PM;jcorbin;tactis-footer-icon-facebook.svg;https://team-tactis.atlassian.net/rest/api/3/attachment/content/60346,10/Jun/25 1:17 PM;jcorbin;tactis-footer-icon-linkedin.svg;https://team-tactis.atlassian.net/rest/api/3/attachment/content/60345,,,,com.atlassian.servicedesk.plugins.approvals.internal.customfield.ApprovalsCFValue@671bd4b6,,,,,,,,,,,,"{pullrequest={dataType=pullrequest, state=OPEN, stateCount=1}, json={""cachedValue"":{""errors"":[],""summary"":{""pullrequest"":{""overall"":{""count"":1,""lastUpdated"":""2025-08-07T23:00:45.150-0400"",""stateCount"":1,""state"":""OPEN"",""dataType"":""pullrequest"",""open"":true},""byInstanceType"":{""bitbucket"":{""count"":1,""name"":""Bitbucket Cloud""}}}}},""isStale"":true}}",,,,,,,,"No major notes here.  the footer is a framework element, so you should be able to change it easy enough.",,,,,,,,,,,,,,,1|r02ait:,,,,,,,,,,,,2025 Website Enhancements,,,,,,,,,,,,,,,,,,,56:09.8,,"13/Jun/25 1:56 PM;63f651e88ab3d6a635ed6a76;[~accountid:557058:c7296bf0-09a1-45cc-8f67-3909912ac874] a heads up, tactis-footer-icon-linkedin.svg and tactis-footer-icon-facebook.svg are blank. I’ll see if I can extract from Figma.","29/Jul/25 12:17 PM;63f651e88ab3d6a635ed6a76;[~accountid:557058:c7296bf0-09a1-45cc-8f67-3909912ac874] Need Tactis-Logo-Footer.SVG, .png will not work in this instance
+
+
+* Rebuilt footer-top and footer-bottom layouts to follow Figma spec
+* Removed custom CSS and consolidated into {{_footer.scss}} under {{.site-footer}}
+* Updated email newsletter form with 400px width, height, alignment, and visual styles
+* Aligned placeholder text vertically and horizontally inside input
+* Added border-top divider to footer bottom per Figma spec (#ffffff @ 60%)
+* Corrected typography: font size, spacing, and line heights
+* Made all footer text and components right-aligned per design
+* Updated social links to:
+** [LinkedIn|https://www.linkedin.com/company/tactisllc]
+** [Facebook|https://www.facebook.com/tactistalent/]
+* Did *not* implement mobile behavior — out of scope for TAC-232",,,,,,In Progress,6/18/25 20:59
+DEV: Update Solutions & Services Landing Page,TAC-233,76454,Task,In Progress,TAC,Tactis,software,Todd Coen,611161833900e6007040fe85,,https://www.tactis.com,Major,,Joseph Dunn,63f651e88ab3d6a635ed6a76,Jake Corbin,557058:c7296bf0-09a1-45cc-8f67-3909912ac874,Jake Corbin,557058:c7296bf0-09a1-45cc-8f67-3909912ac874,6/10/25 13:26,7/30/25 18:50,7/15/25 16:46,,,0,"Update the Solutions & Services landing page accordingly…
+
+# Keep the header as-is, but it should feature the new header/navigation and REMOVE any styling that keeps the title all lower-case. Todd does not like and we want it all to be normal mixed case lettering.
+# Add a tag to the top title section (ie - WHAT WE DO)
+# Create a card for each solution and display 3 across. Each card should feature the solution title, a short teaser text, and then a list of featured services. If a solution has more than 4 services, only display the first 4 and then add an “and more…” as the fifth bullet.
+# Each card should be clickable and have a light grey bg (#FAFAFA) with a 1px solid #DDDDDD border.
+# Since there are only 5 solutions, but space for 6, we are adding a CTA in the last spot with a title (Ready to Get Started?), teaser text, and button linking to the contact us page.
+# Move the ‘Client Shoutout' block from the homepage to the bottom of the solutions and services landing page. Center the title and rename it, “What Clients are Saying”
+
+*Figma Link*
+[https://www.figma.com/design/gZ9a6C2WYEAo7UaFahwbhM/Tactis-2.0?node-id=1056-9&t=Wwe8o6bSteKWDc3F-1|https://www.figma.com/design/gZ9a6C2WYEAo7UaFahwbhM/Tactis-2.0?node-id=1056-9&t=Wwe8o6bSteKWDc3F-1|smart-link] ",,Jake Corbin,,557058:c7296bf0-09a1-45cc-8f67-3909912ac874,,,,,,,,,,,,,,,,,,com.atlassian.servicedesk.plugins.approvals.internal.customfield.ApprovalsCFValue@497e8bf4,,,,,,,,,,,,{},,,,,,,,"This is a view block as well.
+
+Its a view of Solutions and each solution has a list of services.  The only way I can see to easily get the final “card”, “Ready to Get Started” is to put it in the footer of the view. Not sure how hard it will be to print the footer as the last item in the view without it closing the flex box for the cards??  good luck.",,,,,,,,,,,,,,,1|r02aj1:,,,,,,,,,,,,2025 Website Enhancements,,,,,,,,,,,,,,,,,,,,,,,,,,,,In Progress,7/30/25 18:50
+DEV: Simplify Footer Mobile,TAC-235,77312,Task,Code Review/Merge,TAC,Tactis,software,Todd Coen,611161833900e6007040fe85,,https://www.tactis.com,Major,,Joseph Dunn,63f651e88ab3d6a635ed6a76,Jake Corbin,557058:c7296bf0-09a1-45cc-8f67-3909912ac874,Jake Corbin,557058:c7296bf0-09a1-45cc-8f67-3909912ac874,7/30/25 18:09,8/6/25 15:49,8/26/25 19:45,,,0,"Please update the footer on all pages accordingly…
+
+# Change background to black (#000000)
+# Add tactis logo, address, and social media links
+# Move the ‘Stay Connected’ block below the social media icons
+# Add a divider and then add the copyright info and 4 footer links stacked on each other.
+(Screenshot provided)
+
+*Figma Link*
+[https://www.figma.com/design/gZ9a6C2WYEAo7UaFahwbhM/Tactis-2.0?node-id=1083-2&t=Wwe8o6bSteKWDc3F-1|https://www.figma.com/design/gZ9a6C2WYEAo7UaFahwbhM/Tactis-2.0?node-id=1083-2&t=Wwe8o6bSteKWDc3F-1|smart-link] ",,Jake Corbin,Joseph Dunn,557058:c7296bf0-09a1-45cc-8f67-3909912ac874,63f651e88ab3d6a635ed6a76,,,,,,,,,,TAC-232,30/Jul/25 6:13 PM;jcorbin;Screenshot 2025-07-30 at 3.11.00 PM.png;https://team-tactis.atlassian.net/rest/api/3/attachment/content/61992,,,,,,com.atlassian.servicedesk.plugins.approvals.internal.customfield.ApprovalsCFValue@46d0814c,,,,,,,,,,,,"{pullrequest={dataType=pullrequest, state=OPEN, stateCount=1}, json={""cachedValue"":{""errors"":[],""summary"":{""pullrequest"":{""overall"":{""count"":1,""lastUpdated"":""2025-08-07T23:00:45.150-0400"",""stateCount"":1,""state"":""OPEN"",""dataType"":""pullrequest"",""open"":true},""byInstanceType"":{""bitbucket"":{""count"":1,""name"":""Bitbucket Cloud""}}}}},""isStale"":true}}",,,,,,,,"No major notes here.  the footer is a framework element, so you should be able to change it easy enough.",,,,,,,,,,,,,,,1|r02aj5:,,,,,,,,,,,,2025 Website Enhancements,,,,,,,,,,,,,,,,,,,51:52.0,,30/Jul/25 6:51 PM;63f651e88ab3d6a635ed6a76;Will merge into desktop footer like header is setup,"06/Aug/25 3:48 PM;63f651e88ab3d6a635ed6a76;*TAC-235 — Mobile Footer Implementation Complete*
+
+All mobile-specific layout adjustments are done and pushed to {{feature/TAC-232-simplify-footer}}, using the existing footer structure from TAC-232. No impact to desktop layout.
+
+*Implemented:*
+
+* Swapped in white Tactis logo (global)
+* Centered top footer content (logo, address, social) on mobile
+* Centered newsletter block and form on mobile
+* Converted bottom footer links to stacked layout on mobile
+* Removed double-divider (mobile {{<hr>}}) issue
+* Preserved all desktop styles and layout (≥ 992px)
+
+*Tested in:*
+
+* Safari responsive mode using iPhone 15 Pro Max preset
+* Desktop viewport for regression
+
+Ready for code review",06/Aug/25 3:49 PM;63f651e88ab3d6a635ed6a76;[~accountid:557058:c7296bf0-09a1-45cc-8f67-3909912ac874] [https://team-tactis.atlassian.net/browse/TAC-235?focusedCommentId=95582|https://team-tactis.atlassian.net/browse/TAC-235?focusedCommentId=95582|smart-link] ,,,,,In Progress,7/30/25 18:50
