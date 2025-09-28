@@ -1,0 +1,23 @@
+uuid: 53044480-994d-494a-9e51-bdb927badb75
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_use_animation
+    - node.type.page
+id: node.page.field_use_animation
+field_name: field_use_animation
+entity_type: node
+bundle: page
+label: 'Use Animation'
+description: 'If the vector based image you chose has an animation, use it.'
+required: false
+translatable: false
+default_value:
+  -
+    value: 0
+default_value_callback: ''
+settings:
+  on_label: 'Yes'
+  off_label: 'No'
+field_type: boolean

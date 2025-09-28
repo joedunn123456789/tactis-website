@@ -1,0 +1,29 @@
+uuid: 732e93b4-c70a-4328-a519-dce695e00fa6
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_image
+    - media.type.images
+    - node.type.portal_applications
+id: node.portal_applications.field_image
+field_name: field_image
+entity_type: node
+bundle: portal_applications
+label: Image
+description: 'Choose an image.'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:media'
+  handler_settings:
+    target_bundles:
+      images: images
+    sort:
+      field: created
+      direction: DESC
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

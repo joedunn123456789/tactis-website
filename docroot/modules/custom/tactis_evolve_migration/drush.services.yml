@@ -1,0 +1,6 @@
+services:
+  tactis_evolve_migration.commands:
+    class: \Drupal\tactis_evolve_migration\Commands\MigrateCommands
+    tags:
+      - { name: drush.command }
+    arguments: [ '@database', '@entity_type.manager' ]

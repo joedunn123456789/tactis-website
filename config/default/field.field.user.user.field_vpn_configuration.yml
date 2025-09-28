@@ -1,0 +1,30 @@
+uuid: e946008b-eb50-4dce-ab6f-96afc4c315bd
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.user.field_vpn_configuration
+    - media.type.vpn_configurations
+  module:
+    - user
+id: user.user.field_vpn_configuration
+field_name: field_vpn_configuration
+entity_type: user
+bundle: user
+label: 'VPN Configuration'
+description: 'Your VPN Configuration File.'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:media'
+  handler_settings:
+    target_bundles:
+      vpn_configurations: vpn_configurations
+    sort:
+      field: created
+      direction: DESC
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

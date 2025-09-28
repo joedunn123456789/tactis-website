@@ -1,0 +1,28 @@
+uuid: 94d4f8bc-2706-49a4-8364-d306c2151416
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_rich_text
+    - filter.format.full_html
+    - filter.format.plain_text
+    - paragraphs.paragraphs_type.list_of_images
+  module:
+    - text
+id: paragraph.list_of_images.field_rich_text
+field_name: field_rich_text
+entity_type: paragraph
+bundle: list_of_images
+label: 'Intro Text'
+description: 'This will be displayed under the title.'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  display_summary: false
+  required_summary: false
+  allowed_formats:
+    - full_html
+    - plain_text
+field_type: text_with_summary

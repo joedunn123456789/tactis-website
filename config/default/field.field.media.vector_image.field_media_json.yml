@@ -1,0 +1,21 @@
+uuid: 80374eb0-69e8-4631-adb8-8846b0e56c88
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.media.field_media_json
+    - media.type.vector_image
+  module:
+    - json_field
+id: media.vector_image.field_media_json
+field_name: field_media_json
+entity_type: media
+bundle: vector_image
+label: 'Media Json'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: json_native

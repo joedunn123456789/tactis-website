@@ -1,0 +1,11 @@
+uuid: f998328e-6b25-4aa8-bafa-a1212f925cbf
+langcode: en
+status: true
+dependencies:
+  config:
+    - media.type.vpn_qr_codes
+id: media.vpn_qr_codes
+target_entity_type_id: media
+target_bundle: vpn_qr_codes
+default_langcode: site_default
+language_alterable: false

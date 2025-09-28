@@ -1,0 +1,5 @@
+drush:
+  paths:
+    config:
+      - ./docroot/sites/default/local.drush.yml
+      - ../docroot/sites/default/local.drush.yml

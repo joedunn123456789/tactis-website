@@ -1,0 +1,29 @@
+uuid: 19fee5a9-9f67-4136-beb9-1523b2cf04d4
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.taxonomy_term.field_teaser_image
+    - media.type.images
+    - taxonomy.vocabulary.solutions
+id: taxonomy_term.solutions.field_teaser_image
+field_name: field_teaser_image
+entity_type: taxonomy_term
+bundle: solutions
+label: 'Teaser Image'
+description: 'This is the image used when shared on Social channels.'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:media'
+  handler_settings:
+    target_bundles:
+      images: images
+    sort:
+      field: created
+      direction: DESC
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

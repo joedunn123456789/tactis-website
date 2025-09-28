@@ -1,0 +1,51 @@
+uuid: 437764a9-b00b-4f0e-b386-428e0c33b4d4
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.teaser
+    - field.field.node.shoutouts.body
+    - field.field.node.shoutouts.field_shoutout_by
+    - field.field.node.shoutouts.field_shoutout_category
+    - field.field.node.shoutouts.field_shoutout_title
+    - field.field.node.shoutouts.field_tags
+    - node.type.shoutouts
+  module:
+    - text
+    - user
+id: node.shoutouts.teaser
+targetEntityType: node
+bundle: shoutouts
+mode: teaser
+content:
+  body:
+    type: text_summary_or_trimmed
+    label: hidden
+    settings:
+      trim_length: 600
+    third_party_settings: {  }
+    weight: 0
+    region: content
+  field_shoutout_by:
+    type: string
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 1
+    region: content
+  field_shoutout_title:
+    type: string
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 2
+    region: content
+hidden:
+  addtoany: true
+  field_shoutout_category: true
+  field_tags: true
+  langcode: true
+  links: true
+  search_api_excerpt: true

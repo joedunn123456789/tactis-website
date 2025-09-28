@@ -1,0 +1,27 @@
+version: 1.3.0
+services:
+  - php:
+      version: 8.3
+  - composer:
+      version: 2
+events:
+  build:
+    steps:
+      - composer:
+          type: script
+          script:
+            # The composer create project files and settings.php db and profile configurations have been provided in the tutorial branch or release. We only need run composer.
+            - composer install --no-progress
+      - node:
+          type: script
+          script:
+            - cd docroot/themes/custom/tactis-evolve/src/gulp
+            - nvm install
+            - npm install
+            - gulp default
+  post-deploy:
+    steps:
+      # Deploy the build artifact to a Cloud on-demand environment.
+      - deploy:
+          script:
+            - pipelines-deploy

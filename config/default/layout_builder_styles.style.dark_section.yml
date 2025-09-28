@@ -1,0 +1,13 @@
+uuid: 5f20dd56-4b89-4361-b996-117e3b959ef9
+langcode: en
+status: true
+dependencies: {  }
+id: dark_section
+label: 'Dark Section'
+classes: section-dark
+type: section
+group: default
+block_restrictions: {  }
+layout_restrictions:
+  - layout_onecol
+weight: 0

@@ -1,0 +1,18 @@
+uuid: 0576be69-4ee9-45c8-b682-3ed47ccbd150
+langcode: en
+status: false
+dependencies: {  }
+id: prod
+label: Production
+description: 'Production Environment'
+weight: 0
+folder: ../config/envs/prod
+module:
+  gtm: 0
+  simplesamlphp_auth: 0
+  tactis_mautic: 0
+theme: {  }
+blacklist: {  }
+graylist: {  }
+graylist_dependents: true
+graylist_skip_equal: true

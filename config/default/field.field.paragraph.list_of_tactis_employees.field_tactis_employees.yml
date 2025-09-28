@@ -1,0 +1,29 @@
+uuid: 93a7ec23-ce73-423c-9442-a91fcec9551d
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_tactis_employees
+    - paragraphs.paragraphs_type.list_of_tactis_employees
+id: paragraph.list_of_tactis_employees.field_tactis_employees
+field_name: field_tactis_employees
+entity_type: paragraph
+bundle: list_of_tactis_employees
+label: 'Tactis Employees'
+description: 'Select the employees that need to be part of your list.'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:user'
+  handler_settings:
+    target_bundles: null
+    sort:
+      field: mail
+      direction: ASC
+    auto_create: false
+    filter:
+      type: _none
+    include_anonymous: false
+field_type: entity_reference

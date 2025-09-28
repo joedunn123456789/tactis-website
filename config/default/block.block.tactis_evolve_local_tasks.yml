@@ -1,0 +1,22 @@
+uuid: 7a322dad-2f86-4fc5-ae09-84f04e9c1dcc
+langcode: en
+status: true
+dependencies:
+  theme:
+    - tactis_evolve
+_core:
+  default_config_hash: Dc-8bczR_XAgjVghNYWtJXkgYNjCK9bTDtNywwXggZk
+id: tactis_evolve_local_tasks
+theme: tactis_evolve
+region: content
+weight: -5
+provider: null
+plugin: local_tasks_block
+settings:
+  id: local_tasks_block
+  label: Tabs
+  label_display: '0'
+  provider: core
+  primary: true
+  secondary: true
+visibility: {  }

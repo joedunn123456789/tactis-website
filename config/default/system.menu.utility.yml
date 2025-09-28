@@ -1,0 +1,8 @@
+uuid: 5cae9bcf-6d04-420b-998d-7d598db889fd
+langcode: en
+status: true
+dependencies: {  }
+id: utility
+label: Utility
+description: 'Utility menu for policy and portal links.'
+locked: false

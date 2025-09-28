@@ -1,0 +1,23 @@
+uuid: 25baa112-beec-483c-9712-62ff932869df
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_parallax
+    - paragraphs.paragraphs_type.section
+id: paragraph.section.field_parallax
+field_name: field_parallax
+entity_type: paragraph
+bundle: section
+label: Parallax
+description: 'Your image can be placed in a parallaxing structure.  This gives the illusion of an open window while your content scrolls past it.'
+required: false
+translatable: false
+default_value:
+  -
+    value: 0
+default_value_callback: ''
+settings:
+  on_label: 'Yes'
+  off_label: 'No'
+field_type: boolean

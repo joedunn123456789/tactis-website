@@ -1,0 +1,9 @@
+uuid: 79e7fce7-b272-493a-b2e0-9492699db538
+langcode: en
+status: true
+dependencies: {  }
+name: Services
+vid: services
+description: 'A list of Tactis Services'
+weight: -9
+new_revision: false

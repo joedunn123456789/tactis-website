@@ -1,0 +1,8 @@
+uuid: 135a23e5-118f-42cc-a274-ee5204e7e971
+langcode: en
+status: true
+dependencies: {  }
+id: basic
+label: Basic
+revision: false
+description: 'A basic block with a WYSIWYG area.'

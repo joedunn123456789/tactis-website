@@ -1,0 +1,11 @@
+lottiefiles:
+  header: true
+  version: VERSION
+  js:
+    js/dist/lottie-player-0.3.0.js: { minified: true }
+lottiefiles_field.widget:
+  js:
+    js/widget.js: {}
+lottiefiles_field.mediawidget:
+  js:
+    js/media-widget.js: {}

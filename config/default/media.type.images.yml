@@ -1,0 +1,14 @@
+uuid: 577d8f3e-d549-4257-a1b0-9da4a84d2ff5
+langcode: en
+status: true
+dependencies: {  }
+id: images
+label: Images
+description: 'Images for Tactis.com'
+source: image
+queue_thumbnail_downloads: false
+new_revision: false
+source_configuration:
+  source_field: field_media_image
+field_map:
+  name: name

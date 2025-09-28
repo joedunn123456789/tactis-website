@@ -1,0 +1,17 @@
+uuid: 2882bb1f-6dc6-40c4-bc67-481495a4d8af
+langcode: en
+status: true
+dependencies:
+  module:
+    - menu_ui
+third_party_settings:
+  menu_ui:
+    available_menus: {  }
+    parent: ''
+name: Shoutouts
+type: shoutouts
+description: 'Client and Employee Shotouts'
+help: null
+new_revision: true
+preview_mode: 1
+display_submitted: false

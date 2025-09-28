@@ -1,0 +1,16 @@
+uuid: 9f9d6b46-1de6-44aa-8398-faf5d78b5229
+langcode: en
+status: false
+dependencies: {  }
+id: stage
+label: Staging
+description: 'Staging Enviornment'
+weight: 0
+folder: ../config/envs/stage
+module:
+  stage_file_proxy: 0
+theme: {  }
+blacklist: {  }
+graylist: {  }
+graylist_dependents: true
+graylist_skip_equal: true

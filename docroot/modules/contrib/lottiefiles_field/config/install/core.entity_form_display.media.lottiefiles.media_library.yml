@@ -1,0 +1,20 @@
+uuid: 4937e6ca-98bc-485c-8ab2-50b66bc6f44f
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_form_mode.media.media_library
+    - field.field.media.lottiefiles.field_media_lottiefile
+    - media.type.lottiefiles
+id: media.lottiefiles.media_library
+targetEntityType: media
+bundle: lottiefiles
+mode: media_library
+content: {  }
+hidden:
+  created: true
+  field_media_lottiefile: true
+  name: true
+  path: true
+  status: true
+  uid: true

@@ -1,0 +1,19 @@
+uuid: a3d51d0d-7089-4024-b92f-701ccba3fd3d
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_title
+    - paragraphs.paragraphs_type.list_of_images
+id: paragraph.list_of_images.field_title
+field_name: field_title
+entity_type: paragraph
+bundle: list_of_images
+label: Title
+description: 'This is displayed at the top.'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

@@ -1,0 +1,15 @@
+uuid: 1b324994-0615-4483-afeb-bc946b17690d
+langcode: en
+status: true
+dependencies: {  }
+name: medium
+label: 'Medium (720px)'
+effects:
+  924bb640-d33e-47f2-ba43-b5d55d0d2a0d:
+    uuid: 924bb640-d33e-47f2-ba43-b5d55d0d2a0d
+    id: image_scale_and_crop
+    weight: 1
+    data:
+      width: 720
+      height: 300
+      anchor: center-center

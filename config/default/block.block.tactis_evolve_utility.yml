@@ -1,0 +1,37 @@
+uuid: c36af7d9-7836-4122-9cb5-d309d9cf06d2
+langcode: en
+status: true
+dependencies:
+  config:
+    - system.menu.utility
+  module:
+    - block_classes
+    - system
+    - user
+  theme:
+    - tactis_evolve
+third_party_settings:
+  block_classes:
+    block_class: 'col col-md-4 col-lg-3'
+id: tactis_evolve_utility
+theme: tactis_evolve
+region: footer_bottom
+weight: 0
+provider: null
+plugin: 'system_menu_block:utility'
+settings:
+  id: 'system_menu_block:utility'
+  label: Utility
+  label_display: '0'
+  provider: system
+  level: 1
+  depth: 0
+  expand_all_items: false
+visibility:
+  user_role:
+    id: user_role
+    negate: false
+    context_mapping:
+      user: '@user.current_user_context:current_user'
+    roles:
+      anonymous: anonymous

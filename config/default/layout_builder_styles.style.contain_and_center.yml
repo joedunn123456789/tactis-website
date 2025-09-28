@@ -1,0 +1,12 @@
+uuid: f8b0d1dd-9629-47d0-bd99-ace48ad97486
+langcode: en
+status: true
+dependencies: {  }
+id: contain_and_center
+label: 'Contain and Center'
+classes: container
+type: component
+group: default
+block_restrictions: {  }
+layout_restrictions: {  }
+weight: 0

@@ -1,0 +1,23 @@
+uuid: bdca80f1-c1f1-46ec-a600-5340e96b63df
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_show_arrow
+    - node.type.article
+id: node.article.field_show_arrow
+field_name: field_show_arrow
+entity_type: node
+bundle: article
+label: 'Show the scroll arrow'
+description: 'This will display the "Let''s get started" scroll arrow.'
+required: false
+translatable: false
+default_value:
+  -
+    value: 0
+default_value_callback: ''
+settings:
+  on_label: 'Yes'
+  off_label: 'No'
+field_type: boolean

@@ -1,0 +1,30 @@
+uuid: 556c8265-4063-4d1f-9e76-359af90d307f
+langcode: en
+status: true
+dependencies:
+  content:
+    - 'block_content:basic:9e9998b3-ceb4-419a-9ae4-63e0b95fd235'
+  module:
+    - block_content
+    - system
+  theme:
+    - tactis_evolve
+id: tactis_evolve_searchhero
+theme: tactis_evolve
+region: hero
+weight: 0
+provider: null
+plugin: 'block_content:9e9998b3-ceb4-419a-9ae4-63e0b95fd235'
+settings:
+  id: 'block_content:9e9998b3-ceb4-419a-9ae4-63e0b95fd235'
+  label: 'Search Hero'
+  label_display: '0'
+  provider: block_content
+  status: true
+  info: ''
+  view_mode: full
+visibility:
+  request_path:
+    id: request_path
+    negate: false
+    pages: /search

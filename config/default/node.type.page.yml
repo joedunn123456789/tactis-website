@@ -1,0 +1,18 @@
+uuid: bf258622-0746-4cef-a413-e44b79bff97e
+langcode: en
+status: true
+dependencies:
+  module:
+    - menu_ui
+third_party_settings:
+  menu_ui:
+    available_menus:
+      - main
+    parent: 'main:'
+name: Page
+type: page
+description: 'General pages like about us.'
+help: null
+new_revision: true
+preview_mode: 1
+display_submitted: false

@@ -1,0 +1,21 @@
+uuid: 0304b724-bd2e-402a-869d-17091a62cfeb
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_location
+    - paragraphs.paragraphs_type.action
+  module:
+    - options
+id: paragraph.action.field_location
+field_name: field_location
+entity_type: paragraph
+bundle: action
+label: 'Action Location'
+description: 'Where on the grid would you like your action located?'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: list_string

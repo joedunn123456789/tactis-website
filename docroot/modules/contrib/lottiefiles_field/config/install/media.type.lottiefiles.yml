@@ -1,0 +1,16 @@
+uuid: f80ec2c8-4831-4ac8-88ec-f463b87205aa
+langcode: en
+status: true
+dependencies:
+  module:
+    - lottiefiles_field
+id: lottiefiles
+label: Lottiefiles
+description: 'Use lottiefiles for reusable media.'
+source: lottiefile
+queue_thumbnail_downloads: false
+new_revision: false
+source_configuration:
+  source_field: field_media_lottiefile
+field_map:
+  name: name

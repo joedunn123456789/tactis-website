@@ -1,0 +1,7 @@
+uuid: 64dc0479-3764-4bef-90fd-bbeddc7a6dc0
+langcode: en
+status: false
+dependencies: {  }
+formId: node_portal_applications_form
+captchaType: default
+label: node_portal_applications_form

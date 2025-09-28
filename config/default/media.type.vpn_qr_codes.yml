@@ -1,0 +1,14 @@
+uuid: 008bb827-be6c-49b0-b75a-91532e2d6ee2
+langcode: en
+status: true
+dependencies: {  }
+id: vpn_qr_codes
+label: 'VPN QR Codes'
+description: 'Used to store WireGuard VPN QR Codes.'
+source: image
+queue_thumbnail_downloads: false
+new_revision: false
+source_configuration:
+  source_field: field_media_image_qrcode
+field_map:
+  name: name

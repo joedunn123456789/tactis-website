@@ -1,0 +1,19 @@
+uuid: aafbbc3d-61e7-466c-802c-c5c3c9b48052
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_title
+    - paragraphs.paragraphs_type.calls_to_action
+id: paragraph.calls_to_action.field_title
+field_name: field_title
+entity_type: paragraph
+bundle: calls_to_action
+label: Title
+description: 'This is displayed at the top, before the intro text.'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

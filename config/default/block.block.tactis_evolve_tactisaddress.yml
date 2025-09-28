@@ -1,0 +1,29 @@
+uuid: df63e8a9-6e84-4a0c-b671-a73c071270b6
+langcode: en
+status: true
+dependencies:
+  content:
+    - 'block_content:basic:a5f657fc-411f-4cae-a2cc-839e47b47257'
+  module:
+    - block_classes
+    - block_content
+  theme:
+    - tactis_evolve
+third_party_settings:
+  block_classes:
+    block_class: 'flex-fill col col-md-6 text-center text-md-start'
+id: tactis_evolve_tactisaddress
+theme: tactis_evolve
+region: footer_top
+weight: -5
+provider: null
+plugin: 'block_content:a5f657fc-411f-4cae-a2cc-839e47b47257'
+settings:
+  id: 'block_content:a5f657fc-411f-4cae-a2cc-839e47b47257'
+  label: 'Tactis Address'
+  label_display: '0'
+  provider: block_content
+  status: true
+  info: ''
+  view_mode: full
+visibility: {  }

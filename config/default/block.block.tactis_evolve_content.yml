@@ -1,0 +1,22 @@
+uuid: 5b896af6-1245-4c3d-a7e1-d09cf7d5db5e
+langcode: en
+status: true
+dependencies:
+  module:
+    - system
+  theme:
+    - tactis_evolve
+_core:
+  default_config_hash: KMqlKxvEaBL4OVoC3HMwnNffJFVTYzxpY7qAPmoWntU
+id: tactis_evolve_content
+theme: tactis_evolve
+region: content
+weight: -3
+provider: null
+plugin: system_main_block
+settings:
+  id: system_main_block
+  label: 'Main page content'
+  label_display: '0'
+  provider: system
+visibility: {  }

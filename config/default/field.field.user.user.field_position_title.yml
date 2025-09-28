@@ -1,0 +1,20 @@
+uuid: 056c83ce-ecf2-4830-a1a6-4e902f530d8f
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.user.field_position_title
+  module:
+    - user
+id: user.user.field_position_title
+field_name: field_position_title
+entity_type: user
+bundle: user
+label: Position/Title
+description: 'Your work title.'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

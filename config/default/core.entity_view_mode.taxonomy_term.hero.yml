@@ -1,0 +1,11 @@
+uuid: 8d039a83-bf3f-4153-ab46-a387ff378f27
+langcode: en
+status: true
+dependencies:
+  module:
+    - taxonomy
+id: taxonomy_term.hero
+label: Hero
+description: ''
+targetEntityType: taxonomy_term
+cache: true

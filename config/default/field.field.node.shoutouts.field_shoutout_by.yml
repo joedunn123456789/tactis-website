@@ -1,0 +1,19 @@
+uuid: 094573db-2d31-4c04-8047-5ff412f274c8
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_shoutout_by
+    - node.type.shoutouts
+id: node.shoutouts.field_shoutout_by
+field_name: field_shoutout_by
+entity_type: node
+bundle: shoutouts
+label: 'Shoutout By'
+description: 'Enter the full name of the person who shouted this out.'
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

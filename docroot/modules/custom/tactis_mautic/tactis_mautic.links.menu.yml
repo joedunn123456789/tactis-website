@@ -1,0 +1,6 @@
+tactis_mautic.admin_settings:
+  title: 'Mautic Settings'
+  description: 'Administrative settings for Mautic'
+  parent: system.admin_config
+  route_name: tactis_mautic.admin_settings
+  weight: -20

@@ -1,0 +1,15 @@
+uuid: fdbdb424-96cc-49a9-8ac1-4423acad4236
+langcode: en
+status: true
+dependencies: {  }
+name: xx_large
+label: 'XX-Large (1440px)'
+effects:
+  fc96ca54-a9cf-4fb1-8625-438d08b9a5ad:
+    uuid: fc96ca54-a9cf-4fb1-8625-438d08b9a5ad
+    id: image_scale_and_crop
+    weight: 1
+    data:
+      width: 1440
+      height: 450
+      anchor: center-center

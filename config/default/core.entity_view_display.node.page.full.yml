@@ -1,0 +1,143 @@
+uuid: 5d468400-6e09-4d23-8bc7-c7ad1f99154a
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.full
+    - field.field.node.page.body
+    - field.field.node.page.field_custom_content
+    - field.field.node.page.field_hero_image
+    - field.field.node.page.field_hero_options
+    - field.field.node.page.field_meta_tags
+    - field.field.node.page.field_show_arrow
+    - field.field.node.page.field_show_title
+    - field.field.node.page.field_tags
+    - field.field.node.page.field_teaser_image
+    - field.field.node.page.field_teaser_text
+    - field.field.node.page.field_use_animation
+    - field.field.node.page.layout_builder__layout
+    - node.type.page
+  module:
+    - entity_reference_revisions
+    - layout_builder
+    - layout_discovery
+    - text
+    - user
+third_party_settings:
+  layout_builder:
+    enabled: true
+    allow_custom: true
+    sections:
+      -
+        layout_id: layout_onecol
+        layout_settings:
+          label: 'Content Area'
+          context_mapping: {  }
+          layout_builder_styles_style:
+            this_is_a_hero_section: 0
+        components:
+          1906571b-013d-44d7-ab52-8d0200e4cfd4:
+            uuid: 1906571b-013d-44d7-ab52-8d0200e4cfd4
+            region: content
+            configuration:
+              id: 'field_block:node:page:field_custom_content'
+              label: 'Custom Content'
+              label_display: '0'
+              provider: layout_builder
+              context_mapping:
+                entity: layout_builder.entity
+                view_mode: view_mode
+              formatter:
+                type: entity_reference_revisions_entity_view
+                label: hidden
+                settings:
+                  view_mode: default
+                third_party_settings: {  }
+            weight: 3
+            additional:
+              layout_builder_styles_style:
+                contain_and_center: 0
+          7c83e398-c39b-467d-a0df-3dcf15f438b1:
+            uuid: 7c83e398-c39b-467d-a0df-3dcf15f438b1
+            region: content
+            configuration:
+              id: 'field_block:node:page:title'
+              label: Title
+              label_display: '0'
+              provider: layout_builder
+              context_mapping:
+                entity: layout_builder.entity
+                view_mode: view_mode
+              formatter:
+                type: string
+                label: hidden
+                settings:
+                  link_to_entity: false
+                third_party_settings: {  }
+            weight: 1
+            additional:
+              layout_builder_styles_style:
+                contain_and_center: 0
+                text_left_justify: 0
+        third_party_settings: {  }
+id: node.page.full
+targetEntityType: node
+bundle: page
+mode: full
+content:
+  body:
+    type: text_default
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    weight: 103
+    region: content
+  field_custom_content:
+    type: entity_reference_revisions_entity_view
+    label: above
+    settings:
+      view_mode: default
+      link: ''
+    third_party_settings: {  }
+    weight: 106
+    region: content
+  field_tags:
+    type: entity_reference_label
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    weight: 107
+    region: content
+  field_teaser_image:
+    type: entity_reference_entity_view
+    label: above
+    settings:
+      view_mode: default
+      link: false
+    third_party_settings: {  }
+    weight: 104
+    region: content
+  field_teaser_text:
+    type: basic_string
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    weight: 105
+    region: content
+  links:
+    settings: {  }
+    third_party_settings: {  }
+    weight: 100
+    region: content
+hidden:
+  addtoany: true
+  field_hero_image: true
+  field_hero_options: true
+  field_meta_tags: true
+  field_show_arrow: true
+  field_show_title: true
+  field_use_animation: true
+  langcode: true
+  layout_builder__layout: true
+  search_api_excerpt: true

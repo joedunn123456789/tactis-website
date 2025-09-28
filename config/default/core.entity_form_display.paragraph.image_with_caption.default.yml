@@ -1,0 +1,53 @@
+uuid: 5d9d9469-a1e3-441e-8dda-34d5d2f1b82d
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.image_with_caption.field_image
+    - field.field.paragraph.image_with_caption.field_image_caption
+    - paragraphs.paragraphs_type.image_with_caption
+  module:
+    - conditional_fields
+    - media_library
+id: paragraph.image_with_caption.default
+targetEntityType: paragraph
+bundle: image_with_caption
+mode: default
+content:
+  field_image:
+    type: media_library_widget
+    weight: 2
+    region: content
+    settings:
+      media_types: {  }
+    third_party_settings:
+      conditional_fields:
+        48ecaa86-0f68-4e94-940e-fad2b9ed1b45:
+          entity_type: paragraph
+          bundle: section
+          dependee: field_section_background
+          settings:
+            state: visible
+            reset: false
+            condition: value
+            grouping: AND
+            values_set: 1
+            value: ''
+            values: {  }
+            value_form:
+              -
+                value: section-background-image
+            effect: show
+            effect_options: {  }
+            selector: ''
+  field_image_caption:
+    type: string_textarea
+    weight: 3
+    region: content
+    settings:
+      rows: 5
+      placeholder: ''
+    third_party_settings: {  }
+hidden:
+  created: true
+  status: true

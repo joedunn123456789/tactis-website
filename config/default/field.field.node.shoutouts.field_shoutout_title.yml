@@ -1,0 +1,19 @@
+uuid: 31a93f8a-fc29-4beb-8667-0ebac6021a81
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_shoutout_title
+    - node.type.shoutouts
+id: node.shoutouts.field_shoutout_title
+field_name: field_shoutout_title
+entity_type: node
+bundle: shoutouts
+label: "Shoutout's Title"
+description: 'Enter the individuals title.'
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

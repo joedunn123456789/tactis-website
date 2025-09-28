@@ -1,0 +1,29 @@
+uuid: ff808f1e-4785-4691-9b09-777108e36a4d
+langcode: en
+status: true
+dependencies:
+  content:
+    - 'block_content:basic:003c7f04-b786-4c57-a710-d9497a412694'
+  module:
+    - block_classes
+    - block_content
+  theme:
+    - tactis_evolve
+third_party_settings:
+  block_classes:
+    block_class: 'col col-md-8 col-lg-9'
+id: tactis_evolve_copyrightstatement
+theme: tactis_evolve
+region: footer_bottom
+weight: 0
+provider: null
+plugin: 'block_content:003c7f04-b786-4c57-a710-d9497a412694'
+settings:
+  id: 'block_content:003c7f04-b786-4c57-a710-d9497a412694'
+  label: 'Copyright Statement'
+  label_display: '0'
+  provider: block_content
+  status: true
+  info: ''
+  view_mode: full
+visibility: {  }

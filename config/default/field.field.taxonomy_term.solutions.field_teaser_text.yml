@@ -1,0 +1,19 @@
+uuid: e04fdf52-c5e0-4472-96ee-af3752be47c9
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.taxonomy_term.field_teaser_text
+    - taxonomy.vocabulary.solutions
+id: taxonomy_term.solutions.field_teaser_text
+field_name: field_teaser_text
+entity_type: taxonomy_term
+bundle: solutions
+label: 'Teaser Text'
+description: 'This is the content description used when shared on social channels.'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string_long

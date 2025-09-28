@@ -1,0 +1,44 @@
+uuid: b5143be8-8c54-425e-a135-ac0c6536e809
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.teaser
+    - field.field.node.portal_applications.field_app_category
+    - field.field.node.portal_applications.field_image
+    - field.field.node.portal_applications.field_link
+    - node.type.portal_applications
+  module:
+    - link
+    - user
+id: node.portal_applications.teaser
+targetEntityType: node
+bundle: portal_applications
+mode: teaser
+content:
+  field_image:
+    type: entity_reference_label
+    label: hidden
+    settings:
+      link: false
+    third_party_settings: {  }
+    weight: 1
+    region: content
+  field_link:
+    type: link
+    label: hidden
+    settings:
+      trim_length: null
+      url_only: false
+      url_plain: false
+      rel: '0'
+      target: _blank
+    third_party_settings: {  }
+    weight: 0
+    region: content
+hidden:
+  addtoany: true
+  field_app_category: true
+  langcode: true
+  links: true
+  search_api_excerpt: true

@@ -1,0 +1,8 @@
+uuid: e8288706-6f4b-4532-b445-74ef93de1e68
+langcode: en
+status: true
+dependencies: {  }
+id: employee-utility-menu
+label: 'Employee Utility Menu'
+description: 'Shown when someone is logged in.'
+locked: false

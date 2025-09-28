@@ -1,0 +1,28 @@
+uuid: 599949e1-e0a2-4bbf-aae7-3a9255b875a2
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_rich_text
+    - filter.format.full_html
+    - filter.format.plain_text
+    - paragraphs.paragraphs_type.list_of_tactis_employees
+  module:
+    - text
+id: paragraph.list_of_tactis_employees.field_rich_text
+field_name: field_rich_text
+entity_type: paragraph
+bundle: list_of_tactis_employees
+label: Description
+description: 'This will be displayed under the title.'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  display_summary: false
+  required_summary: false
+  allowed_formats:
+    - full_html
+    - plain_text
+field_type: text_with_summary

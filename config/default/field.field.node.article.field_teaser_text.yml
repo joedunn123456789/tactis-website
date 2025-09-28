@@ -1,0 +1,19 @@
+uuid: 844c1362-a60c-4ad5-b5ac-106690d55171
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_teaser_text
+    - node.type.article
+id: node.article.field_teaser_text
+field_name: field_teaser_text
+entity_type: node
+bundle: article
+label: 'Teaser Text'
+description: 'This is the content description used when shared on social channels.'
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string_long

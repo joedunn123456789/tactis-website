@@ -1,0 +1,32 @@
+uuid: 4e4b3305-1533-4322-b987-d0094175f704
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_form_mode.media.media_library
+    - field.field.media.vpn_qr_codes.field_media_image_qrcode
+    - image.style.thumbnail
+    - media.type.vpn_qr_codes
+  module:
+    - image
+id: media.vpn_qr_codes.media_library
+targetEntityType: media
+bundle: vpn_qr_codes
+mode: media_library
+content:
+  field_media_image_1:
+    type: image_image
+    weight: -50
+    region: content
+    settings:
+      progress_indicator: throbber
+      preview_image_style: thumbnail
+    third_party_settings: {  }
+hidden:
+  created: true
+  field_media_image_qrcode: true
+  langcode: true
+  name: true
+  path: true
+  status: true
+  uid: true

@@ -1,0 +1,23 @@
+uuid: 8e94d7f8-15a7-45e5-9f7c-2431fa1aefd5
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_frame_content
+    - paragraphs.paragraphs_type.rich_text
+id: paragraph.rich_text.field_frame_content
+field_name: field_frame_content
+entity_type: paragraph
+bundle: rich_text
+label: 'Frame Content'
+description: 'When checked, the content will have left and right margins that will indent the content.'
+required: false
+translatable: false
+default_value:
+  -
+    value: 0
+default_value_callback: ''
+settings:
+  on_label: 'Yes'
+  off_label: 'No'
+field_type: boolean

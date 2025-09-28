@@ -1,0 +1,109 @@
+<?php
+
+/**
+ * @file
+ * Install, uninstall and update hooks for Media entity Twitter module.
+ */
+
+use Drupal\Core\File\FileSystemInterface;
+
+/**
+ * Implements hook_install().
+ */
+function lottiefiles_field_install() {
+  $source = \Drupal::service('extension.list.module')->getPath('lottiefiles_field') . '/images/icons';
+  $destination = \Drupal::config('media.settings')->get('icon_base_uri');
+  \Drupal::service('file_system')->prepareDirectory($destination, FileSystemInterface::CREATE_DIRECTORY | FileSystemInterface::MODIFY_PERMISSIONS);
+
+  $file_system = \Drupal::service('file_system');
+  $files = $file_system->scanDirectory($source, '/.*\.(svg|png|jpg|jpeg|gif)$/');
+  foreach ($files as $file) {
+    if (!file_exists($destination . DIRECTORY_SEPARATOR . $file->filename)) {
+      \Drupal::service('file_system')->copy($file->uri, $destination, FileSystemInterface::EXISTS_ERROR);
+    }
+  }
+}
+
+/**
+ * Implements hook_requirements().
+ */
+function lottiefiles_field_requirements($phase) {
+  $requirements = [];
+  if ($phase == 'install') {
+    $destination = \Drupal::config('media.settings')->get('icon_base_uri');
+    if (!\Drupal::moduleHandler()->moduleExists('media')) {
+      $error = t('Media module should be enabled before `Lottiefiles field` module installation.');
+      $description = t('Permission check failed due missing media module on your database.');
+      if (!empty($error)) {
+        $description = $error . ' ' . $description;
+        $requirements['lottiefiles_field']['description'] = $description;
+        $requirements['lottiefiles_field']['severity'] = REQUIREMENT_ERROR;
+      }
+    }
+    else {
+      \Drupal::service('file_system')->prepareDirectory($destination, FileSystemInterface::CREATE_DIRECTORY | FileSystemInterface::MODIFY_PERMISSIONS);
+      $is_writable = is_writable($destination);
+      $is_directory = is_dir($destination);
+      if (!$is_writable || !$is_directory) {
+        if (!$is_directory) {
+          $error = t('The directory %directory does not exist.', ['%directory' => $destination]);
+        }
+        else {
+          $error = t('The directory %directory is not writable.', ['%directory' => $destination]);
+        }
+        $description = t('An automated attempt to create this directory failed, possibly due to a permissions problem. To proceed with the installation, either create the directory and modify its permissions manually or ensure that the installer has the permissions to create it automatically. For more information, see INSTALL.txt or the <a href=":handbook_url">online handbook</a>.', [':handbook_url' => 'https://www.drupal.org/server-permissions']);
+        if (!empty($error)) {
+          $description = $error . ' ' . $description;
+          $requirements['lottiefiles_field']['description'] = $description;
+          $requirements['lottiefiles_field']['severity'] = REQUIREMENT_ERROR;
+        }
+      }
+    }
+  }
+  return $requirements;
+}
+
+/**
+ * Updating media thumbnail.
+ */
+function lottiefiles_field_update_9001() {
+
+  // Enable required module media.
+  if (!\Drupal::moduleHandler()->moduleExists('media')) {
+    \Drupal::service('module_installer')
+      ->install(['media']);
+  }
+
+  // Enable required module media_library.
+  if (!\Drupal::moduleHandler()->moduleExists('media_library')) {
+    // Enable required modules.
+    \Drupal::service('module_installer')
+      ->install(['media_library']);
+  }
+
+  // Install requirements.
+  lottiefiles_field_install();
+
+  // Install configurations.
+  \Drupal::service('config.installer')->installDefaultConfig('module', 'lottiefiles_field');
+}
+
+/**
+ * Update Link_type to both External and Internal.
+ * Please do configuration export after this update.
+ */
+function lottiefiles_field_update_9002() {
+  $fields = \Drupal::entityTypeManager()->getStorage('field_config')->loadMultiple();
+  foreach($fields as $field) {
+    if($field->getType() == 'lottiefiles_field') {
+      $settings = $field->getSettings();
+      $settings['link_type'] = 17;
+      $field->set('settings', $settings);
+
+      // Save the updated field configuration.
+      $field->save();
+    }
+  }
+  // Add a status message to inform the user to perform configuration export.
+  \Drupal::messenger()->addStatus(t('Please do a configuration export after this update.'));
+}

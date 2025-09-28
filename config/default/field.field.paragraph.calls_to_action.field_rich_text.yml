@@ -1,0 +1,28 @@
+uuid: 0eba8b7d-5002-4168-aaf8-bb0aefcec794
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_rich_text
+    - filter.format.full_html
+    - filter.format.plain_text
+    - paragraphs.paragraphs_type.calls_to_action
+  module:
+    - text
+id: paragraph.calls_to_action.field_rich_text
+field_name: field_rich_text
+entity_type: paragraph
+bundle: calls_to_action
+label: 'Intro Text'
+description: 'This will be displayed under the title and before the block.'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  display_summary: false
+  required_summary: false
+  allowed_formats:
+    - full_html
+    - plain_text
+field_type: text_with_summary

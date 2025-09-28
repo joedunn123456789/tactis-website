@@ -1,0 +1,24 @@
+uuid: 860efda0-b044-4ded-9c4a-c49652a67c75
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.body
+    - node.type.shoutouts
+  module:
+    - text
+id: node.shoutouts.body
+field_name: body
+entity_type: node
+bundle: shoutouts
+label: Body
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  display_summary: true
+  required_summary: false
+  allowed_formats: {  }
+field_type: text_with_summary

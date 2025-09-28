@@ -1,0 +1,19 @@
+uuid: 316a62cc-6ff2-4910-a5b8-e705cac122d0
+langcode: en
+status: true
+dependencies:
+  module:
+    - lottiefiles_field
+    - media
+id: media.field_media_lottiefile
+field_name: field_media_lottiefile
+entity_type: media
+type: lottiefiles_field
+settings: {  }
+module: lottiefiles_field
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

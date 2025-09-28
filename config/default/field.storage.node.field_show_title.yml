@@ -1,0 +1,30 @@
+uuid: 38b2ac65-5b10-4135-a4ab-093d80b6ad28
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+    - options
+id: node.field_show_title
+field_name: field_show_title
+entity_type: node
+type: list_string
+settings:
+  allowed_values:
+    -
+      value: hero-title
+      label: 'In the hero'
+    -
+      value: content-title
+      label: 'Below the hero as content'
+    -
+      value: no-title
+      label: 'Do not display the page title.'
+  allowed_values_function: ''
+module: options
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

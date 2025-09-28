@@ -1,0 +1,9 @@
+uuid: abee8d25-736f-49fd-bc60-349b8b3f441a
+langcode: en
+status: true
+dependencies: {  }
+name: Solutions
+vid: solutions
+description: 'A list of Tactis Solutions'
+weight: -10
+new_revision: false

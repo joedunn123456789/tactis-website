@@ -1,0 +1,11 @@
+uuid: f3180339-e985-457a-966b-1350eebd5c63
+langcode: en
+status: true
+dependencies:
+  config:
+    - media.type.vpn_configurations
+id: media.vpn_configurations
+target_entity_type_id: media
+target_bundle: vpn_configurations
+default_langcode: site_default
+language_alterable: false

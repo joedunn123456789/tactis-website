@@ -1,0 +1,17 @@
+uuid: 00082641-d6b8-4770-82d4-d8615a9961c2
+langcode: en
+status: false
+dependencies: {  }
+id: local
+label: Local
+description: 'Local Configuration'
+weight: 0
+folder: ../config/envs/local
+module:
+  devel: 0
+  stage_file_proxy: 0
+theme: {  }
+blacklist: {  }
+graylist: {  }
+graylist_dependents: true
+graylist_skip_equal: true

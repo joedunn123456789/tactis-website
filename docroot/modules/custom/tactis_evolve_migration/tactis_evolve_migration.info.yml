@@ -1,0 +1,5 @@
+name: Tactis Evolve Migration
+description: Provides migration scripts from the old site to the new.
+package: Tactis Evolve
+type: module
+core_version_requirement: ^10

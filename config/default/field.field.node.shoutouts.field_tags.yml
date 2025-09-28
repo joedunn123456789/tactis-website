@@ -1,0 +1,33 @@
+uuid: f064381c-1fb4-4ef6-8814-1695b44ecf7b
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_tags
+    - node.type.shoutouts
+    - taxonomy.vocabulary.services
+    - taxonomy.vocabulary.solutions
+    - taxonomy.vocabulary.tags
+id: node.shoutouts.field_tags
+field_name: field_tags
+entity_type: node
+bundle: shoutouts
+label: Tags
+description: 'Used to tag content so relationships between the content and our solutions and services is available.'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      services: services
+      solutions: solutions
+      tags: tags
+    sort:
+      field: name
+      direction: asc
+    auto_create: false
+    auto_create_bundle: services
+field_type: entity_reference

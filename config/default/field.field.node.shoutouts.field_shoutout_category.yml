@@ -1,0 +1,29 @@
+uuid: a040bb97-b132-484b-88ef-89db5702fd56
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_shoutout_category
+    - node.type.shoutouts
+    - taxonomy.vocabulary.shoutout_category
+id: node.shoutouts.field_shoutout_category
+field_name: field_shoutout_category
+entity_type: node
+bundle: shoutouts
+label: 'Shoutout Category'
+description: 'This is the type of shoutout.'
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      shoutout_category: shoutout_category
+    sort:
+      field: name
+      direction: asc
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

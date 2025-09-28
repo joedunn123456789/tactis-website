@@ -1,0 +1,30 @@
+uuid: 102a0a1f-aa66-4f91-bb25-efe052bb01a5
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.user.field_vpn_qr_code
+    - media.type.vpn_qr_codes
+  module:
+    - user
+id: user.user.field_vpn_qr_code
+field_name: field_vpn_qr_code
+entity_type: user
+bundle: user
+label: 'VPN QR Code'
+description: 'Your VPN QR Code.'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:media'
+  handler_settings:
+    target_bundles:
+      vpn_qr_codes: vpn_qr_codes
+    sort:
+      field: created
+      direction: DESC
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

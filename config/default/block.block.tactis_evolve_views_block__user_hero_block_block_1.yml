@@ -1,0 +1,34 @@
+uuid: 6594e498-9380-4d39-937c-90a076128dd5
+langcode: en
+status: true
+dependencies:
+  config:
+    - views.view.user_hero_block
+  module:
+    - block_classes
+    - system
+    - views
+  theme:
+    - tactis_evolve
+third_party_settings:
+  block_classes:
+    block_class: hero-block
+id: tactis_evolve_views_block__user_hero_block_block_1
+theme: tactis_evolve
+region: hero
+weight: 0
+provider: null
+plugin: 'views_block:user_hero_block-block_1'
+settings:
+  id: 'views_block:user_hero_block-block_1'
+  label: ''
+  label_display: '0'
+  provider: views
+  context_mapping: {  }
+  views_label: ''
+  items_per_page: none
+visibility:
+  request_path:
+    id: request_path
+    negate: false
+    pages: '/user/*'

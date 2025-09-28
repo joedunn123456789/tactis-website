@@ -1,0 +1,23 @@
+uuid: cda1af1d-625d-4668-8d8a-885c53ccf9bc
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_section_background
+    - paragraphs.paragraphs_type.section
+  module:
+    - options
+id: paragraph.section.field_section_background
+field_name: field_section_background
+entity_type: paragraph
+bundle: section
+label: 'Section Background'
+description: 'This will define the background of your section.  All background will bleed to the edge of the browser window, therefore; when using an image, make sure it is a very large image.'
+required: true
+translatable: false
+default_value:
+  -
+    value: section-background-white
+default_value_callback: ''
+settings: {  }
+field_type: list_string

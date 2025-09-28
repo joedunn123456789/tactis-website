@@ -1,0 +1,24 @@
+uuid: 37c9c326-5da5-4761-9aea-ef617b309d76
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.taxonomy_term.field_intro_text
+    - filter.format.full_html
+    - taxonomy.vocabulary.services
+  module:
+    - text
+id: taxonomy_term.services.field_intro_text
+field_name: field_intro_text
+entity_type: taxonomy_term
+bundle: services
+label: 'Intro Text'
+description: 'This text will appear before the description.'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  allowed_formats:
+    - full_html
+field_type: text_long

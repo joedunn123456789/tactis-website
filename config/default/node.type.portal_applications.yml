@@ -1,0 +1,17 @@
+uuid: 84a3c87d-91e2-4527-b87b-5b10a519b436
+langcode: en
+status: true
+dependencies:
+  module:
+    - menu_ui
+third_party_settings:
+  menu_ui:
+    available_menus: {  }
+    parent: ''
+name: 'Portal Applications'
+type: portal_applications
+description: 'Our Application List'
+help: null
+new_revision: true
+preview_mode: 1
+display_submitted: false

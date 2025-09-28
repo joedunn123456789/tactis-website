@@ -1,0 +1,5 @@
+name:  General Site Support
+type: module
+description: Custom classes and tools specific to Tactis.
+core_version_requirement: ^10 || ^11
+package: 'Tactis'

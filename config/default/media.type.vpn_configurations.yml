@@ -1,0 +1,14 @@
+uuid: d212101b-8b7f-429b-831e-b3b20b88f4d2
+langcode: en
+status: true
+dependencies: {  }
+id: vpn_configurations
+label: 'VPN Configurations'
+description: 'Used to store WireGuard Configurations.'
+source: file
+queue_thumbnail_downloads: false
+new_revision: false
+source_configuration:
+  source_field: field_media_file_vpn_config
+field_map:
+  name: name

@@ -1,0 +1,19 @@
+uuid: 5430bee5-a62b-48f1-8b12-c5999a4f2476
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_title
+    - paragraphs.paragraphs_type.cards
+id: paragraph.cards.field_title
+field_name: field_title
+entity_type: paragraph
+bundle: cards
+label: Title
+description: 'This is displayed at the top, before the intro text.'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

@@ -1,0 +1,44 @@
+uuid: fa781b73-e7e3-4ece-b475-b7a16f18e30b
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.media.vpn_qr_codes.field_media_image_qrcode
+    - media.type.vpn_qr_codes
+  module:
+    - image
+id: media.vpn_qr_codes.default
+targetEntityType: media
+bundle: vpn_qr_codes
+mode: default
+content:
+  field_media_image_1:
+    type: image
+    label: visually_hidden
+    settings:
+      image_link: ''
+      image_style: large
+      image_loading:
+        attribute: lazy
+    third_party_settings: {  }
+    weight: 0
+    region: content
+  field_media_image_qrcode:
+    type: image
+    label: hidden
+    settings:
+      image_link: ''
+      image_style: ''
+      image_loading:
+        attribute: lazy
+    third_party_settings: {  }
+    weight: 0
+    region: content
+hidden:
+  addtoany: true
+  created: true
+  langcode: true
+  name: true
+  search_api_excerpt: true
+  thumbnail: true
+  uid: true

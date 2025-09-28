@@ -1,0 +1,26 @@
+uuid: e6497599-e1ea-435e-96f7-49b71fbf250a
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_legacy_body
+    - filter.format.full_html
+    - node.type.article
+  module:
+    - text
+id: node.article.field_legacy_body
+field_name: field_legacy_body
+entity_type: node
+bundle: article
+label: 'Legacy Body'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  display_summary: true
+  required_summary: false
+  allowed_formats:
+    - full_html
+field_type: text_with_summary

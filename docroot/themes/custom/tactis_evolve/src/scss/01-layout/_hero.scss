@@ -1,0 +1,193 @@
+// _hero.scss - Contains ONLY hero region and content styling
+
+.region-hero {
+  z-index: 405;
+
+  .title-text {
+    min-height: 200px;
+  }
+}
+
+body {
+  // Hero region positioning and styling for dark/light heroes
+  &.hero-dark, &.hero-light {
+    .region-hero {
+      top: $header-height; // 88px positioning for overlay effect
+      color: $white; // Default to white
+    }
+  }
+
+  &.hero-dark {
+    .region-hero {
+      color: $white;
+    }
+  }
+
+  // Hero region styling for split layout
+  &.hero-split {
+    .region-hero {
+      background-color: $white;
+      position: relative !important; // Force relative positioning - no overlay
+      top: auto !important; // Override any inherited top values
+    }
+
+    // Fix any child elements that might be sticking
+    .hero-image-container {
+      position: relative !important;
+      top: auto !important;
+      left: auto !important;
+
+      img {
+        position: static !important; // Ensure images don't stick
+        top: auto !important;
+        left: auto !important;
+      }
+    }
+
+    .lottie-animation {
+      position: relative !important;
+      top: auto !important;
+      left: auto !important;
+    }
+
+    .hero-tag {
+      color: $tactis-primary !important;
+      position: relative !important;
+      top: auto !important;
+    }
+
+    .hero-headline {
+      font-size: 3.75rem !important;
+      color: #222222 !important;
+      line-height: 1.1 !important;
+      position: relative !important;
+      top: auto !important;
+    }
+
+    .hero-button {
+      background-color: $tactis-primary !important;
+      border-color: $tactis-primary !important;
+      position: relative !important;
+      top: auto !important;
+
+      &:hover, &:focus {
+        background-color: $tactis-secondary !important;
+        border-color: $tactis-secondary !important;
+      }
+    }
+
+    // Ensure all containers flow normally
+    .container, .row, .col-12, .col-md-6 {
+      position: relative !important;
+      top: auto !important;
+    }
+  }
+
+  // General hero region sizing
+  .region-hero {
+    height: $hero-height-sm; // 375px mobile
+
+    @include media-breakpoint-up(md){
+      height: $hero-height-md; // 450px desktop
+    }
+
+    .hero-title, .no-title {
+      min-height: calc($hero-height-sm - $hero-title-text-margin-sm);
+
+      @include media-breakpoint-up(md){
+        min-height: calc($hero-height-md - $hero-title-text-margin-md);
+      }
+
+      .lottie-animation {
+        height: 200px;
+
+        @include media-breakpoint-up(lg){
+          height: 350px;
+        }
+        @include media-breakpoint-up(xxl){
+          height: 550px;
+        }
+      }
+    }
+
+    .hero-image-container {
+      width: 50%;
+
+      @include media-breakpoint-up(md){
+        width: auto;
+      }
+
+      img {
+        width: 100%;
+      }
+    }
+
+    .title-text {
+      max-width: none;
+
+      @include media-breakpoint-up(md){
+        max-width: 70%;
+      }
+    }
+  }
+
+  // Main content margin calculations based on hero type
+  main {
+    // Default margin for dark/light heroes (with overlay)
+    margin-top: calc($hero-height-sm + $header-height);
+
+    @include media-breakpoint-up(md){
+      margin-top: calc($hero-height-md + $header-height);
+    }
+  }
+
+  // Override main margin for hero-split (no overlay, flows naturally)
+  &.hero-split main {
+    margin-top: calc($header-height + $hero-height-sm);
+
+    @include media-breakpoint-up(md){
+      margin-top: calc($header-height + $hero-height-md);
+    }
+  }
+}
+
+// Admin toolbar integration - hero region positioning
+body {
+  &.toolbar-horizontal {
+    .region-hero {
+      top: calc($header-height + $admin-toolbar-height-collapsed);
+    }
+
+    &.toolbar-tray-open {
+      .region-hero {
+        top: calc($header-height + $admin-toolbar-height-collapsed + $admin-toolbar-horizontal);
+      }
+    }
+  }
+
+  &.toolbar-vertical {
+    .region-hero {
+      top: calc($header-height + $admin-toolbar-height-collapsed);
+    }
+  }
+}
+
+// Mobile-specific hero fixes
+@media (max-width: 767.98px) {
+  body.hero-split {
+    // Force everything in hero-split to be static on mobile
+    .region-hero * {
+      position: static !important;
+      top: auto !important;
+      left: auto !important;
+      right: auto !important;
+      bottom: auto !important;
+    }
+
+    // Ensure header still works (this affects hero positioning)
+    header, .region-header {
+      position: sticky !important;
+      top: 0 !important;
+    }
+  }
+}

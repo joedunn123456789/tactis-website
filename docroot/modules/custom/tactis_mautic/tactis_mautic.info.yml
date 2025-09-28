@@ -1,0 +1,6 @@
+name: Mautic API
+type: module
+description: Custom API Interface for Mautic
+core_version_requirement: ^10 || ^11
+package: 'Tactis'
+configure:  tactis_mautic.admin_settings

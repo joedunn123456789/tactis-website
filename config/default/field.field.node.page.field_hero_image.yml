@@ -1,0 +1,29 @@
+uuid: 7876cd0c-cd95-4c2f-a02c-0541f77dfabd
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_hero_image
+    - media.type.vector_image
+    - node.type.page
+id: node.page.field_hero_image
+field_name: field_hero_image
+entity_type: node
+bundle: page
+label: 'Hero Image'
+description: 'Choose the image you would like to use for your Hero.'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:media'
+  handler_settings:
+    target_bundles:
+      vector_image: vector_image
+    sort:
+      field: created
+      direction: DESC
+    auto_create: true
+    auto_create_bundle: ''
+field_type: entity_reference

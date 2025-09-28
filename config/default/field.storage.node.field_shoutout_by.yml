@@ -1,0 +1,21 @@
+uuid: 1fd0e44c-24a6-4742-8aab-3c03a36ddda2
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+id: node.field_shoutout_by
+field_name: field_shoutout_by
+entity_type: node
+type: string
+settings:
+  max_length: 255
+  case_sensitive: false
+  is_ascii: false
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

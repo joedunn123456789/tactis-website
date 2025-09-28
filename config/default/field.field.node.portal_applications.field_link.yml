@@ -1,0 +1,23 @@
+uuid: e5e6477a-db09-4aba-9ebb-f5377879e32d
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_link
+    - node.type.portal_applications
+  module:
+    - link
+id: node.portal_applications.field_link
+field_name: field_link
+entity_type: node
+bundle: portal_applications
+label: Link
+description: 'Enter the link.'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  title: 1
+  link_type: 17
+field_type: link

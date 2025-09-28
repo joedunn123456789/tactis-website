@@ -1,0 +1,15 @@
+uuid: 6ccb3985-22db-44c9-8341-c0c946084eb2
+langcode: en
+status: true
+dependencies: {  }
+name: x_large
+label: 'X-Large (1140px)'
+effects:
+  0247bb4b-66f7-463d-aae9-6bdcae869b04:
+    uuid: 0247bb4b-66f7-463d-aae9-6bdcae869b04
+    id: image_scale_and_crop
+    weight: 1
+    data:
+      width: 1140
+      height: 400
+      anchor: center-center

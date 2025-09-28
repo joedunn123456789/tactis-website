@@ -1,0 +1,13 @@
+uuid: ddb95271-b979-45a5-a2ee-207d29c684c7
+langcode: en
+status: true
+dependencies: {  }
+id: light_section
+label: 'Light Section'
+classes: section-light
+type: section
+group: default
+block_restrictions: {  }
+layout_restrictions:
+  - layout_onecol
+weight: 0

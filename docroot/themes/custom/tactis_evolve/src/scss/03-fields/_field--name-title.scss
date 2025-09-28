@@ -1,0 +1,30 @@
+main {
+  .layout__region {
+    .block-field-blocknodearticletitle,
+    .block-field-blocknodepagetitle {
+      display: none;
+    }
+  }
+}
+
+body.content-title{
+  main {
+    .layout__region {
+      .block-field-blocknodearticletitle,
+      .block-field-blocknodepagetitle {
+        display: block;
+      }
+    }
+  }
+}
+
+body.no-title {
+  main {
+    .layout__region {
+      .block-field-blocknodearticletitle,
+      .block-field-blocknodepagetitle {
+        display: none;
+      }
+    }
+  }
+}

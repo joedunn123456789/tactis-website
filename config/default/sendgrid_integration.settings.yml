@@ -1,0 +1,14 @@
+_core:
+  default_config_hash: g4qz7cPnloXFwtnLYfIKI2VS0gf_UFOz_I2uQiiulC8
+apikey: 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
+test_defaults:
+  to: anthony.mangini@tactis.com
+  subject: 'Test Email from SendGrid Module'
+  body:
+    value: 'Test Message for SendGrid.'
+    format: plain_text
+  from_name: Tactis
+  to_name: 'Anthony Mangini'
+  reply_to: ''
+trackopens: 0
+trackclicks: 0

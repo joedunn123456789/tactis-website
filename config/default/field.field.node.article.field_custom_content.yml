@@ -1,0 +1,49 @@
+uuid: 5457995a-bd20-428b-8823-232b0a0af79f
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_custom_content
+    - node.type.article
+    - paragraphs.paragraphs_type.section
+  module:
+    - entity_reference_revisions
+id: node.article.field_custom_content
+field_name: field_custom_content
+entity_type: node
+bundle: article
+label: 'Custom Content'
+description: 'You can use this to build out content and use special predefined blocks to create call to actions and other specialized content format.'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:paragraph'
+  handler_settings:
+    target_bundles:
+      section: section
+    negate: 0
+    target_bundles_drag_drop:
+      action:
+        weight: 8
+        enabled: false
+      block_embed:
+        weight: 4
+        enabled: false
+      calls_to_action:
+        weight: 10
+        enabled: false
+      card:
+        weight: 11
+        enabled: false
+      cards:
+        weight: 12
+        enabled: false
+      rich_text:
+        weight: 2
+        enabled: false
+      section:
+        weight: 6
+        enabled: true
+field_type: entity_reference_revisions

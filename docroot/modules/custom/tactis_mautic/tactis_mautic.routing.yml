@@ -1,0 +1,7 @@
+tactis_mautic.admin_settings:
+  path: '/admin/config/tactis_mautic'
+  defaults:
+    _form: '\Drupal\tactis_mautic\Form\ConfigForm'
+    _title: 'Mautic Configuration'
+  requirements:
+    _permission: 'administer site configuration'

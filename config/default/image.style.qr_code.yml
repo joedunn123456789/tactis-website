@@ -1,0 +1,19 @@
+uuid: 169c1f63-7368-4e32-804b-10cad2b47455
+langcode: en
+status: true
+dependencies:
+  module:
+    - image_effects
+name: qr_code
+label: 'QR Code'
+effects:
+  75c8810a-b100-42c0-8c28-35653202e909:
+    uuid: 75c8810a-b100-42c0-8c28-35653202e909
+    id: image_effects_scale_and_smart_crop
+    weight: 1
+    data:
+      width: '350'
+      height: ''
+      upscale: false
+      simulate: false
+      algorithm: entropy_slice

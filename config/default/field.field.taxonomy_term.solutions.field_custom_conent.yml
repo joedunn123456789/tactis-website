@@ -1,0 +1,55 @@
+uuid: 42712ec7-f85d-4fa4-a2a3-0b2f33fb4381
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.taxonomy_term.field_custom_conent
+    - paragraphs.paragraphs_type.section
+    - taxonomy.vocabulary.solutions
+  module:
+    - entity_reference_revisions
+id: taxonomy_term.solutions.field_custom_conent
+field_name: field_custom_conent
+entity_type: taxonomy_term
+bundle: solutions
+label: 'Custom Conent'
+description: 'You can use this to build out content and use special predefined blocks to create call to actions and other specialized content format.'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:paragraph'
+  handler_settings:
+    target_bundles:
+      section: section
+    negate: 0
+    target_bundles_drag_drop:
+      action:
+        weight: 10
+        enabled: false
+      block_embed:
+        weight: 11
+        enabled: false
+      calls_to_action:
+        weight: 12
+        enabled: false
+      card:
+        weight: 13
+        enabled: false
+      cards:
+        weight: 14
+        enabled: false
+      image_with_caption:
+        weight: 15
+        enabled: false
+      list_of_images:
+        weight: 16
+        enabled: false
+      rich_text:
+        weight: 17
+        enabled: false
+      section:
+        weight: 18
+        enabled: true
+field_type: entity_reference_revisions

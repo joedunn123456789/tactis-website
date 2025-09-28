@@ -1,0 +1,56 @@
+uuid: b5658211-b686-4116-960f-a906f965deb3
+langcode: en
+status: true
+dependencies:
+  config:
+    - image.style.background_large
+    - image.style.background_medium
+    - image.style.background_small
+    - image.style.background_x_small
+  theme:
+    - tactis_evolve
+id: large_background_image
+label: 'Large Background Image'
+image_style_mappings:
+  -
+    image_mapping_type: image_style
+    image_mapping: '_original image_'
+    breakpoint_id: tactis_evolve.screen.xl-min
+    multiplier: 1x
+  -
+    image_mapping_type: image_style
+    image_mapping: '_original image_'
+    breakpoint_id: tactis_evolve.screen.xl-min
+    multiplier: 2x
+  -
+    image_mapping_type: image_style
+    image_mapping: background_large
+    breakpoint_id: tactis_evolve.screen.lg-min
+    multiplier: 1x
+  -
+    image_mapping_type: image_style
+    image_mapping: background_large
+    breakpoint_id: tactis_evolve.screen.lg-min
+    multiplier: 2x
+  -
+    image_mapping_type: image_style
+    image_mapping: background_medium
+    breakpoint_id: tactis_evolve.screen.md-min
+    multiplier: 1x
+  -
+    image_mapping_type: image_style
+    image_mapping: background_medium
+    breakpoint_id: tactis_evolve.screen.md-min
+    multiplier: 2x
+  -
+    image_mapping_type: image_style
+    image_mapping: background_small
+    breakpoint_id: tactis_evolve.screen.sm-min
+    multiplier: 1x
+  -
+    image_mapping_type: image_style
+    image_mapping: background_small
+    breakpoint_id: tactis_evolve.screen.sm-min
+    multiplier: 2x
+breakpoint_group: tactis_evolve.screen
+fallback_image_style: background_x_small

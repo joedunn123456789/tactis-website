@@ -1,0 +1,20 @@
+uuid: 6180582d-5d7c-4c35-a0b8-dc4a96cd1bf9
+langcode: en
+status: true
+dependencies:
+  theme:
+    - tactis_evolve
+_core:
+  default_config_hash: jkTlpG2Cev9M3R_e5zO_x0B1myXcuOdCNCosvh43eLk
+id: tactis_evolve_local_actions
+theme: tactis_evolve
+region: content
+weight: -4
+provider: null
+plugin: local_actions_block
+settings:
+  id: local_actions_block
+  label: 'Primary admin actions'
+  label_display: '0'
+  provider: core
+visibility: {  }

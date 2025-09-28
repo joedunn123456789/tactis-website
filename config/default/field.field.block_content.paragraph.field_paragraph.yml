@@ -1,0 +1,63 @@
+uuid: 0225b300-72e4-49da-af67-e4aad16b61f7
+langcode: en
+status: true
+dependencies:
+  config:
+    - block_content.type.paragraph
+    - field.storage.block_content.field_paragraph
+    - paragraphs.paragraphs_type.calls_to_action
+    - paragraphs.paragraphs_type.cards
+    - paragraphs.paragraphs_type.image_with_caption
+    - paragraphs.paragraphs_type.list_of_images
+    - paragraphs.paragraphs_type.rich_text
+  module:
+    - entity_reference_revisions
+id: block_content.paragraph.field_paragraph
+field_name: field_paragraph
+entity_type: block_content
+bundle: paragraph
+label: Paragraph
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:paragraph'
+  handler_settings:
+    target_bundles:
+      calls_to_action: calls_to_action
+      cards: cards
+      rich_text: rich_text
+      image_with_caption: image_with_caption
+      list_of_images: list_of_images
+    negate: 0
+    target_bundles_drag_drop:
+      action:
+        weight: 8
+        enabled: false
+      block_embed:
+        weight: 9
+        enabled: false
+      calls_to_action:
+        weight: 10
+        enabled: true
+      card:
+        weight: 11
+        enabled: false
+      cards:
+        weight: 12
+        enabled: true
+      image_with_caption:
+        weight: 15
+        enabled: true
+      list_of_images:
+        weight: 16
+        enabled: true
+      rich_text:
+        weight: 13
+        enabled: true
+      section:
+        weight: 14
+        enabled: false
+field_type: entity_reference_revisions

@@ -1,0 +1,19 @@
+uuid: 480640d0-efef-49da-800d-bf4e47af7f09
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_icon_class
+    - paragraphs.paragraphs_type.action
+id: paragraph.action.field_icon_class
+field_name: field_icon_class
+entity_type: paragraph
+bundle: action
+label: 'Icon Class'
+description: 'You can include an icon before the title of your Action.  <a href="https://icons.getbootstrap.com" target="_blank">Bootstrap Icons</a> are used for this purpose, simply select the icon you want and copy and paste the icon classes into this field.  For example, to use the basic map pin, this field would contain <pre>bi bi-geo-alt</pre>.'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

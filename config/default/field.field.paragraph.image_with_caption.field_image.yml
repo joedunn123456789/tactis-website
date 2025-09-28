@@ -1,0 +1,29 @@
+uuid: 29821c93-17dd-49e6-9516-181e0a309a4f
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_image
+    - media.type.images
+    - paragraphs.paragraphs_type.image_with_caption
+id: paragraph.image_with_caption.field_image
+field_name: field_image
+entity_type: paragraph
+bundle: image_with_caption
+label: Image
+description: 'Choose the image you would like to use.'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:media'
+  handler_settings:
+    target_bundles:
+      images: images
+    sort:
+      field: status
+      direction: DESC
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

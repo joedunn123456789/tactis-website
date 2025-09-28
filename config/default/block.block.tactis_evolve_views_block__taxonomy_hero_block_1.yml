@@ -1,0 +1,33 @@
+uuid: f49ca481-659c-40c8-8c8d-a947405956e5
+langcode: en
+status: true
+dependencies:
+  config:
+    - views.view.taxonomy_hero
+  module:
+    - taxonomy
+    - views
+  theme:
+    - tactis_evolve
+id: tactis_evolve_views_block__taxonomy_hero_block_1
+theme: tactis_evolve
+region: hero
+weight: 0
+provider: null
+plugin: 'views_block:taxonomy_hero-block_1'
+settings:
+  id: 'views_block:taxonomy_hero-block_1'
+  label: ''
+  label_display: '0'
+  provider: views
+  context_mapping: {  }
+  views_label: ''
+  items_per_page: none
+visibility:
+  'entity_bundle:taxonomy_term':
+    id: 'entity_bundle:taxonomy_term'
+    negate: false
+    context_mapping:
+      taxonomy_term: '@taxonomy_term.taxonomy_term_route_context:taxonomy_term'
+    bundles:
+      solutions: solutions

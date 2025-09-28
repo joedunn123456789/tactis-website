@@ -1,0 +1,29 @@
+uuid: a83dda65-ed44-431a-8c15-3551a08b899f
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_teaser_image
+    - media.type.images
+    - node.type.article
+id: node.article.field_teaser_image
+field_name: field_teaser_image
+entity_type: node
+bundle: article
+label: 'Teaser Image'
+description: 'This is the image used when shared on Social channels.'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:media'
+  handler_settings:
+    target_bundles:
+      images: images
+    sort:
+      field: created
+      direction: DESC
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

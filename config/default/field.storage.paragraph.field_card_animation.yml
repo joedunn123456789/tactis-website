@@ -1,0 +1,24 @@
+uuid: 8a56ef02-3113-4c65-a72f-678a109b2d9b
+langcode: en
+status: true
+dependencies:
+  module:
+    - options
+    - paragraphs
+id: paragraph.field_card_animation
+field_name: field_card_animation
+entity_type: paragraph
+type: list_string
+settings:
+  allowed_values:
+    -
+      value: animate-burst
+      label: Burst
+  allowed_values_function: ''
+module: options
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

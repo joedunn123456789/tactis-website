@@ -1,0 +1,145 @@
+uuid: 9b9ea014-44f0-42bd-b63a-e0606ef969b1
+langcode: en
+status: true
+dependencies:
+  config:
+    - block_content.type.basic
+    - block_content.type.paragraph
+    - filter.format.full_html
+    - media.type.documents
+    - media.type.images
+    - media.type.vector_image
+    - node.type.article
+    - node.type.page
+    - node.type.portal_applications
+    - node.type.shoutouts
+    - taxonomy.vocabulary.services
+    - taxonomy.vocabulary.solutions
+    - taxonomy.vocabulary.tags
+  module:
+    - block_content
+    - file
+    - filter
+    - media
+    - node
+    - path
+    - system
+    - taxonomy
+    - toolbar
+    - webform
+id: content_administrator
+label: 'Content Administrator'
+weight: 3
+is_admin: null
+permissions:
+  - 'access administration pages'
+  - 'access any webform configuration'
+  - 'access block library'
+  - 'access content'
+  - 'access content overview'
+  - 'access files overview'
+  - 'access media overview'
+  - 'access own webform configuration'
+  - 'access site in maintenance mode'
+  - 'access taxonomy overview'
+  - 'access toolbar'
+  - 'access user profiles'
+  - 'access webform help'
+  - 'access webform overview'
+  - 'access webform submission user'
+  - 'administer block content'
+  - 'administer media'
+  - 'administer menu'
+  - 'administer nodes'
+  - 'administer users'
+  - 'administer webform element access'
+  - 'create article content'
+  - 'create basic block content'
+  - 'create documents media'
+  - 'create images media'
+  - 'create media'
+  - 'create page content'
+  - 'create paragraph block content'
+  - 'create portal_applications content'
+  - 'create shoutouts content'
+  - 'create terms in services'
+  - 'create terms in solutions'
+  - 'create terms in tags'
+  - 'create url aliases'
+  - 'create vector_image media'
+  - 'create webform'
+  - 'delete all revisions'
+  - 'delete any article content'
+  - 'delete any basic block content'
+  - 'delete any basic block content revisions'
+  - 'delete any documents media'
+  - 'delete any images media'
+  - 'delete any page content'
+  - 'delete any paragraph block content'
+  - 'delete any paragraph block content revisions'
+  - 'delete any portal_applications content'
+  - 'delete any shoutouts content'
+  - 'delete any vector_image media'
+  - 'delete article revisions'
+  - 'delete media'
+  - 'delete own article content'
+  - 'delete own documents media'
+  - 'delete own files'
+  - 'delete own images media'
+  - 'delete own page content'
+  - 'delete own portal_applications content'
+  - 'delete own shoutouts content'
+  - 'delete own vector_image media'
+  - 'delete own webform'
+  - 'delete own webform submission'
+  - 'delete page revisions'
+  - 'delete portal_applications revisions'
+  - 'delete shoutouts revisions'
+  - 'delete terms in services'
+  - 'delete terms in solutions'
+  - 'delete terms in tags'
+  - 'edit any article content'
+  - 'edit any basic block content'
+  - 'edit any documents media'
+  - 'edit any images media'
+  - 'edit any page content'
+  - 'edit any paragraph block content'
+  - 'edit any portal_applications content'
+  - 'edit any shoutouts content'
+  - 'edit any vector_image media'
+  - 'edit any webform'
+  - 'edit own article content'
+  - 'edit own documents media'
+  - 'edit own images media'
+  - 'edit own page content'
+  - 'edit own portal_applications content'
+  - 'edit own shoutouts content'
+  - 'edit own vector_image media'
+  - 'edit own webform'
+  - 'edit own webform submission'
+  - 'edit terms in services'
+  - 'edit terms in solutions'
+  - 'edit terms in tags'
+  - 'link to any page'
+  - 'revert all revisions'
+  - 'revert any basic block content revisions'
+  - 'revert any paragraph block content revisions'
+  - 'revert article revisions'
+  - 'revert page revisions'
+  - 'revert portal_applications revisions'
+  - 'revert shoutouts revisions'
+  - 'update any media'
+  - 'update media'
+  - 'use text format full_html'
+  - 'view all media revisions'
+  - 'view all revisions'
+  - 'view any basic block content history'
+  - 'view any paragraph block content history'
+  - 'view article revisions'
+  - 'view media'
+  - 'view own unpublished content'
+  - 'view own unpublished media'
+  - 'view page revisions'
+  - 'view portal_applications revisions'
+  - 'view shoutouts revisions'
+  - 'view the administration theme'

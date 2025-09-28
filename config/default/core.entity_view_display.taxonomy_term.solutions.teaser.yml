@@ -1,0 +1,62 @@
+uuid: b32c85a9-67ec-4a39-a4ac-91d9118168a9
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.taxonomy_term.teaser
+    - field.field.taxonomy_term.solutions.field_custom_conent
+    - field.field.taxonomy_term.solutions.field_link_text
+    - field.field.taxonomy_term.solutions.field_services
+    - field.field.taxonomy_term.solutions.field_services_heading
+    - field.field.taxonomy_term.solutions.field_teaser_image
+    - field.field.taxonomy_term.solutions.field_teaser_text
+    - taxonomy.vocabulary.solutions
+  module:
+    - layout_builder
+    - text
+third_party_settings:
+  layout_builder:
+    enabled: false
+    allow_custom: false
+id: taxonomy_term.solutions.teaser
+targetEntityType: taxonomy_term
+bundle: solutions
+mode: teaser
+content:
+  description:
+    type: text_default
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    weight: 0
+    region: content
+  field_link_text:
+    type: string
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 2
+    region: content
+  field_services:
+    type: entity_reference_label
+    label: hidden
+    settings:
+      link: true
+    third_party_settings: {  }
+    weight: 1
+    region: content
+  field_services_heading:
+    type: string
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 3
+    region: content
+hidden:
+  field_custom_conent: true
+  field_teaser_image: true
+  field_teaser_text: true
+  langcode: true
+  search_api_excerpt: true

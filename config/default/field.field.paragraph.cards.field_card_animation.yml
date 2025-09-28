@@ -1,0 +1,21 @@
+uuid: 9332cb0e-358c-43c1-bac9-f2ed7ca41f32
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_card_animation
+    - paragraphs.paragraphs_type.cards
+  module:
+    - options
+id: paragraph.cards.field_card_animation
+field_name: field_card_animation
+entity_type: paragraph
+bundle: cards
+label: 'Card Animation'
+description: "Choose a card animation.\r\n<ul><li>Burst: Displays cards from the center.</li></ul>"
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: list_string

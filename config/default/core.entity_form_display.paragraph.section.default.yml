@@ -1,0 +1,99 @@
+uuid: 73bf4ec8-38fc-461e-bcea-36fa43e515bd
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.section.field_content
+    - field.field.paragraph.section.field_image
+    - field.field.paragraph.section.field_parallax
+    - field.field.paragraph.section.field_section_background
+    - paragraphs.paragraphs_type.section
+  module:
+    - conditional_fields
+    - media_library
+    - paragraphs
+id: paragraph.section.default
+targetEntityType: paragraph
+bundle: section
+mode: default
+content:
+  field_content:
+    type: paragraphs
+    weight: 3
+    region: content
+    settings:
+      title: Paragraph
+      title_plural: Paragraphs
+      edit_mode: closed
+      closed_mode: summary
+      autocollapse: none
+      closed_mode_threshold: 0
+      add_mode: dropdown
+      form_display_mode: default
+      default_paragraph_type: _none
+      features:
+        add_above: '0'
+        collapse_edit_all: collapse_edit_all
+        duplicate: duplicate
+    third_party_settings: {  }
+  field_image:
+    type: media_library_widget
+    weight: 2
+    region: content
+    settings:
+      media_types: {  }
+    third_party_settings:
+      conditional_fields:
+        48ecaa86-0f68-4e94-940e-fad2b9ed1b45:
+          entity_type: paragraph
+          bundle: section
+          dependee: field_section_background
+          settings:
+            state: visible
+            reset: false
+            condition: value
+            grouping: AND
+            values_set: 1
+            value: ''
+            values: {  }
+            value_form:
+              -
+                value: section-background-image
+            effect: show
+            effect_options: {  }
+            selector: ''
+  field_parallax:
+    type: boolean_checkbox
+    weight: 1
+    region: content
+    settings:
+      display_label: true
+    third_party_settings:
+      conditional_fields:
+        1913c003-c6b9-4743-8de2-b2a4a0c73248:
+          entity_type: paragraph
+          bundle: section
+          dependee: field_section_background
+          settings:
+            state: visible
+            reset: false
+            condition: value
+            grouping: AND
+            values_set: 1
+            value: ''
+            values: {  }
+            value_form:
+              -
+                value: section-background-image
+            effect: show
+            effect_options: {  }
+            selector: ''
+  field_section_background:
+    type: options_select
+    weight: 0
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+hidden:
+  created: true
+  status: true

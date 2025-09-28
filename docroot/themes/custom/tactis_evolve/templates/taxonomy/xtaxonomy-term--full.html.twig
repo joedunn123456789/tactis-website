@@ -1,0 +1,72 @@
+{#
+/**
+ * @file
+ * Theme override to display a taxonomy term.
+ *
+ * Available variables:
+ * - url: URL of the current term.
+ * - name: (optional) Name of the current term.
+ * - content: Items for the content of the term (fields and description).
+ *   Use 'content' to print them all, or print a subset such as
+ *   'content.description'. Use the following code to exclude the
+ *   printing of a given child element:
+ *   @code
+ *   {{ content|without('description') }}
+ *   @endcode
+ * - attributes: HTML attributes for the wrapper.
+ * - page: Flag for the full page state.
+ * - term: The taxonomy term entity, including:
+ *   - id: The ID of the taxonomy term.
+ *   - bundle: Machine name of the current vocabulary.
+ * - view_mode: View mode, e.g. 'full', 'teaser', etc.
+ *
+ * @see template_preprocess_taxonomy_term()
+ */
+#}
+
+{%
+    set classes = [
+    'taxonomy-term',
+    'vocabulary-' ~ term.bundle|clean_class,
+    'container',
+]
+%}
+<div{{ attributes.setAttribute('id', 'taxonomy-term-' ~ term.id).addClass(classes) }}>
+    <div class="row border-0 border-top border-black border-opacity-25 border">
+        {% for i in 0..content.field_services['#items']|length - 1 %}
+            {% set item = content.field_services[i]['#entity'] %}
+            <div class="col-12 col-md-4 fs-2 mt-5" id="solution-{{ item.tid.value }}">{{ item.name.value }}</div>
+            <div class="col-12 col-md-8 mt-5">
+                {{ item.field_intro_text.value|raw }}
+                {% if item.description.0.value|render is not empty %}
+                <div class="collapse collapse-{{ item.tid.value }}">{{ item.description.value|raw }}</div>
+                <a href="#solution-{{ item.tid.value }}" class="collapse collapse-{{ item.tid.value }} link-tactis-primary link-underline-opacity-0 show" data-bs-toggle="collapse" data-bs-target=".collapse-{{ item.tid.value }}" aria-expanded="false" aria-controls="multiCollapseExample2">Read More <i class="bi bi-chevron-down"></i></a>
+                <a href="#solution-{{ item.tid.value }}" class="collapse collapse-{{ item.tid.value }} link-tactis-primary link-underline-opacity-0" data-bs-toggle="collapse" data-bs-target=".collapse-{{ item.tid.value }}" aria-expanded="false" aria-controls="multiCollapseExample2">Read Less <i class="bi bi-chevron-up"></i></a>
+                {% endif %}
+            </div>
+        {% endfor %}
+    </div>
+{#    <div class="title fs-2 fw-semibold me-5">#}
+{#        {{ name }}#}
+{#    </div>#}
+{#    <div class="taxonomy-content">#}
+{#        {{ content.description }}#}
+{#        <div class="text-tactis-secondary fw-semibold">#}
+{#            {{ content.field_services_heading }}#}
+{#        </div>#}
+{#        <div class="d-lg-flex flex-lg-row flex-lg-nowrap">#}
+{#            <ul class="list-unstyled mb-0 me-5">#}
+{#            {% for i in 0..content.field_services['#items']|length - 1 %}#}
+{#                {% if loop.index0 > 0 and loop.index0 is divisible by(3) %}#}
+{#                </ul>#}
+{#                <ul class="list-unstyled mb-0 me-5">#}
+{#                {% endif %}#}
+{#                <li>{{ content.field_services[i]['#title'] }}</li>#}
+{#            {% endfor %}#}
+{#            </ul>#}
+{#        </div>#}
+{#        <a href="{{ url }}" class="btn btn-tactis-primary pt-3-5 pb-3 px-3-5 fs-small fw-semibold mt-4">{{ content.field_link_text[0]['#context']['value'] }}#}
+{#            <i class="bi bi-arrow-right ms-3 fs-4 fw-semibold"></i>#}
+{#        </a>#}
+{#    </div>#}
+</div>

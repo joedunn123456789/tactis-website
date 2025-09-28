@@ -1,0 +1,39 @@
+uuid: 0c7156fd-fc30-4de1-a805-bbd24e30676d
+langcode: en
+status: true
+dependencies:
+  module:
+    - options
+    - paragraphs
+id: paragraph.field_display_size
+field_name: field_display_size
+entity_type: paragraph
+type: list_string
+settings:
+  allowed_values:
+    -
+      value: display-1
+      label: XX-Large
+    -
+      value: display-2
+      label: X-Large
+    -
+      value: display-3
+      label: Large
+    -
+      value: display-4
+      label: Medium
+    -
+      value: display-5
+      label: Small
+    -
+      value: display-6
+      label: X-Small
+  allowed_values_function: ''
+module: options
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

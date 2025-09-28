@@ -1,0 +1,8 @@
+uuid: ca9bc999-2f07-404a-807b-ab560030c575
+langcode: en
+status: true
+dependencies: {  }
+id: paragraph
+label: Paragraph
+revision: false
+description: 'Create a reusable paragraph type.'

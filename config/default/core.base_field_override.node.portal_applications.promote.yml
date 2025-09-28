@@ -1,0 +1,22 @@
+uuid: aa760e18-89cf-4ffb-9c8e-d548efcaf873
+langcode: en
+status: true
+dependencies:
+  config:
+    - node.type.portal_applications
+id: node.portal_applications.promote
+field_name: promote
+entity_type: node
+bundle: portal_applications
+label: 'Promoted to front page'
+description: ''
+required: false
+translatable: true
+default_value:
+  -
+    value: 0
+default_value_callback: ''
+settings:
+  on_label: 'On'
+  off_label: 'Off'
+field_type: boolean

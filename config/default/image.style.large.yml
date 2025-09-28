@@ -1,0 +1,15 @@
+uuid: b6488d4a-6750-4614-b0da-493751732337
+langcode: en
+status: true
+dependencies: {  }
+name: large
+label: 'Large (960px)'
+effects:
+  9a02c7ed-1b0b-49ac-9294-6464b98b83ef:
+    uuid: 9a02c7ed-1b0b-49ac-9294-6464b98b83ef
+    id: image_scale_and_crop
+    weight: 1
+    data:
+      width: 960
+      height: 350
+      anchor: center-center

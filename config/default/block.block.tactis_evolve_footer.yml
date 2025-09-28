@@ -1,0 +1,31 @@
+uuid: 23cb49b9-2afc-460a-a39e-fdbaeec8c5d3
+langcode: en
+status: true
+dependencies:
+  config:
+    - system.menu.footer
+  module:
+    - block_classes
+    - system
+  theme:
+    - tactis_evolve
+third_party_settings:
+  block_classes:
+    block_class: 'text-center text-md-start col col-md-6'
+_core:
+  default_config_hash: E3TCQRxUuz-FTRu_pFwx2boA_6_ZRjdMMChJe_O6OXQ
+id: tactis_evolve_footer
+theme: tactis_evolve
+region: footer_top
+weight: -4
+provider: null
+plugin: 'system_menu_block:footer'
+settings:
+  id: 'system_menu_block:footer'
+  label: Footer
+  label_display: '0'
+  provider: system
+  level: 1
+  depth: 0
+  expand_all_items: false
+visibility: {  }

@@ -1,0 +1,31 @@
+uuid: d8917f49-ee34-477c-b15b-3b9e10e4266c
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.taxonomy_term.card
+    - field.field.taxonomy_term.services.field_intro_text
+    - taxonomy.vocabulary.services
+  module:
+    - layout_builder
+    - text
+third_party_settings:
+  layout_builder:
+    enabled: false
+    allow_custom: false
+id: taxonomy_term.services.card
+targetEntityType: taxonomy_term
+bundle: services
+mode: card
+content:
+  description:
+    type: text_default
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    weight: 0
+    region: content
+hidden:
+  field_intro_text: true
+  langcode: true
+  search_api_excerpt: true

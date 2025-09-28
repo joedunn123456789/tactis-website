@@ -1,0 +1,11 @@
+uuid: ef778514-2f6b-4c3d-9fc5-62a5fe193400
+langcode: en
+status: true
+dependencies:
+  module:
+    - user
+id: user.hero
+label: Hero
+description: ''
+targetEntityType: user
+cache: true

@@ -1,0 +1,35 @@
+uuid: 5c5e34a5-f869-4963-a3e8-7a0e540dac5c
+langcode: en
+status: true
+dependencies:
+  config:
+    - system.menu.employee-utility-menu
+  module:
+    - system
+    - user
+  theme:
+    - tactis_evolve
+id: tactis_evolve_employeeutilitymenu
+theme: tactis_evolve
+region: footer_bottom
+weight: 0
+provider: null
+plugin: 'system_menu_block:employee-utility-menu'
+settings:
+  id: 'system_menu_block:employee-utility-menu'
+  label: 'Employee Utility Menu'
+  label_display: '0'
+  provider: system
+  level: 1
+  depth: 0
+  expand_all_items: false
+visibility:
+  user_role:
+    id: user_role
+    negate: false
+    context_mapping:
+      user: '@user.current_user_context:current_user'
+    roles:
+      authenticated: authenticated
+      administrator: administrator
+      content_administrator: content_administrator

@@ -1,0 +1,28 @@
+uuid: 8d4516a1-1919-4e65-8f26-39ce3aa4763f
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.body
+    - filter.format.full_html
+    - filter.format.plain_text
+    - node.type.article
+  module:
+    - text
+id: node.article.body
+field_name: body
+entity_type: node
+bundle: article
+label: 'Hero Text'
+description: 'This is the text we will show inside the hero. '
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  display_summary: true
+  required_summary: false
+  allowed_formats:
+    - full_html
+    - plain_text
+field_type: text_with_summary

@@ -1,0 +1,9 @@
+uuid: cc54eb1e-7318-4c16-acf1-4dc1fda139b3
+langcode: en
+status: true
+dependencies: {  }
+name: 'Portal Application Categories'
+vid: portal_application_categories
+description: 'Categories for our applications.'
+weight: 0
+new_revision: false

@@ -1,0 +1,29 @@
+uuid: b65e1b0f-31c4-4ad1-b17c-d1570019f147
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.taxonomy_term.field_services
+    - taxonomy.vocabulary.services
+    - taxonomy.vocabulary.solutions
+id: taxonomy_term.solutions.field_services
+field_name: field_services
+entity_type: taxonomy_term
+bundle: solutions
+label: Services
+description: 'Choose the services related to this solution.'
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      services: services
+    sort:
+      field: name
+      direction: asc
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

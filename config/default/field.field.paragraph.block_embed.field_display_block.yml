@@ -1,0 +1,46 @@
+uuid: d00fbacb-0b1d-4d13-a73e-29db603d44bd
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_display_block
+    - paragraphs.paragraphs_type.block_embed
+  module:
+    - block_field
+id: paragraph.block_embed.field_display_block
+field_name: field_display_block
+entity_type: paragraph
+bundle: block_embed
+label: 'Display Block'
+description: 'You can choose a block to embed in your section.  This can be a view block or a custom block.'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  selection: categories
+  selection_settings:
+    categories:
+      Block: Block
+      'Content block': 'Content block'
+      'Lists (Views)': 'Lists (Views)'
+      Webform: Webform
+      AddToAny: '0'
+      'Content block fields': '0'
+      'Content fields': '0'
+      core: '0'
+      'Custom menu link fields': '0'
+      'File fields': '0'
+      Forms: '0'
+      'Inline blocks': '0'
+      'Media fields': '0'
+      Menus: '0'
+      'Paragraph fields': '0'
+      'Purge UI': '0'
+      'SimpleSAMLphp Authentication': '0'
+      System: '0'
+      'Taxonomy term fields': '0'
+      'URL alias fields': '0'
+      'User fields': '0'
+      'Webform submission fields': '0'
+field_type: block_field

@@ -1,0 +1,19 @@
+uuid: a0fa91cf-ec7f-4994-8e54-d89419fcaf4f
+langcode: en
+status: true
+dependencies:
+  module:
+    - json_field
+    - media
+id: media.field_media_json
+field_name: field_media_json
+entity_type: media
+type: json_native
+settings: {  }
+module: json_field
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

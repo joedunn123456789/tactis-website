@@ -1,0 +1,113 @@
+uuid: 4049292e-fbe2-4416-8d3a-318b6b9f3fde
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.user.full
+    - field.field.user.user.field_first_name
+    - field.field.user.user.field_last_name
+    - field.field.user.user.field_leadership_team_member
+    - field.field.user.user.field_position_title
+    - field.field.user.user.field_profile_picture
+    - field.field.user.user.field_social_networks
+    - field.field.user.user.field_vpn_configuration
+    - field.field.user.user.field_vpn_qr_code
+    - views.view.applications
+    - views.view.vpn_setup
+  module:
+    - layout_builder
+    - layout_discovery
+    - user
+    - views
+third_party_settings:
+  layout_builder:
+    enabled: true
+    allow_custom: false
+    sections:
+      -
+        layout_id: layout_onecol
+        layout_settings:
+          label: 'Section 1'
+          context_mapping: {  }
+          layout_builder_styles_style:
+            light_section: light_section
+            dark_section: 0
+        components:
+          8748d833-d68a-406c-a449-2eeda0b25034:
+            uuid: 8748d833-d68a-406c-a449-2eeda0b25034
+            region: content
+            configuration:
+              id: 'views_block:applications-block_1'
+              label: ''
+              label_display: visible
+              provider: views
+              context_mapping: {  }
+              views_label: ''
+              items_per_page: none
+            weight: 0
+            additional:
+              layout_builder_styles_style:
+                contain_and_center: 0
+          4ff77915-c5bc-454f-86c5-b1d9ad960364:
+            uuid: 4ff77915-c5bc-454f-86c5-b1d9ad960364
+            region: content
+            configuration:
+              id: 'views_block:applications-block_2'
+              label: ''
+              label_display: visible
+              provider: views
+              context_mapping: {  }
+              views_label: ''
+              items_per_page: none
+            weight: 1
+            additional:
+              layout_builder_styles_style:
+                contain_and_center: 0
+        third_party_settings: {  }
+      -
+        layout_id: layout_onecol
+        layout_settings:
+          label: ''
+          context_mapping: {  }
+          layout_builder_styles_style:
+            light_section: light_section
+            dark_section: 0
+        components:
+          40ce2d70-8e97-42e5-bf48-a973b73adfee:
+            uuid: 40ce2d70-8e97-42e5-bf48-a973b73adfee
+            region: content
+            configuration:
+              id: 'views_block:vpn_setup-vpn_setup_block'
+              label: ''
+              label_display: visible
+              provider: views
+              context_mapping: {  }
+              views_label: ''
+              items_per_page: none
+            weight: 0
+            additional:
+              layout_builder_styles_style:
+                contain_and_center: 0
+                text_left_justify: 0
+        third_party_settings: {  }
+id: user.user.full
+targetEntityType: user
+bundle: user
+mode: full
+content:
+  member_for:
+    settings: {  }
+    third_party_settings: {  }
+    weight: 5
+    region: content
+hidden:
+  field_first_name: true
+  field_last_name: true
+  field_leadership_team_member: true
+  field_position_title: true
+  field_profile_picture: true
+  field_social_networks: true
+  field_vpn_configuration: true
+  field_vpn_qr_code: true
+  langcode: true
+  search_api_excerpt: true

@@ -1,0 +1,62 @@
+uuid: c663842c-bd8f-4759-b09f-84098b818df9
+langcode: en
+status: true
+dependencies:
+  config:
+    - filter.format.full_html
+  module:
+    - ckeditor5
+format: full_html
+editor: ckeditor5
+settings:
+  toolbar:
+    items:
+      - bold
+      - italic
+      - '|'
+      - heading
+      - '|'
+      - bulletedList
+      - numberedList
+      - alignment
+      - '|'
+      - link
+      - removeFormat
+      - drupalMedia
+      - '|'
+      - sourceEditing
+      - openai
+  plugins:
+    ckeditor5_alignment:
+      enabled_alignments:
+        - center
+        - justify
+        - left
+        - right
+    ckeditor5_heading:
+      enabled_headings:
+        - heading2
+        - heading3
+        - heading4
+        - heading5
+        - heading6
+    ckeditor5_list:
+      properties:
+        reversed: true
+        startIndex: true
+      multiBlock: true
+    ckeditor5_sourceEditing:
+      allowed_tags:
+        - '<div class>'
+        - '<a title id class href target rel>'
+        - '<iframe src width height class>'
+    media_media:
+      allow_view_mode_override: true
+    openai_ckeditor_openai:
+      completion:
+        enabled: true
+        model: gpt-3.5-turbo
+        temperature: 0.2
+        max_tokens: 512
+image_upload:
+  status: false

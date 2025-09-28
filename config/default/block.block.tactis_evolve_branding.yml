@@ -1,0 +1,25 @@
+uuid: 96053ed0-90de-42dc-bf14-b66b459f9bfc
+langcode: en
+status: true
+dependencies:
+  module:
+    - system
+  theme:
+    - tactis_evolve
+_core:
+  default_config_hash: HMFnkYVMugKEQyYL0miBCwKq3sANLPYheI2s0PoRzo0
+id: tactis_evolve_branding
+theme: tactis_evolve
+region: header
+weight: -6
+provider: null
+plugin: system_branding_block
+settings:
+  id: system_branding_block
+  label: 'Site branding'
+  label_display: '0'
+  provider: system
+  use_site_logo: true
+  use_site_name: true
+  use_site_slogan: false
+visibility: {  }

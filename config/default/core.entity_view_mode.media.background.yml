@@ -1,0 +1,11 @@
+uuid: 51c31a09-bbed-4d41-96bc-48756b16c7c2
+langcode: en
+status: true
+dependencies:
+  module:
+    - media
+id: media.background
+label: Background
+description: ''
+targetEntityType: media
+cache: true

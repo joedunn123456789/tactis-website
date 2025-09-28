@@ -1,0 +1,15 @@
+uuid: 95611015-94d6-4f73-895b-d5e3c321bcd8
+langcode: en
+status: true
+dependencies: {  }
+name: background_small
+label: 'Background Small (720x532)'
+effects:
+  a78a647e-b2c6-4887-bf8e-fd70c789bf69:
+    uuid: a78a647e-b2c6-4887-bf8e-fd70c789bf69
+    id: image_scale_and_crop
+    weight: 1
+    data:
+      width: 720
+      height: 532
+      anchor: center-center

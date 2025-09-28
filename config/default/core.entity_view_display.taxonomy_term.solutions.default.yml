@@ -1,0 +1,79 @@
+uuid: 135cd269-7624-4ffa-be8a-49b70286cb54
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.taxonomy_term.solutions.field_custom_conent
+    - field.field.taxonomy_term.solutions.field_link_text
+    - field.field.taxonomy_term.solutions.field_services
+    - field.field.taxonomy_term.solutions.field_services_heading
+    - field.field.taxonomy_term.solutions.field_teaser_image
+    - field.field.taxonomy_term.solutions.field_teaser_text
+    - taxonomy.vocabulary.solutions
+  module:
+    - entity_reference_revisions
+    - text
+id: taxonomy_term.solutions.default
+targetEntityType: taxonomy_term
+bundle: solutions
+mode: default
+content:
+  description:
+    type: text_default
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    weight: 0
+    region: content
+  field_custom_conent:
+    type: entity_reference_revisions_entity_view
+    label: above
+    settings:
+      view_mode: default
+      link: ''
+    third_party_settings: {  }
+    weight: 4
+    region: content
+  field_link_text:
+    type: string
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 2
+    region: content
+  field_services:
+    type: entity_reference_label
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    weight: 1
+    region: content
+  field_services_heading:
+    type: string
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 3
+    region: content
+  field_teaser_image:
+    type: entity_reference_entity_view
+    label: above
+    settings:
+      view_mode: default
+      link: false
+    third_party_settings: {  }
+    weight: 5
+    region: content
+  field_teaser_text:
+    type: basic_string
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    weight: 6
+    region: content
+hidden:
+  langcode: true
+  search_api_excerpt: true

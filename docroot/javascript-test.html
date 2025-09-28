@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>HTML noscript Tag</title>
+</head>
+
+<body>
+<div style="position: relative; height: 10000px;">
+    <div style="position: fixed; top: 0;">
+        <p>Scroll Position: <span class="mypos"></span></p>
+    </div>
+</div>
+<script>
+  <!--
+
+  window.addEventListener('scroll', function(e){
+    let myspan = document.getElementsByClassName('mypos')[0];
+
+    let bodyScrollTop =
+        window.pageYOffset ||
+        document.documentElement.scrollTop ||
+        document.body.scrollTop || 0;
+
+    myspan.innerHTML = bodyScrollTop;
+
+  });
+  -->
+</script>
+<noscript>
+    Your browser does not support JavaScript!
+</noscript>
+</body>
+</html>

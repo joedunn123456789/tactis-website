@@ -1,0 +1,10 @@
+uuid: c11f8a45-b627-416e-b46d-b555d24a3a14
+langcode: en
+status: true
+dependencies: {  }
+id: tactis
+label: tactis
+description: ''
+source_type: null
+module: null
+shared_configuration: null

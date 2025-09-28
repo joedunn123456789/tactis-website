@@ -1,0 +1,10 @@
+uuid: 7610b187-d936-4ff6-b683-7feaf475bdb0
+langcode: en
+status: true
+dependencies: {  }
+id: hero_options
+label: 'Hero Options'
+multiselect: multiple
+form_type: checkboxes
+required: false
+weight: 0

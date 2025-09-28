@@ -1,0 +1,50 @@
+uuid: 1f10ff08-5b71-4b36-9e8c-9f771bc3cbbc
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.action.field_icon_class
+    - field.field.paragraph.action.field_location
+    - field.field.paragraph.action.field_rich_text
+    - field.field.paragraph.action.field_title
+    - paragraphs.paragraphs_type.action
+  module:
+    - options
+    - text
+id: paragraph.action.default
+targetEntityType: paragraph
+bundle: action
+mode: default
+content:
+  field_icon_class:
+    type: string
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 2
+    region: content
+  field_location:
+    type: list_key
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    weight: 3
+    region: content
+  field_rich_text:
+    type: text_default
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    weight: 1
+    region: content
+  field_title:
+    type: string
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 0
+    region: content
+hidden:
+  search_api_excerpt: true

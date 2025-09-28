@@ -1,0 +1,55 @@
+image: drupal:10.3-php8.3
+clone:
+  depth: full
+pipelines:
+  branches:
+    develop:
+      - step:
+          script:
+            - scripts/ci/build.sh
+            - scripts/ci/test.sh
+            - scripts/ci/deploy.sh
+          services:
+            - docker
+            - mysql
+          caches:
+            - docker
+            - node
+            - composer
+    release/*:
+      - step:
+          script:
+            - scripts/ci/build.sh
+            - scripts/ci/test.sh
+            - scripts/ci/deploy.sh
+          services:
+            - docker
+            - mysql
+          caches:
+            - docker
+            - node
+            - composer
+  tags:
+    tags/*:
+      - step:
+          name: "Tag deployment"
+          script:
+            - scripts/ci/build.sh
+            - scripts/ci/test.sh
+            - scripts/ci/deploy.sh
+          services:
+            - docker
+            - mysql
+          caches:
+            - docker
+            - node
+            - composer
+definitions:
+  services:
+    mysql:
+      image: mysql:5.7
+      environment:
+        MYSQL_DATABASE: 'drupal'
+        MYSQL_USER: 'drupal'
+        MYSQL_ROOT_PASSWORD: 'root'
+        MYSQL_PASSWORD: 'drupal'

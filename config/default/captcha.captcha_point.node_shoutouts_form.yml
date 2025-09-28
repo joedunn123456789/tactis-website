@@ -1,0 +1,7 @@
+uuid: 886e87a5-0254-4dd5-989e-dbf0fe5a3565
+langcode: en
+status: false
+dependencies: {  }
+formId: node_shoutouts_form
+captchaType: default
+label: node_shoutouts_form

@@ -1,0 +1,30 @@
+uuid: 34a784bf-0d9b-48f4-9acc-6505ae9c3e75
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.user.field_profile_picture
+    - media.type.images
+  module:
+    - user
+id: user.user.field_profile_picture
+field_name: field_profile_picture
+entity_type: user
+bundle: user
+label: 'Profile Picture'
+description: 'Your Profile Pic.'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:media'
+  handler_settings:
+    target_bundles:
+      images: images
+    sort:
+      field: created
+      direction: DESC
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

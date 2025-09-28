@@ -1,0 +1,25 @@
+uuid: 83f59b9c-ec65-4769-a224-8d013dec3613
+langcode: en
+status: true
+dependencies:
+  config:
+    - system.menu.let-s-connect
+  module:
+    - system
+  theme:
+    - tactis_evolve
+id: tactis_evolve_letsconnect
+theme: tactis_evolve
+region: navigation
+weight: -5
+provider: null
+plugin: 'system_menu_block:let-s-connect'
+settings:
+  id: 'system_menu_block:let-s-connect'
+  label: "Let's Connect"
+  label_display: visible
+  provider: system
+  level: 1
+  depth: 0
+  expand_all_items: false
+visibility: {  }

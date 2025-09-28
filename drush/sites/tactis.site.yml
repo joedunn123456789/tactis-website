@@ -1,0 +1,48 @@
+# Application 'tactis', environment 'dev'.
+dev:
+  root: /var/www/html/tactis.dev/docroot
+  ac-site: tactis
+  ac-env: dev
+  ac-realm: devcloud
+  uri: tactisjcvzqmgtbx.devcloud.acquia-sites.com
+  dev.livedev:
+    parent: '@tactis.dev'
+    root: /mnt/gfs/tactis.dev/livedev/docroot
+  host: tactisjcvzqmgtbx.ssh.devcloud.acquia-sites.com
+  user: tactis.dev
+  paths:
+    drush-script: /var/www/html/tactis.dev/vendor/bin/drush
+
+
+# Application 'tactis', environment 'prod'.
+prod:
+  root: /var/www/html/tactis.prod/docroot
+  ac-site: tactis
+  ac-env: prod
+  ac-realm: devcloud
+  uri: tactist6tm4hx2zk.devcloud.acquia-sites.com
+  prod.livedev:
+    parent: '@tactis.prod'
+    root: /mnt/gfs/tactis.prod/livedev/docroot
+  host: tactist6tm4hx2zk.ssh.devcloud.acquia-sites.com
+  user: tactis.prod
+  paths:
+    drush-script: /var/www/html/tactis.prod/vendor/bin/drush
+
+
+# Application 'tactis', environment 'test'.
+test:
+  root: /var/www/html/tactis.test/docroot
+  ac-site: tactis
+  ac-env: test
+  ac-realm: devcloud
+  uri: tactisnhoy3ntdmy.devcloud.acquia-sites.com
+  test.livedev:
+    parent: '@tactis.test'
+    root: /mnt/gfs/tactis.test/livedev/docroot
+  host: tactisnhoy3ntdmy.ssh.devcloud.acquia-sites.com
+  user: tactis.test
+  paths:
+    drush-script: /var/www/html/tactis.test/vendor/bin/drush
+
+

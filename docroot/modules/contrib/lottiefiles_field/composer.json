@@ -1,0 +1,19 @@
+{
+    "name": "drupal/lottiefiles_field",
+    "description": "Drupal field for lottie animation.",
+    "type": "drupal-module",
+    "homepage": "http://drupal.org/project/lottiefiles_field",
+    "license": "GPL-2.0-or-later",
+    "authors": [
+        {
+            "name": "Hari Venu",
+            "email": "harivenu.v1992@gmail.com",
+            "homepage": "https://www.drupal.org/u/harivenuv",
+            "role": "Maintainer"
+        }
+    ],
+    "minimum-stability": "stable",
+    "require": {
+        "drupal/core": "^8.8.0 || ^9.0  || ^10 || ^11"
+    }
+}

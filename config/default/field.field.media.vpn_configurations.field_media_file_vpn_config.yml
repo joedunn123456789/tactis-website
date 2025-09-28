@@ -1,0 +1,27 @@
+uuid: 014c1330-df73-4be7-b06d-dd690811923f
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.media.field_media_file_vpn_config
+    - media.type.vpn_configurations
+  module:
+    - file
+id: media.vpn_configurations.field_media_file_vpn_config
+field_name: field_media_file_vpn_config
+entity_type: media
+bundle: vpn_configurations
+label: 'WireGuard Configuration'
+description: ''
+required: true
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:file'
+  handler_settings: {  }
+  file_directory: vpn-configuration
+  file_extensions: conf
+  max_filesize: ''
+  description_field: false
+field_type: file

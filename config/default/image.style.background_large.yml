@@ -1,0 +1,19 @@
+uuid: c880761c-4272-43c3-b8d6-d08303b88e6d
+langcode: en
+status: true
+dependencies:
+  module:
+    - image_effects
+name: background_large
+label: 'Background Large (1140x842)'
+effects:
+  9b8d4490-91a9-4534-b1dd-99be8fb39bdd:
+    uuid: 9b8d4490-91a9-4534-b1dd-99be8fb39bdd
+    id: image_effects_scale_and_smart_crop
+    weight: 1
+    data:
+      width: '1140'
+      height: '842'
+      upscale: false
+      simulate: false
+      algorithm: entropy_slice

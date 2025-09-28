@@ -1,0 +1,12 @@
+uuid: 5973db55-f843-43b3-80f3-041fa23a272c
+langcode: en
+status: true
+dependencies: {  }
+id: text_left_justify
+label: 'Text Left Justify'
+classes: text-end
+type: component
+group: default
+block_restrictions: {  }
+layout_restrictions: {  }
+weight: 0

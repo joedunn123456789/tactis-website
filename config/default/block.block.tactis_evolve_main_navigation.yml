@@ -1,0 +1,27 @@
+uuid: cef0dba4-0a60-4cdd-800a-b5ca4fa2b10d
+langcode: en
+status: true
+dependencies:
+  config:
+    - system.menu.main
+  module:
+    - system
+  theme:
+    - tactis_evolve
+_core:
+  default_config_hash: zpemS2-VK3jjGhXD76Q4erbPYm3rSKSiYj6gKnPXYeo
+id: tactis_evolve_main_navigation
+theme: tactis_evolve
+region: navigation
+weight: -7
+provider: null
+plugin: 'system_menu_block:main'
+settings:
+  id: 'system_menu_block:main'
+  label: 'Main navigation'
+  label_display: '0'
+  provider: system
+  level: 1
+  depth: 0
+  expand_all_items: true
+visibility: {  }

@@ -1,0 +1,23 @@
+uuid: c1d0aa18-22d9-46a3-bb28-4ef04008813f
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_display_size
+    - paragraphs.paragraphs_type.cards
+  module:
+    - options
+id: paragraph.cards.field_display_size
+field_name: field_display_size
+entity_type: paragraph
+bundle: cards
+label: 'Title Size'
+description: "This will set the title of all your cards.<br>\r\nThis uses <a href=\"https://getbootstrap.com/docs/5.3/content/typography/#display-headings\" target=\"_blank\">Bootstrap Display Classes</a> from 1 (XX-Large) to 6 (X-Small). "
+required: false
+translatable: false
+default_value:
+  -
+    value: display-5
+default_value_callback: ''
+settings: {  }
+field_type: list_string

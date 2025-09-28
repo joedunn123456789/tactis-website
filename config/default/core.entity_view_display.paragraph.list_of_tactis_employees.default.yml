@@ -1,0 +1,56 @@
+uuid: 08b6d12f-73b0-428a-874c-683c6291a877
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.list_of_tactis_employees.field_link
+    - field.field.paragraph.list_of_tactis_employees.field_rich_text
+    - field.field.paragraph.list_of_tactis_employees.field_tactis_employees
+    - field.field.paragraph.list_of_tactis_employees.field_title
+    - paragraphs.paragraphs_type.list_of_tactis_employees
+  module:
+    - link
+    - text
+id: paragraph.list_of_tactis_employees.default
+targetEntityType: paragraph
+bundle: list_of_tactis_employees
+mode: default
+content:
+  field_link:
+    type: link
+    label: hidden
+    settings:
+      trim_length: 80
+      url_only: false
+      url_plain: false
+      rel: ''
+      target: ''
+    third_party_settings: {  }
+    weight: 3
+    region: content
+  field_rich_text:
+    type: text_default
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    weight: 1
+    region: content
+  field_tactis_employees:
+    type: entity_reference_entity_view
+    label: hidden
+    settings:
+      view_mode: card
+      link: false
+    third_party_settings: {  }
+    weight: 2
+    region: content
+  field_title:
+    type: string
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 0
+    region: content
+hidden:
+  search_api_excerpt: true

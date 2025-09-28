@@ -1,0 +1,32 @@
+uuid: 6e0c77ca-366f-47fc-829b-d5beb3da69fa
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.media.media_library
+    - field.field.media.lottiefiles.field_media_lottiefile
+    - image.style.medium
+    - media.type.lottiefiles
+  module:
+    - image
+id: media.lottiefiles.media_library
+targetEntityType: media
+bundle: lottiefiles
+mode: media_library
+content:
+  thumbnail:
+    type: image
+    label: hidden
+    settings:
+      image_link: ''
+      image_style: medium
+      image_loading:
+        attribute: lazy
+    third_party_settings: {  }
+    weight: 0
+    region: content
+hidden:
+  created: true
+  field_media_lottiefile: true
+  name: true
+  uid: true

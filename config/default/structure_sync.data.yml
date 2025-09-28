@@ -1,0 +1,924 @@
+blocks:
+  -
+    info: 'Search Hero'
+    langcode: en
+    uuid: 9e9998b3-ceb4-419a-9ae4-63e0b95fd235
+    bundle: basic
+    revision_id: null
+    rev_id_current: null
+    fields:
+      body:
+        -
+          value: '<div class="hero-block container contextual-region view view-hero view-id-hero view-display-id-hero_block"><div class="view-content"><div class="row views-row"><div class="contextual-region node node--type-page node--view-mode-hero hero-dark hero-title d-flex flex-column justify-content-end"><div class="title-text mt-5 mt-md-0"><div class="field field--name-title field--type-string field--label-hidden display-4 fw-bold text-lowercase">Search.</div><div class="clearfix text-formatted field field--name-body field--type-text-with-summary field--label-hidden field__item"><p>Enter your search below.</p></div></div></div></div></div></div>'
+          summary: ''
+          format: full_html
+  -
+    info: 'Careers Board iFrame'
+    langcode: en
+    uuid: 38eac19a-3a57-4c17-a57e-cc18eed514db
+    bundle: paragraph
+    revision_id: null
+    rev_id_current: null
+    fields:
+      field_paragraph:
+        -
+          target_id: '1126'
+          target_revision_id: '4826'
+  -
+    info: 'Tactis Address (For Light Background)'
+    langcode: en
+    uuid: f10e7c5a-63df-40be-998b-6d1d025e9e66
+    bundle: basic
+    revision_id: null
+    rev_id_current: null
+    fields:
+      body:
+        -
+          value: '<p><strong>Tactis, LLC</strong><br><a class="link-tactis-primary" href="tel:8778612583">877.861.2583</a><br>P.O. Box 96503<br>PMB 28783<br>Washington, DC 20090-6503<br><a class="link-tactis-primary" href="https://www.google.com/maps/place/2030+8th+St+NW,+Washington,+DC+20001/@38.9174915,-77.0258017,17z/data=!3m1!4b1!4m6!3m5!1s0x89b7b7e521b149b3:0x8e6803e390eda719!8m2!3d38.9174915!4d-77.0232268!16s%2Fg%2F11cs8wj4b1?entry=ttu">Directions</a></p>'
+          summary: ''
+          format: full_html
+  -
+    info: 'GSA Schedule'
+    langcode: en
+    uuid: 5ecb9c9c-7926-4f11-a12b-9364a0a0aa1f
+    bundle: paragraph
+    revision_id: null
+    rev_id_current: null
+    fields:
+      field_paragraph:
+        -
+          target_id: '1101'
+          target_revision_id: '4396'
+  -
+    info: 'Award Icons'
+    langcode: en
+    uuid: 0441a8d3-e74c-4abc-9149-1394a703f98f
+    bundle: paragraph
+    revision_id: null
+    rev_id_current: null
+    fields:
+      field_paragraph:
+        -
+          target_id: '1006'
+          target_revision_id: '3601'
+  -
+    info: 'Government Icons'
+    langcode: en
+    uuid: 9ae09887-a462-41e4-81e0-16946d8c6474
+    bundle: paragraph
+    revision_id: null
+    rev_id_current: null
+    fields:
+      field_paragraph:
+        -
+          target_id: '996'
+          target_revision_id: '3551'
+  -
+    info: 'Screen Size Widget'
+    langcode: en
+    uuid: c1c3ce8d-9c47-4ac4-9e46-2697ccfcb2c6
+    bundle: basic
+    revision_id: null
+    rev_id_current: null
+    fields:
+      body:
+        -
+          value: '<div class="d-none d-xxl-block">XX-Large</div><div class="d-none d-xl-block d-xxl-none">X-Large</div><div class="d-none d-lg-block d-xl-none">Large</div><div class="d-none d-md-block d-lg-none">Medium</div><div class="d-none d-sm-block d-md-none">Small</div><div class="d-sm-none">X-Small</div>'
+          summary: ''
+          format: full_html
+  -
+    info: 'Copyright Statement'
+    langcode: en
+    uuid: 003c7f04-b786-4c57-a710-d9497a412694
+    bundle: basic
+    revision_id: null
+    rev_id_current: null
+    fields:
+      body:
+        -
+          value: '<p>Tactis. All Rights Reserved.</p>'
+          summary: ''
+          format: full_html
+  -
+    info: 'Tactis Address (For Dark Background)'
+    langcode: en
+    uuid: a5f657fc-411f-4cae-a2cc-839e47b47257
+    bundle: basic
+    revision_id: null
+    rev_id_current: null
+    fields:
+      body:
+        -
+          value: '<p><strong>Tactis, LLC</strong><br><a class="link-light" href="tel:8778612583">877.861.2583</a><br>P.O. Box 96503<br>PMB 28783<br>Washington, DC 20090-6503<br><a class="link-light" href="https://www.google.com/maps/place/2030+8th+St+NW,+Washington,+DC+20001/@38.9174915,-77.0258017,17z/data=!3m1!4b1!4m6!3m5!1s0x89b7b7e521b149b3:0x8e6803e390eda719!8m2!3d38.9174915!4d-77.0232268!16s%2Fg%2F11cs8wj4b1?entry=ttu">Directions</a></p>'
+          summary: ''
+          format: full_html
+menus:
+  -
+    menu_name: employee-utility-menu
+    title: 'Employee Dashboard'
+    parent: null
+    uri: 'internal:/user'
+    link_title: ''
+    description: null
+    enabled: true
+    expanded: false
+    weight: 0
+    langcode: en
+    uuid: 16283642-38ff-4dc3-81bf-a8634c9f7b62
+    options: {  }
+  -
+    menu_name: let-s-connect
+    title: LinkedIn
+    parent: null
+    uri: 'https://www.linkedin.com/company/tactisllc'
+    link_title: ''
+    description: null
+    enabled: true
+    expanded: false
+    weight: -50
+    langcode: en
+    uuid: 4cf1b7f5-56fd-4f4e-b702-1beda88f3656
+    options: {  }
+  -
+    menu_name: let-s-connect
+    title: Twitter
+    parent: null
+    uri: 'https://twitter.com/tactis_llc'
+    link_title: ''
+    description: null
+    enabled: true
+    expanded: false
+    weight: -49
+    langcode: en
+    uuid: d9cacd07-afff-4c19-b916-29b86d59acb6
+    options: {  }
+  -
+    menu_name: let-s-connect
+    title: Facebook
+    parent: null
+    uri: 'https://www.facebook.com/tactistalent/'
+    link_title: ''
+    description: null
+    enabled: true
+    expanded: false
+    weight: -48
+    langcode: en
+    uuid: 04273b16-f708-448f-8d77-ecac62b48cb6
+    options: {  }
+  -
+    menu_name: utility
+    title: 'Privacy Policy'
+    parent: null
+    uri: 'internal:#'
+    link_title: ''
+    description: null
+    enabled: true
+    expanded: false
+    weight: -50
+    langcode: en
+    uuid: 037a8c9f-6a12-4197-9d71-df11d63f58c8
+    options: {  }
+  -
+    menu_name: utility
+    title: 'Employee Login'
+    parent: null
+    uri: 'internal:/saml_login/?ReturnTo=/user'
+    link_title: ''
+    description: null
+    enabled: true
+    expanded: false
+    weight: -49
+    langcode: en
+    uuid: f82f99e2-8805-4cb9-ad1b-1d2d94cf7241
+    options: {  }
+  -
+    menu_name: footer
+    title: LinkedIn
+    parent: null
+    uri: 'https://www.linkedin.com/company/tactisllc'
+    link_title: ''
+    description: null
+    enabled: true
+    expanded: false
+    weight: -50
+    langcode: en
+    uuid: 769e7b63-6005-431d-9233-8ba47017cee7
+    options: {  }
+  -
+    menu_name: footer
+    title: Twitter
+    parent: null
+    uri: 'https://twitter.com/tactis_llc'
+    link_title: ''
+    description: null
+    enabled: true
+    expanded: false
+    weight: -49
+    langcode: en
+    uuid: 7646342f-2ce8-41e1-bfa4-414c038bbb04
+    options: {  }
+  -
+    menu_name: footer
+    title: Facebook
+    parent: null
+    uri: 'https://www.facebook.com/tactistalent/'
+    link_title: ''
+    description: null
+    enabled: true
+    expanded: false
+    weight: -48
+    langcode: en
+    uuid: eb1a802c-1ec9-4c67-a1b5-5e7cc2959eb5
+    options: {  }
+  -
+    menu_name: footer
+    title: Solutions
+    parent: null
+    uri: 'internal:/node/361'
+    link_title: ''
+    description: null
+    enabled: true
+    expanded: false
+    weight: -47
+    langcode: en
+    uuid: 170fbc3d-33fa-487d-a93e-e9f431ea7da3
+    options: {  }
+  -
+    menu_name: footer
+    title: 'About Us'
+    parent: null
+    uri: 'internal:/node/356'
+    link_title: ''
+    description: null
+    enabled: true
+    expanded: false
+    weight: -46
+    langcode: en
+    uuid: d2dc77c2-c481-45e7-9507-399fe7dd656f
+    options: {  }
+  -
+    menu_name: footer
+    title: 'Our Work'
+    parent: null
+    uri: 'internal:/node/351'
+    link_title: ''
+    description: null
+    enabled: true
+    expanded: false
+    weight: -45
+    langcode: en
+    uuid: 2dd829d1-148e-40d3-ae7f-e199a8d6b9c8
+    options: {  }
+  -
+    menu_name: footer
+    title: Articles
+    parent: null
+    uri: 'internal:/node/341'
+    link_title: ''
+    description: null
+    enabled: true
+    expanded: false
+    weight: -44
+    langcode: en
+    uuid: c67771e0-0473-416e-9012-cb205ba21b09
+    options: {  }
+  -
+    menu_name: footer
+    title: Careers
+    parent: null
+    uri: 'internal:/node/346'
+    link_title: ''
+    description: null
+    enabled: true
+    expanded: false
+    weight: -43
+    langcode: en
+    uuid: 1bd4fae8-7feb-4cdc-b6fb-9f97bfcbc1e6
+    options: {  }
+  -
+    menu_name: footer
+    title: Contact
+    parent: null
+    uri: 'internal:/node/366'
+    link_title: ''
+    description: null
+    enabled: true
+    expanded: false
+    weight: -42
+    langcode: en
+    uuid: 50420f8f-4969-4686-acc8-ed0e29fbbc86
+    options: {  }
+  -
+    menu_name: main
+    title: Solutions
+    parent: null
+    uri: 'internal:/node/361'
+    link_title: ''
+    description: null
+    enabled: true
+    expanded: false
+    weight: -50
+    langcode: en
+    uuid: 3dd2a7f6-40d7-4af7-b820-4417ff1b4e1b
+    options: {  }
+  -
+    menu_name: main
+    title: 'Our Work'
+    parent: null
+    uri: 'internal:/node/351'
+    link_title: ''
+    description: null
+    enabled: true
+    expanded: false
+    weight: -49
+    langcode: en
+    uuid: 7ea8f9ff-dd26-44a4-9020-11907e11cb92
+    options: {  }
+  -
+    menu_name: main
+    title: 'About Us'
+    parent: null
+    uri: 'internal:/node/356'
+    link_title: ''
+    description: null
+    enabled: true
+    expanded: false
+    weight: -48
+    langcode: en
+    uuid: 9ae784f6-2918-4eb7-bf80-4ba2566c5f14
+    options: {  }
+  -
+    menu_name: main
+    title: Articles
+    parent: null
+    uri: 'internal:/node/341'
+    link_title: ''
+    description: null
+    enabled: true
+    expanded: false
+    weight: -47
+    langcode: en
+    uuid: 0878ea80-c1d2-4ff4-9ad3-31fead520deb
+    options: {  }
+  -
+    menu_name: main
+    title: Careers
+    parent: null
+    uri: 'internal:/node/346'
+    link_title: ''
+    description: null
+    enabled: true
+    expanded: false
+    weight: -46
+    langcode: en
+    uuid: 0da9a463-541c-4c2f-9ff0-740d009a1603
+    options: {  }
+  -
+    menu_name: main
+    title: Contact
+    parent: null
+    uri: 'internal:/node/366'
+    link_title: ''
+    description: null
+    enabled: true
+    expanded: false
+    weight: -45
+    langcode: en
+    uuid: 2d54ad1b-b697-4f7d-9cb1-d44a9b03ae6e
+    options: {  }
+  -
+    menu_name: main
+    title: Careers
+    parent: null
+    uri: 'entity:node/346'
+    link_title: null
+    description: null
+    enabled: false
+    expanded: false
+    weight: 0
+    langcode: en
+    uuid: a1392d6a-4f2f-4ba8-8063-96046bedd9d5
+    options: {  }
+  -
+    menu_name: main
+    title: 'Our Work'
+    parent: null
+    uri: 'entity:node/351'
+    link_title: null
+    description: null
+    enabled: false
+    expanded: false
+    weight: 0
+    langcode: en
+    uuid: e24f1874-eabc-4e42-b962-a3cbe7c5915a
+    options: {  }
+  -
+    menu_name: main
+    title: 'About Us'
+    parent: null
+    uri: 'entity:node/356'
+    link_title: null
+    description: null
+    enabled: false
+    expanded: false
+    weight: 0
+    langcode: en
+    uuid: c29750e8-969f-415c-85e0-44282f0f9c55
+    options: {  }
+taxonomies:
+  article_type:
+    -
+      vid: article_type
+      tid: '1'
+      langcode: en
+      name: Blog
+      description__value: null
+      description__format: null
+      weight: '0'
+      parent: '0'
+      uuid: 6fc0520f-81cb-4a89-b573-772c4103a66d
+    -
+      vid: article_type
+      tid: '2'
+      langcode: en
+      name: 'Case Study'
+      description__value: null
+      description__format: null
+      weight: '0'
+      parent: '0'
+      uuid: 4d99c751-2300-45a6-a979-89de1c06e766
+    -
+      vid: article_type
+      tid: '3'
+      langcode: en
+      name: 'Employee Profile'
+      description__value: null
+      description__format: null
+      weight: '0'
+      parent: '0'
+      uuid: 5d6d30bc-f93a-4d3e-a647-c4b340e9805b
+    -
+      vid: article_type
+      tid: '5'
+      langcode: en
+      name: Newsletter
+      description__value: null
+      description__format: null
+      weight: '0'
+      parent: '0'
+      uuid: e0fbb925-cfd3-45e1-ba13-ec8b9d627ae0
+    -
+      vid: article_type
+      tid: '4'
+      langcode: en
+      name: 'Press Release'
+      description__value: null
+      description__format: null
+      weight: '0'
+      parent: '0'
+      uuid: bdcbe506-fd8f-4fe1-907b-caf575fbab5e
+  portal_application_categories:
+    -
+      vid: portal_application_categories
+      tid: '21'
+      langcode: en
+      name: 'Corporate Tools & Training'
+      description__value: null
+      description__format: null
+      weight: '0'
+      parent: '0'
+      uuid: e93b058c-21b5-4199-87ab-ff3f7159071e
+    -
+      vid: portal_application_categories
+      tid: '20'
+      langcode: en
+      name: 'Timekeeping, Human Capital, and Benefits'
+      description__value: null
+      description__format: null
+      weight: '0'
+      parent: '0'
+      uuid: 9bc0b8bd-f31d-4ebb-87b4-50b557774b88
+  services:
+    -
+      vid: services
+      tid: '66'
+      langcode: en
+      name: Branding
+      description__value: null
+      description__format: null
+      weight: '0'
+      parent: '0'
+      uuid: 1701f8cb-61c1-4ddd-8cac-ca29099107e4
+      field_intro_text: {  }
+    -
+      vid: services
+      tid: '41'
+      langcode: en
+      name: 'Connected Communications'
+      description__value: '<p>Through Connected Communications, we help our clients create customer service experiences that change the way their customers think about their brands. For brands to amplify the impact of these capabilities, all their customers need to know about them - not just the ones who have had issues.</p><p>Connected Communications is the strategy and campaigns that help brands tell their service story better, in order to bolster their positioning across all customer segments. From email campaigns touting live agents as “Experts on call,” helping customers choose products much higher in the funnel, to PR pitches on how unexpectedly exceptional customer service impacts the lives of customers, Tactis works with clients to proactively merchandise the capabilities that help turn confused and even anxious customers into lifelong fans.</p><p>Connected Communications also deepens a brand’s ability to market to individual customers. We use data from customer service interactions to fuel marketing automation, notifying customers proactively when new products or content is available that aligns with their previous behavior, in addition to performing regular follow-ups after customer service interaction to ensure the satisfaction lingers.</p><p>To learn how your brand might use Connected Communications to take full advantage of your customer service investments and capabilities, let’s talk.<br>&nbsp;</p>'
+      description__format: full_html
+      weight: '0'
+      parent: '0'
+      uuid: e0c6ec40-74f9-4f44-9dc4-d933a0af9ea4
+      field_intro_text: {  }
+    -
+      vid: services
+      tid: '71'
+      langcode: en
+      name: 'Content Strategy'
+      description__value: null
+      description__format: null
+      weight: '0'
+      parent: '0'
+      uuid: 0fc211b6-1ad2-43bf-be2b-5889693b7ad1
+      field_intro_text: {  }
+    -
+      vid: services
+      tid: '76'
+      langcode: en
+      name: 'CX & UX Design'
+      description__value: null
+      description__format: null
+      weight: '0'
+      parent: '0'
+      uuid: 2d650030-3872-46a6-a798-29b6bf9e1675
+      field_intro_text: {  }
+    -
+      vid: services
+      tid: '36'
+      langcode: en
+      name: 'Digital Self Service'
+      description__value: '<p>Self-service puts the control in the customer’s hands when they need it most. It’s the foundation of any successful customer experience strategy. &nbsp;</p><p>Tactis’ approach to Digital Self Service is based on two objectives: First, we help clients create an experience that removes the need for live agent interaction. This lowers costs while also giving customers the control that most prefer.</p><p>Second, we use data from customer service interactions to better inform future digital experiences . These come in the form of product and service insights that help merchandising teams better describe products to reduce returns, plus the identification of points of friction in the experience that the digital product teams can address. This data also informs real-time customization of experiences, allowing brands to serve up targeted products or content based on customer behavior and the behavior of previous customers with similar needs.</p><p>For more on how your customer service data can supercharge your entire digital experience, contact us, today!&nbsp;</p>'
+      description__format: full_html
+      weight: '0'
+      parent: '0'
+      uuid: 4b53cfd5-ba3b-4086-b5f4-e4bc94162a43
+      field_intro_text: {  }
+    -
+      vid: services
+      tid: '46'
+      langcode: en
+      name: 'eCSAT Score & Diagnostic'
+      description__value: '<p>Most businesses measure customer satisfaction. Unfortunately, the CSAT scoring system most businesses use focuses only on whether issues have been resolved, and not on how those interactions have changed the way customers feel about the brand. Tactis’s proprietary Effective Customer Satisfaction (eCSAT) tool goes beyond closed tickets and measures customer service as part of the holistic brand experience. &nbsp;</p><p>What makes our eCSAT tool different from other systems is that it monitors both interactions and outcomes, including customer intercept surveys and behavior analysis after customer service interaction. Furthermore, AI monitoring of call transcripts and text chats derives tone and sentiment to help determine if customers are relieved and elated, or simply frustrated, all of which are possible even when tickets are technically closed.</p><p>Post-interaction behavior helps us understand if the interaction had a positive or negative overall impact. Did the customer return to the site, or did a customer service issue drive them away? Crucially, does what we observe match or contradict what customers say in post-service surveys? &nbsp; &nbsp;</p><p>To learn more about Tactis’s proprietary eCSAT tool and how it can help turn customer service aggravation into brand love, contact us today.</p>'
+      description__format: full_html
+      weight: '0'
+      parent: '0'
+      uuid: 53ca075f-bd74-4693-8752-39c8c6701179
+      field_intro_text: {  }
+    -
+      vid: services
+      tid: '26'
+      langcode: en
+      name: 'Expert Contact Centers'
+      description__value: '<p>We then support these expert agents with the training, tools and technology they need to resolve issues and make sure customers are not just satisfied, but genuinely happy. We believe the goal of live agent interaction is not to close tickets, but to make customers feel heard and respected. This leads to loyal customers, improved brand health and business growth. &nbsp;</p><p>Channels? We support them all. Telephone, text, chat, and social media, both inbound and outbound, all integrating with CRM.</p><p>To learn more about how Expert Live Agents can drive growth and differentiation, &nbsp;contact us, today!&nbsp;</p>'
+      description__format: full_html
+      weight: '0'
+      parent: '0'
+      uuid: 598d0730-66dc-48d7-a6cc-5de3bb7721cb
+      field_intro_text:
+        -
+          value: '<p>Contact centers don’t have to be the place customer satisfaction goes to die. We believe that when customers have an issue that a fellow human is best equipped to resolve, the right strategy, tools and people can turn them into customers for life. &nbsp;</p><p>Our approach begins with hiring the right agents - people who are already experts in a certain category, and often even customers and fans of the business. They build rapport with customers when it’s needed most, and are credible advocates of the brand.</p>'
+          format: full_html
+    -
+      vid: services
+      tid: '86'
+      langcode: en
+      name: 'Full-Stack Development'
+      description__value: null
+      description__format: null
+      weight: '0'
+      parent: '0'
+      uuid: 50e84260-5381-44be-a5c9-300f67ec1d3a
+      field_intro_text: {  }
+    -
+      vid: services
+      tid: '96'
+      langcode: en
+      name: 'Integrated Marketing'
+      description__value: null
+      description__format: null
+      weight: '0'
+      parent: '0'
+      uuid: 0eeceee7-b065-4795-8d71-ac8a6b0877b1
+      field_intro_text: {  }
+    -
+      vid: services
+      tid: '101'
+      langcode: en
+      name: 'SEO & SEM'
+      description__value: null
+      description__format: null
+      weight: '0'
+      parent: '0'
+      uuid: 19fd79f1-0ff0-48db-a0e5-d3044bf252f9
+      field_intro_text: {  }
+    -
+      vid: services
+      tid: '31'
+      langcode: en
+      name: 'The Enhanced Agent'
+      description__value: '<p>The availability of AI is an inflection point in customer service, today. At Tactis, we employ AI for tasks that frankly would bore a live agent. This results in a speedier service for customers, and increases the job satisfaction of agents, who would rather use their expertise than waste time on mundane tasks. &nbsp;</p><p>The main benefit of AI in customer service is that it assists live agents with better information, greater accuracy and more empathy, so that when they are connecting with a customer, they are better able to resolve issues and make that customer happy. AI prompts them with product or content suggestions, and can help provide some background on who they are as customers. It learns also from previous customers who had similar issues, ensuring the agent has all this context available when helping them.</p><p>Importantly, for our live agents, AI is not their new technology overlord. Agents retain their agency and can accept or reject AI prompts based on their own experience and intuition. This allows a brand’s highest performing agents to effectively coach up AI, which by extension is helping to coach up newer and lower performing agents by giving them the same strategies the top agents are using. &nbsp;</p><p>To give your live agents a competitive advantage through AI and machine learning tools, contact us, today!&nbsp;</p><p>&nbsp;</p>'
+      description__format: full_html
+      weight: '0'
+      parent: '0'
+      uuid: fd130b24-285b-450f-8d2f-fc16912e338a
+      field_intro_text: {  }
+    -
+      vid: services
+      tid: '91'
+      langcode: en
+      name: 'User Testing'
+      description__value: null
+      description__format: null
+      weight: '0'
+      parent: '0'
+      uuid: 7b8d4bba-c1ee-48ef-b574-ffc2e602ff2a
+      field_intro_text: {  }
+    -
+      vid: services
+      tid: '81'
+      langcode: en
+      name: 'Web Design'
+      description__value: null
+      description__format: null
+      weight: '0'
+      parent: '0'
+      uuid: 1e606766-1bf9-4cc0-a796-c46340272836
+      field_intro_text: {  }
+  shoutout_category:
+    -
+      vid: shoutout_category
+      tid: '106'
+      langcode: en
+      name: 'Client Shoutout'
+      description__value: null
+      description__format: null
+      weight: '0'
+      parent: '0'
+      uuid: 4b5dc1ee-b732-4394-8421-5104b8dbcea3
+    -
+      vid: shoutout_category
+      tid: '111'
+      langcode: en
+      name: 'Employee Shoutout'
+      description__value: null
+      description__format: null
+      weight: '0'
+      parent: '0'
+      uuid: 45e965d3-7832-4f12-ad22-3ba9ad55f3c0
+  solutions:
+    -
+      vid: solutions
+      tid: '56'
+      langcode: en
+      name: 'Drupal Website Design & Engineering'
+      description__value: '<p>When it comes to Content Management Systems (CMS), Drupal is globally unsurpassed in terms of flexibility, security, third-party integrations, and its wide variety of support resources.</p>'
+      description__format: full_html
+      weight: '1'
+      parent: '0'
+      uuid: 7a3a6ea3-8f06-4489-90a2-e078b41c476c
+      field_custom_conent:
+        -
+          target_id: '1231'
+          target_revision_id: '6926'
+      field_link_text:
+        -
+          value: 'Drupal Website Details'
+      field_services:
+        -
+          name: Branding
+          vid: services
+        -
+          name: 'Content Strategy'
+          vid: services
+        -
+          name: 'CX & UX Design'
+          vid: services
+        -
+          name: 'Web Design'
+          vid: services
+        -
+          name: 'Full-Stack Development'
+          vid: services
+        -
+          name: 'User Testing'
+          vid: services
+        -
+          name: 'Integrated Marketing'
+          vid: services
+        -
+          name: 'SEO & SEM'
+          vid: services
+      field_services_heading:
+        -
+          value: 'Featured Services'
+      field_teaser_text: {  }
+    -
+      vid: solutions
+      tid: '61'
+      langcode: en
+      name: 'Public Sector Enterprise'
+      description__value: '<p>A long and varied history of Public Sector Enterprise partnerships perfectly positions Tactis to understand the intricacies of GSA schedules, compliance, and accountability when working with government entities.</p>'
+      description__format: full_html
+      weight: '2'
+      parent: '0'
+      uuid: 1d76ac48-d2d0-4248-a8bf-f911e0678b47
+      field_custom_conent:
+        -
+          target_id: '1241'
+          target_revision_id: '6936'
+        -
+          target_id: '1086'
+          target_revision_id: '4351'
+        -
+          target_id: '1076'
+          target_revision_id: '4341'
+      field_link_text:
+        -
+          value: 'Public Sector Details'
+      field_services:
+        -
+          name: 'Expert Contact Centers'
+          vid: services
+      field_services_heading:
+        -
+          value: 'Featured Services'
+      field_teaser_text: {  }
+    -
+      vid: solutions
+      tid: '51'
+      langcode: en
+      name: 'Tactis Human Centered Customer Experience Platform.'
+      description__value: '<p>The Tactis Human-Centered Customer Experience (HCCX) platform is built on the belief that customer service should revolve around customers, not technology solutions or department silos. &nbsp;</p>'
+      description__format: full_html
+      weight: '0'
+      parent: '0'
+      uuid: a943ed57-7dee-4bb6-8ff1-ccc9550a2db4
+      field_custom_conent:
+        -
+          target_id: '991'
+          target_revision_id: '3546'
+      field_link_text:
+        -
+          value: 'Platform Details'
+      field_services:
+        -
+          name: 'Expert Contact Centers'
+          vid: services
+        -
+          name: 'The Enhanced Agent'
+          vid: services
+        -
+          name: 'Digital Self Service'
+          vid: services
+        -
+          name: 'Connected Communications'
+          vid: services
+        -
+          name: 'eCSAT Score & Diagnostic'
+          vid: services
+      field_services_heading:
+        -
+          value: 'Platform Features'
+      field_teaser_text: {  }
+  tags:
+    -
+      vid: tags
+      tid: '14'
+      langcode: en
+      name: AEM
+      description__value: null
+      description__format: null
+      weight: '0'
+      parent: '0'
+      uuid: 8693eca6-1cb0-4148-8db8-789e5e163f14
+    -
+      vid: tags
+      tid: '15'
+      langcode: en
+      name: Association
+      description__value: null
+      description__format: null
+      weight: '0'
+      parent: '0'
+      uuid: 7e0dc0ea-cf23-4cbb-babe-ee2f7e83430c
+    -
+      vid: tags
+      tid: '13'
+      langcode: en
+      name: 'Call Center Services'
+      description__value: null
+      description__format: null
+      weight: '0'
+      parent: '0'
+      uuid: 1d404ba5-2352-44d1-aae1-b8ac5f52fba2
+    -
+      vid: tags
+      tid: '16'
+      langcode: en
+      name: Commercial
+      description__value: null
+      description__format: null
+      weight: '0'
+      parent: '0'
+      uuid: 8f0cc18a-26ea-42b0-937f-73c81803f001
+    -
+      vid: tags
+      tid: '12'
+      langcode: en
+      name: 'Contact Center Services'
+      description__value: null
+      description__format: null
+      weight: '0'
+      parent: '0'
+      uuid: 7b1d925d-4191-454f-9b19-1bd592a048f8
+    -
+      vid: tags
+      tid: '11'
+      langcode: en
+      name: Development
+      description__value: null
+      description__format: null
+      weight: '0'
+      parent: '0'
+      uuid: 75eace06-aa31-4f60-b284-80966411364c
+    -
+      vid: tags
+      tid: '9'
+      langcode: en
+      name: Drupal
+      description__value: null
+      description__format: null
+      weight: '0'
+      parent: '0'
+      uuid: 963fe198-4266-4ecc-9fae-64998ee1c6e9
+    -
+      vid: tags
+      tid: '17'
+      langcode: en
+      name: 'Federal Government'
+      description__value: null
+      description__format: null
+      weight: '0'
+      parent: '0'
+      uuid: b675aa6c-2f58-4948-af0d-92a34b1e1246
+    -
+      vid: tags
+      tid: '18'
+      langcode: en
+      name: 'Integrated Marketing'
+      description__value: null
+      description__format: null
+      weight: '0'
+      parent: '0'
+      uuid: 950e7e0e-ca47-4b3e-80d2-67231ff1f2b6
+    -
+      vid: tags
+      tid: '10'
+      langcode: en
+      name: 'Social Media Marketing'
+      description__value: null
+      description__format: null
+      weight: '0'
+      parent: '0'
+      uuid: 84d4e11b-d7d1-4196-a085-ddb26e5111b3
+    -
+      vid: tags
+      tid: '8'
+      langcode: en
+      name: 'User Experience'
+      description__value: null
+      description__format: null
+      weight: '0'
+      parent: '0'
+      uuid: 907a730c-fb73-4591-a682-9937785717d0
+    -
+      vid: tags
+      tid: '7'
+      langcode: en
+      name: 'UX Design'
+      description__value: null
+      description__format: null
+      weight: '0'
+      parent: '0'
+      uuid: 6817c870-5c40-43ce-aa29-e76c3d8c9f55
+    -
+      vid: tags
+      tid: '6'
+      langcode: en
+      name: 'Web Design'
+      description__value: null
+      description__format: null
+      weight: '0'
+      parent: '0'
+      uuid: e5d276ff-2ccd-45ae-9e38-3af67aecd8b2
+    -
+      vid: tags
+      tid: '19'
+      langcode: en
+      name: 'Web Development'
+      description__value: null
+      description__format: null
+      weight: '0'
+      parent: '0'
+      uuid: 5b5b102c-52fe-47f3-9e67-73c476750b2b

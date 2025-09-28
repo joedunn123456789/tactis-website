@@ -1,0 +1,22 @@
+uuid: be7d2d3d-c323-4214-8fc2-98aaea91ed49
+langcode: en
+status: true
+dependencies:
+  module:
+    - taxonomy
+id: taxonomy_solutions
+label: 'Taxonomy - Solutions'
+type: 'canonical_entities:taxonomy_term'
+pattern: '/soltuions/[term:name]'
+selection_criteria:
+  5d20020a-df9a-4131-8783-da7c8278fb90:
+    id: 'entity_bundle:taxonomy_term'
+    negate: false
+    uuid: 5d20020a-df9a-4131-8783-da7c8278fb90
+    context_mapping:
+      taxonomy_term: taxonomy_term
+    bundles:
+      solutions: solutions
+selection_logic: and
+weight: -5
+relationships: {  }

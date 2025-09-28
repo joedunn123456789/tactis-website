@@ -1,0 +1,15 @@
+uuid: 726c8893-bd72-485b-9c23-2fc66ae94aa1
+langcode: en
+status: true
+dependencies: {  }
+name: background_medium
+label: 'Background Medium (960x709)'
+effects:
+  b479a203-b75e-4a96-a12c-060564210155:
+    uuid: b479a203-b75e-4a96-a12c-060564210155
+    id: image_scale_and_crop
+    weight: 1
+    data:
+      width: 960
+      height: 709
+      anchor: center-center

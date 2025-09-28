@@ -1,0 +1,15 @@
+uuid: 7cbb7829-3b13-4d79-9dc3-4f746ac8e7b0
+langcode: en
+status: true
+dependencies: {  }
+name: background_x_small
+label: 'Background X-Small (540x399)'
+effects:
+  0937d0d8-a95d-4ea9-9061-b259bb28d133:
+    uuid: 0937d0d8-a95d-4ea9-9061-b259bb28d133
+    id: image_scale_and_crop
+    weight: 1
+    data:
+      width: 540
+      height: 399
+      anchor: center-center

@@ -1,0 +1,51 @@
+uuid: fa00795a-542d-418e-bfb4-6e2ced8b0a4a
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.node.portal_applications.field_app_category
+    - field.field.node.portal_applications.field_image
+    - field.field.node.portal_applications.field_link
+    - node.type.portal_applications
+  module:
+    - link
+    - user
+id: node.portal_applications.default
+targetEntityType: node
+bundle: portal_applications
+mode: default
+content:
+  field_app_category:
+    type: entity_reference_label
+    label: hidden
+    settings:
+      link: true
+    third_party_settings: {  }
+    weight: 0
+    region: content
+  field_image:
+    type: entity_reference_entity_view
+    label: hidden
+    settings:
+      view_mode: default
+      link: false
+    third_party_settings: {  }
+    weight: 1
+    region: content
+  field_link:
+    type: link
+    label: hidden
+    settings:
+      trim_length: 80
+      url_only: false
+      url_plain: false
+      rel: ''
+      target: ''
+    third_party_settings: {  }
+    weight: 2
+    region: content
+hidden:
+  addtoany: true
+  langcode: true
+  links: true
+  search_api_excerpt: true

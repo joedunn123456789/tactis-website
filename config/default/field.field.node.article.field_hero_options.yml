@@ -1,0 +1,23 @@
+uuid: 278ee958-758c-4833-a61a-6b9aac6aee72
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_hero_options
+    - node.type.article
+  module:
+    - options
+id: node.article.field_hero_options
+field_name: field_hero_options
+entity_type: node
+bundle: article
+label: 'Hero Options'
+description: 'What type of hero will this page be using?'
+required: true
+translatable: false
+default_value:
+  -
+    value: no-hero
+default_value_callback: ''
+settings: {  }
+field_type: list_string

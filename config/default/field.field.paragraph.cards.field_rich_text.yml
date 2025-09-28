@@ -1,0 +1,28 @@
+uuid: 768c5c0a-ca96-4558-bf46-dc729ad08410
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_rich_text
+    - filter.format.full_html
+    - filter.format.plain_text
+    - paragraphs.paragraphs_type.cards
+  module:
+    - text
+id: paragraph.cards.field_rich_text
+field_name: field_rich_text
+entity_type: paragraph
+bundle: cards
+label: 'Intro Text'
+description: 'This will be displayed under the title and before the block.'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  display_summary: false
+  required_summary: false
+  allowed_formats:
+    - full_html
+    - plain_text
+field_type: text_with_summary

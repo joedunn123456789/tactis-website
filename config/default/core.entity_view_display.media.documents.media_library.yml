@@ -1,0 +1,22 @@
+uuid: 9a19432a-b12e-480e-9ad6-3ad43001698a
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.media.media_library
+    - field.field.media.documents.field_media_file
+    - media.type.documents
+id: media.documents.media_library
+targetEntityType: media
+bundle: documents
+mode: media_library
+content: {  }
+hidden:
+  addtoany: true
+  created: true
+  field_media_file: true
+  langcode: true
+  name: true
+  search_api_excerpt: true
+  thumbnail: true
+  uid: true

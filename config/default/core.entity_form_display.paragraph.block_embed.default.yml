@@ -1,0 +1,57 @@
+uuid: 25d35d8e-447d-4958-a02a-0bc808849832
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.block_embed.field_display_block
+    - field.field.paragraph.block_embed.field_link
+    - field.field.paragraph.block_embed.field_rich_text
+    - field.field.paragraph.block_embed.field_title
+    - paragraphs.paragraphs_type.block_embed
+  module:
+    - block_field
+    - link
+    - text
+id: paragraph.block_embed.default
+targetEntityType: paragraph
+bundle: block_embed
+mode: default
+content:
+  field_display_block:
+    type: block_field_default
+    weight: 2
+    region: content
+    settings:
+      plugin_id: ''
+      settings: {  }
+      configuration_form: full
+    third_party_settings: {  }
+  field_link:
+    type: link_default
+    weight: 3
+    region: content
+    settings:
+      placeholder_url: ''
+      placeholder_title: ''
+    third_party_settings: {  }
+  field_rich_text:
+    type: text_textarea_with_summary
+    weight: 1
+    region: content
+    settings:
+      rows: 9
+      summary_rows: 3
+      placeholder: ''
+      show_summary: false
+    third_party_settings: {  }
+  field_title:
+    type: string_textfield
+    weight: 0
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+hidden:
+  created: true
+  status: true

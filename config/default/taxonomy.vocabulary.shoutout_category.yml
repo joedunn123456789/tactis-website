@@ -1,0 +1,9 @@
+uuid: 039fc10a-f17f-4294-afe6-e5c1f6380818
+langcode: en
+status: true
+dependencies: {  }
+name: 'Shoutout Category'
+vid: shoutout_category
+description: 'These are the categories shoutouts fall into.'
+weight: 0
+new_revision: false

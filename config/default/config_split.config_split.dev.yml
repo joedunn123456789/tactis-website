@@ -1,0 +1,17 @@
+uuid: 8be92b6c-b193-473d-a93d-04e4200d03dd
+langcode: en
+status: false
+dependencies: {  }
+id: dev
+label: Development
+description: 'Development Environment'
+weight: 0
+folder: ../config/envs/dev
+module:
+  devel: 0
+  stage_file_proxy: 0
+theme: {  }
+blacklist: {  }
+graylist: {  }
+graylist_dependents: true
+graylist_skip_equal: true

@@ -1,0 +1,67 @@
+uuid: da1ba3a9-8f38-4b7e-a1be-113b54500cd3
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.card
+    - field.field.node.article.body
+    - field.field.node.article.field_article_type
+    - field.field.node.article.field_authors
+    - field.field.node.article.field_custom_content
+    - field.field.node.article.field_hero_image
+    - field.field.node.article.field_hero_options
+    - field.field.node.article.field_legacy_body
+    - field.field.node.article.field_legacy_hero_image
+    - field.field.node.article.field_meta_tags
+    - field.field.node.article.field_show_arrow
+    - field.field.node.article.field_show_title
+    - field.field.node.article.field_tags
+    - field.field.node.article.field_teaser_image
+    - field.field.node.article.field_teaser_text
+    - field.field.node.article.field_use_animation
+    - field.field.node.article.layout_builder__layout
+    - node.type.article
+  module:
+    - layout_builder
+    - user
+third_party_settings:
+  layout_builder:
+    enabled: false
+    allow_custom: false
+id: node.article.card
+targetEntityType: node
+bundle: article
+mode: card
+content:
+  field_authors:
+    type: entity_reference_label
+    label: hidden
+    settings:
+      link: true
+    third_party_settings: {  }
+    weight: 1
+    region: content
+  links:
+    settings: {  }
+    third_party_settings: {  }
+    weight: 0
+    region: content
+hidden:
+  addtoany: true
+  body: true
+  field_article_type: true
+  field_custom_content: true
+  field_hero_image: true
+  field_hero_options: true
+  field_legacy_body: true
+  field_legacy_hero_image: true
+  field_meta_tags: true
+  field_show_arrow: true
+  field_show_title: true
+  field_tags: true
+  field_teaser_image: true
+  field_teaser_text: true
+  field_use_animation: true
+  langcode: true
+  layout_builder__layout: true
+  search_api_excerpt: true

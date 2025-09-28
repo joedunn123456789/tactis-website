@@ -1,0 +1,29 @@
+uuid: 5dd0d2a6-b5d5-43a1-aee5-4f5a8a99d4bc
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_image
+    - media.type.images
+    - paragraphs.paragraphs_type.section
+id: paragraph.section.field_image
+field_name: field_image
+entity_type: paragraph
+bundle: section
+label: 'Section Image'
+description: 'Choose the image you would like to use.'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:media'
+  handler_settings:
+    target_bundles:
+      images: images
+    sort:
+      field: status
+      direction: DESC
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

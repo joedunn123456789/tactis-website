@@ -1,0 +1,17 @@
+uuid: 385c2ef1-d122-45ae-95bf-d4bdfdfe57c2
+langcode: en
+status: true
+dependencies:
+  module:
+    - menu_ui
+third_party_settings:
+  menu_ui:
+    available_menus: {  }
+    parent: ''
+name: Article
+type: article
+description: 'Used to collect newsworthy posts such as blogs, press releases, and case studies.'
+help: null
+new_revision: true
+preview_mode: 1
+display_submitted: false

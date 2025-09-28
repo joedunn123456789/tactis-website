@@ -1,0 +1,29 @@
+uuid: 7a6f8633-3912-4fa1-81eb-a8ddcd35d730
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_form_mode.media.media_library
+    - field.field.media.vpn_configurations.field_media_file_vpn_config
+    - media.type.vpn_configurations
+id: media.vpn_configurations.media_library
+targetEntityType: media
+bundle: vpn_configurations
+mode: media_library
+content:
+  name:
+    type: string_textfield
+    weight: 0
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+hidden:
+  created: true
+  field_media_file_1: true
+  field_media_file_vpn_config: true
+  langcode: true
+  path: true
+  status: true
+  uid: true

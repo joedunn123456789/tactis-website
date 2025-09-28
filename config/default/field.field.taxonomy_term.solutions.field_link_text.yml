@@ -1,0 +1,21 @@
+uuid: 2dab9123-4984-4621-ae6a-11c58aa6162e
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.taxonomy_term.field_link_text
+    - taxonomy.vocabulary.solutions
+id: taxonomy_term.solutions.field_link_text
+field_name: field_link_text
+entity_type: taxonomy_term
+bundle: solutions
+label: 'Link Text'
+description: 'This the text that will appear for the link to this Solution.'
+required: false
+translatable: false
+default_value:
+  -
+    value: 'Read More'
+default_value_callback: ''
+settings: {  }
+field_type: string
