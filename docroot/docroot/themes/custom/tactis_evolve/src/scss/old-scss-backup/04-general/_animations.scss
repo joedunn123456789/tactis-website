@@ -1,0 +1,119 @@
+
+.animate-burst {
+  animation-duration: 0.75s;
+  animation-delay: 0.5s;
+  animation-name: none;
+  animation-timing-function: cubic-bezier(0.26, 0.53, 0.74, 1.48);
+  animation-fill-mode: backwards;
+  opacity: 0;
+}
+
+.animate-burst.activate {
+  animation-name: animate-burst;
+  animation-timing-function: ease;
+  opacity: 1;
+}
+
+@keyframes animate-burst {
+  0% {
+    opacity: 0;
+    filter: brightness(3) saturate(3);
+    transform: scale(0.8, 0.8);
+  }
+  100% {
+    opacity: 1;
+    filter: brightness(1) saturate(1);
+    transform: scale(1, 1);
+  }
+}
+
+.animate-scroll {
+  animation-duration: 1.5s;
+  animation-delay: 0.0s;
+  animation-name: none;
+  animation-fill-mode: backwards;
+  margin-top: 20rem;
+}
+.animate-scroll.activate {
+  animation-name: animate-scroll;
+  margin-top: 0;
+}
+
+@keyframes animate-scroll {
+  0% {
+    margin-top: 20rem;
+  }
+
+  100% {
+    margin-top: 0;
+  }
+}
+
+@for $i from 1 through 12 {
+  .animation-container .delay:nth-child(#{$i}n) {
+    animation-delay: #{$i * 0.2}s;
+  }
+}
+
+:root {
+  --lottie-animation-start-left: 0;
+  --lottie-animation-end-left: 0;
+  --lottie-animation-start-scale: 100%;
+  --lottie-animation-end-scale: 70%;
+}
+
+@include media-breakpoint-up(md){
+  :root {
+    --lottie-animation-start-left: -200px;
+    --lottie-animation-end-left: 0;
+    --lottie-animation-start-scale: 100%;
+    --lottie-animation-end-scale: 170%;
+  }
+}
+
+@include media-breakpoint-up(lg){
+  :root {
+    --lottie-animation-start-left: -300px;
+    --lottie-animation-end-left: 0;
+    --lottie-animation-start-scale: 70%;
+    --lottie-animation-end-scale: 140%;
+  }
+}
+
+@include media-breakpoint-up(xl){
+  :root {
+    --lottie-animation-start-left: -400px;
+    --lottie-animation-end-left: 0;
+    --lottie-animation-start-scale: 70%;
+    --lottie-animation-end-scale: 130%;
+  }
+}
+
+.animate-header-lottie {
+  animation-duration: 0.75s;
+  animation-delay: 0.5s;
+  animation-name: none;
+  animation-timing-function: cubic-bezier(0.26, 0.53, 0.74, 1.48);
+  animation-fill-mode: backwards;
+  left: var(--lottie-animation-start-left);
+  scale: var(--lottie-animation-start-scale);
+
+  &.activate {
+    animation-name: animate-lottie;
+    left: var(--lottie-animation-end-left);
+    scale: var(--lottie-animation-end-scale);
+  }
+}
+
+
+@keyframes animate-lottie {
+  0% {
+    left: var(--lottie-animation-start-left);
+    scale: var(--lottie-animation-start-scale);
+  }
+
+  100% {
+    left: var(--lottie-animation-end-left);
+    scale: var(--lottie-animation-end-scale);
+  }
+}

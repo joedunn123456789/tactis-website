@@ -1,0 +1,116 @@
+{#
+/**
+ * @file
+ * Theme override for Solutions View Block - TAC-227
+ *
+ * CLEAN VERSION FOR NEW VIEW BLOCK:
+ * - No accordion CSS interference
+ * - Two-column Bootstrap layout
+ * - Left: title, description, button
+ * - Right: simple solution links
+ * - Text colors should work properly without accordion baggage
+ *
+ * Template: views-view--solutions-view-block--block.html.twig
+ */
+#}
+{%
+  set classes = [
+  'view',
+  'view-' ~ id|clean_class,
+  'view-id-' ~ id,
+  'view-display-id-' ~ display_id,
+  dom_id ? 'js-view-dom-id-' ~ dom_id,
+]
+%}
+<div{{ attributes.setAttribute('id', dom_id).addClass(classes) }}>
+  {{ title_prefix }}
+  {% if title %}
+    {{ title }}
+  {% endif %}
+  {{ title_suffix }}
+  {% if header %}
+    <div class="view-header">
+      {{ header }}
+    </div>
+  {% endif %}
+  {% if exposed %}
+    <div class="view-filters">
+      {{ exposed }}
+    </div>
+  {% endif %}
+  {% if attachment_before %}
+    <div class="attachment attachment-before">
+      {{ attachment_before }}
+    </div>
+  {% endif %}
+
+  {% if rows %}
+    {# TAC-227: Simple Bootstrap grid approach #}
+    <div class="view-content">
+      <div class="container">
+        <div class="row h-100 align-items-center">
+
+          {# LEFT COLUMN: Title, description, button #}
+          <div class="col-12 col-md-6" style="margin-top: -20px;">
+            <div class="text-start">
+              <h2 class="display-5 fw-semibold mb-4">
+                Solutions & Services
+              </h2>
+
+              <p class="mb-4" style="font-size: 20px; max-width: 527px; height: 107px; line-height: 28px; overflow: hidden;">
+                Tactis offers a comprehensive suite of solutions, including strategy, technology enablement, AI technologies, contact center operations, and marketing.
+              </p>
+
+              <a href="/solutions" class="btn btn-lg fw-semibold adaptive-outline-btn text-nowrap">
+                View All Solutions & Services
+                <i class="bi bi-arrow-right ms-2"></i>
+              </a>
+            </div>
+          </div>
+
+          {# RIGHT COLUMN: Solution links #}
+          <div class="col-12 col-md-6 mt-4 mt-md-0">
+            <div class="solutions-list text-center">
+              {% for row in rows[0]['#rows'] %}
+                {% set term = row['#taxonomy_term'] %}
+                <div class="solution-item mb-3">
+                  <a href="{{ path('entity.taxonomy_term.canonical', {'taxonomy_term': term.id}) }}"
+                     class="solution-link text-decoration-none fs-5 fw-bold d-block py-2 text-white">
+                    {{ term.name.value }}
+                  </a>
+                </div>
+              {% endfor %}
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  {% elseif empty %}
+    <div class="view-empty">
+      {{ empty }}
+    </div>
+  {% endif %}
+
+  {% if pager %}
+    {{ pager }}
+  {% endif %}
+  {% if attachment_after %}
+    <div class="attachment attachment-after">
+      {{ attachment_after }}
+    </div>
+  {% endif %}
+  {% if more %}
+    {{ more }}
+  {% endif %}
+  {% if footer %}
+    <div class="view-footer">
+      {{ footer }}
+    </div>
+  {% endif %}
+  {% if feed_icons %}
+    <div class="feed-icons">
+      {{ feed_icons }}
+    </div>
+  {% endif %}
+</div>

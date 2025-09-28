@@ -1,0 +1,32 @@
+{#
+/**
+ * @file
+ * Theme override to present all user data.
+ *
+ * This template is used when viewing a registered user's page,
+ * e.g., example.com/user/123. 123 being the user's ID.
+ *
+ * Available variables:
+ * - content: A list of content items. Use 'content' to print all content, or
+ *   print a subset such as 'content.field_example'. Fields attached to a user
+ *   such as 'user_picture' are available as 'content.user_picture'.
+ * - attributes: HTML attributes for the container element.
+ * - user: A Drupal User entity.
+ *
+ * @see template_preprocess_user()
+ */
+#}
+
+<div{{ attributes.addClass('profile', 'card', 'border-0', 'd-flex', 'flex-column', 'justify-content-between', 'mb-3') }}>
+  <div class="profile-image">{{ content.field_profile_picture }}</div>
+  <div class="profile-info bg-black bg-opacity-10 text-center py-3">
+    <div class="profile-name">{{ content.field_first_name[0]['#context']['value'] }} {{ content.field_last_name[0]['#context']['value'] }}</div>
+    <div class="profile-position">{{ content.field_position_title[0]['#context']['value'] }}</div>
+    <div class="profile-socials">
+      {% for i in 0 .. (content.field_social_networks['#items'].value|length - 1) %}
+        {% if i > 0 %}/{% endif %}
+        <a class="link-tactis-primary" href="{{ content.field_social_networks[i]['#url'].uri }}" target="_blank">{{ content.field_social_networks[i]['#title'] }}</a>
+      {% endfor %}
+    </div>
+  </div>
+</div>

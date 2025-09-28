@@ -1,0 +1,79 @@
+{#
+/**
+ * @file
+ * Theme override to display a taxonomy term.
+ *
+ * Available variables:
+ * - url: URL of the current term.
+ * - name: (optional) Name of the current term.
+ * - content: Items for the content of the term (fields and description).
+ *   Use 'content' to print them all, or print a subset such as
+ *   'content.description'. Use the following code to exclude the
+ *   printing of a given child element:
+ *   @code
+ *   {{ content|without('description') }}
+ *   @endcode
+ * - attributes: HTML attributes for the wrapper.
+ * - page: Flag for the full page state.
+ * - term: The taxonomy term entity, including:
+ *   - id: The ID of the taxonomy term.
+ *   - bundle: Machine name of the current vocabulary.
+ * - view_mode: View mode, e.g. 'full', 'teaser', etc.
+ *
+ * @see template_preprocess_taxonomy_term()
+ */
+#}
+{%
+    set classes = [
+    'taxonomy-term',
+    'vocabulary-' ~ term.bundle|clean_class,
+    'hero-light',
+    'hero-title',
+    'd-flex',
+    'flex-column',
+    'justify-content-end',
+]
+%}
+
+{% set newAttributes = create_attribute() %}
+
+{%
+    set titleTextClasses = [
+    'title-text',
+    'mt-5',
+    'mt-md-0',
+    content.field_hero_image.0 is not empty ? 'order-md-1',
+]
+%}
+
+<div{{ attributes.addClass(classes) }}>
+    {% if content.field_hero_image.0 is not empty %}
+    <div class="d-md-flex flex-md-row justify-content-md-between align-items-md-center text-center text-md-start">
+        {% if term.field_use_animation.value and content.field_hero_image[0]['#media'].field_media_json.value %}
+            {% set titleTextClasses = titleTextClasses|merge(['animate-burst']) %}
+            {{ attach_library('tactis_evolve/lottie') }}
+            <div class="hero-image-container order-md-2 d-inline-block position-relative w-100 animate-header-lottie">
+                <div id="hero-image-animation" class="lottie-animation" data-animation="{{ content.field_hero_image[0]['#media'].field_media_json.value }}"></div>
+            </div>
+        {% else %}
+            <div class="hero-image-container order-md-2 d-inline-block">
+                {{ content.field_hero_image }}
+            </div>
+        {% endif %}
+    {% endif %}
+        <div{{ newAttributes.addClass(titleTextClasses) }}>
+            <div class="display-4 fw-bold text-lowercase">
+                {{ name }}
+            </div>
+            {{ content.description }}
+            <div class="return-to-solutions"><a class="link-tactis-primary link-underline-opacity-0 fw-semibold" href="/solutions"><i class="bi bi-arrow-left"></i> Back to Solutions & Services</a></div>
+        </div>
+        {% if content.field_hero_image.0 is not empty %}
+    </div>
+        {% endif %}
+    {% if term.field_show_arrow.value|raw == 1 %}
+        <div class="get-started d-flex align-items-center py-3">
+            <span>Let's get started</span><i class="bi bi-arrow-down-circle ps-1 fs-1"></i>
+        </div>
+    {% endif %}
+</div>

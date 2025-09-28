@@ -1,0 +1,18 @@
+
+.region-navigation {
+  .menu-header {
+    height: $header-height;
+  }
+
+  .nav-contact-container {
+    height: calc(100vh - $header-height);
+    .contact-container {
+      .menu--let-s-connect {
+        a {
+          padding: 0;
+          text-decoration: underline;
+        }
+      }
+    }
+  }
+}

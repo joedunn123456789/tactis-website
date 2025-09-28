@@ -1,0 +1,31 @@
+$utilities: map-merge(
+  $utilities,
+  (
+    "min-viewport-height": map-merge(
+      map-get($utilities, "min-viewport-height"),
+      (
+        values: map-merge(
+          map-get(map-get($utilities, "min-viewport-height"), "values"),
+          (10: 10vh, 20: 10vh, 33: 33vh, 50: 50vh, 66: 66vh, 75: 75vh),
+        ),
+      ),
+    ),
+    "max-width": map-merge(
+      map-get($utilities, "max-width"),
+      (
+        responsive: true,
+        values: map-merge(
+          map-get(map-get($utilities, "max-width"), "values"),
+          (
+            sm: var(--bs-breakpoint-sm),
+            md: var(--bs-breakpoint-md),
+            lg: var(--bs-breakpoint-lg),
+            xl: var(--bs-breakpoint-xl),
+            xxl: var(--bs-breakpoint-xxl),
+            70: 70%
+          )
+        )
+      ),
+    ),
+  ),
+);

@@ -1,0 +1,48 @@
+{#
+/**
+ * @file
+ * Theme override to display combined footer top regions.
+ *
+ * Available variables:
+ * - content: The content for this region, typically blocks.
+ * - attributes: HTML attributes for the region <div>.
+ * - region: The name of the region variable as defined in the theme's
+ *   .info.yml file.
+ *
+ * @see template_preprocess_region()
+ */
+#}
+{%
+  set classes = [
+  'region',
+  'region-' ~ region|clean_class,
+  'bg-black',
+  'text-light',
+  'py-5',
+]
+%}
+{% if page.footer_top_left or page.footer_top_right %}
+  <div{{ attributes.addClass(classes) }}>
+    <div class="container">
+      <div class="row">
+        <div class="d-md-flex flex-md-nowrap justify-content-md-between align-items-md-start">
+          {# Left side: Logo, Address, Social - Give it more space #}
+          <div class="d-flex flex-column col-12 col-md-6">
+            {# Add Tactis logo #}
+            <div class="mb-3">
+              <div class="tactis-logo-white">
+                <a href="/" title="Home">Tactis, LLC</a>
+              </div>
+            </div>
+            {# Left region content: Address and Social #}
+            {{ page.footer_top_left }}
+          </div>
+          {# Right side: Newsletter - Right-aligned #}
+          <div class="col-12 col-md-6 text-end">
+            {{ page.footer_top_right }}
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+{% endif %}

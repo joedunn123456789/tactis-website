@@ -1,0 +1,90 @@
+{#
+/**
+ * @file
+ * Template for Stats paragraph component - TAC-229
+ *
+ * Following Anthony's guidance:
+ * - New component (don't touch existing cards)
+ * - Left column: title, body, link
+ * - Right column: "Add A Stat" items (title + description)
+ * - Works on both dark and light section backgrounds
+ */
+#}
+
+{# Set up CSS classes for the main container #}
+{%
+  set classes = [
+  'paragraph',
+  'paragraph--type--' ~ paragraph.bundle|clean_class,
+  view_mode ? 'paragraph--view-mode--' ~ view_mode|clean_class,
+  not paragraph.isPublished() ? 'paragraph--unpublished',
+  'stats-component'
+]
+%}
+
+{# Main paragraph wrapper #}
+{% block paragraph %}
+  <div{{ attributes.addClass(classes) }}>
+    <div class="container">
+      <div class="row align-items-center">
+
+        {# LEFT COLUMN: Content (title, description, link) #}
+        <div class="col-12 col-md-6 stats-content">
+
+          {# Title from field_stats_title #}
+          {% if paragraph.field_stats_title.value %}
+            <h2 class="stats-title display-5 fw-semibold mb-4 text-lowercase">
+              {{ paragraph.field_stats_title.value }}.
+            </h2>
+          {% endif %}
+
+          {# Description from field_stats_description #}
+          {% if paragraph.field_stats_description.value %}
+            <div class="stats-description mb-4">
+              {{ paragraph.field_stats_description.value|raw }}
+            </div>
+          {% endif %}
+
+          {# Link from field_stats_link #}
+          {% if paragraph.field_stats_link.0 %}
+            <div class="stats-button">
+              <a href="{{ paragraph.field_stats_link.0.url }}"
+                 class="btn btn-tactis-primary pt-3-5 pb-3 px-3-5 fs-small fw-semibold">
+                {{ paragraph.field_stats_link.0.title }}
+                <i class="bi bi-arrow-right ms-3 fw-semibold"></i>
+              </a>
+            </div>
+          {% endif %}
+
+        </div>
+
+        {# RIGHT COLUMN: Stats Items #}
+        <div class="col-12 col-md-6 stats-list">
+          {% if paragraph.field_stats_items|length > 0 %}
+            <div class="stats-grid">
+              {# Loop through each stats item #}
+              {% for stats_item in paragraph.field_stats_items %}
+                <div class="stat-item mb-4">
+                  {# Stat number from field_stat_item_number #}
+                  {% if stats_item.entity.field_stat_item_number.value %}
+                    <div class="stat-title display-3 fw-bold text-tactis-primary mb-2">
+                      {{ stats_item.entity.field_stat_item_number.value }}
+                    </div>
+                  {% endif %}
+
+                  {# Stat description from field_stat_item_description #}
+                  {% if stats_item.entity.field_stat_item_description.value %}
+                    <div class="stat-description fs-6">
+                      {{ stats_item.entity.field_stat_item_description.value|raw }}
+                    </div>
+                  {% endif %}
+                </div>
+              {% endfor %}
+            </div>
+          {% endif %}
+        </div>
+
+      </div>
+    </div>
+  </div>
+{% endblock paragraph %}

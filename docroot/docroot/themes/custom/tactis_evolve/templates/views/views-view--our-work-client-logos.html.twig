@@ -1,0 +1,47 @@
+{%
+  set classes = [
+  'view',
+  'view-' ~ id|clean_class,
+  'view-id-' ~ id,
+  'view-display-id-' ~ display_id,
+  'our-work-view',
+  'our-work-block',
+  'py-5',
+  'container-fluid'
+]
+%}
+
+<div{{ attributes.addClass(classes) }}>
+  <div class="container">
+
+    {# First Row: Title/Text and Button #}
+    <div class="row align-items-center mb-5">
+      <div class="col-12 col-lg-8">
+        <div class="our-work-content">
+          <h2 class="our-work-title fw-semibold mb-3">Our Work</h2>
+          <div class="our-work-teaser mb-4">
+            Expanding boundaries and seeking out solutions for hard-to-solve challenges, the singular goal behind every project we undertake at Tactis is the promise of a truly transformative customer experience.
+          </div>
+        </div>
+      </div>
+      <div class="col-12 col-lg-4">
+        <div class="our-work-cta text-center text-lg-end">
+          <a href="/our-work" class="btn btn-tactis-primary pt-3-5 pb-3 px-3-5 fs-small fw-semibold">
+            Learn More About Our Work
+            <i class="bi bi-arrow-right ms-2 fw-semibold"></i>
+          </a>
+        </div>
+      </div>
+    </div>
+
+    {# Second Row: Client Logos Below #}
+    <div class="row">
+      <div class="col-12">
+        <div class="client-logos-grid">
+          {{ rows }}
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>

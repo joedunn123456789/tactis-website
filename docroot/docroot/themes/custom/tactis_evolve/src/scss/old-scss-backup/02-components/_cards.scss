@@ -1,0 +1,16 @@
+
+.cards {
+  .card {
+    width: 100%;
+
+    @include media-breakpoint-up(md){
+      width: 30%;
+    }
+
+    .card-body {
+      .card-title {
+        min-height: 180px;
+      }
+    }
+  }
+}

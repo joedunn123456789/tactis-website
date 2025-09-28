@@ -1,0 +1,121 @@
+h1,h2,h3,h4,h5,h6 {
+  color: $black;
+}
+
+.text-light, .hero-block .hero-dark {
+  h1,h2,h3,h4,h5,h6 {
+    color: $white;
+  }
+}
+
+.text-small {
+  font-size: $font-size-sm;
+}
+
+.restrict-container-width-lg {
+  max-width: 960px;
+}
+
+// We only want to change ul and ol tags for content created by the user.
+// Otherwise, it messes up menus and other things that use ul and ol tags.
+// Applied it to the rich text editor field.
+
+.field--name-field-rich-text ol {
+  list-style: none;
+  counter-reset: li;
+
+  li {
+    counter-increment: li;
+    &::before {
+      content: " ." counters(li, ".");
+      color: var(--bs-tactis-primary);
+      display: inline-block;
+      width: 1em;
+      margin-left: -1.5em;
+      margin-right: 0.5em;
+      text-align: right;
+      direction: rtl;
+    }
+  }
+
+  &.list-unstyled {
+    li::before {
+      color: $body-color;
+    }
+  }
+}
+
+.field--name-field-rich-text ul {
+  list-style: none;
+
+  li::before {
+    content: "•";
+    color: var(--bs-tactis-primary);
+    display: inline-block;
+    width: 1em;
+    margin-left: -1em
+  }
+
+  &.list-unstyled {
+    li::before {
+      content: none;
+      width: 0;
+      margin-left: 0;
+    }
+  }
+}
+
+// Links
+
+a:not(.btn, .nav-link, .toolbar-icon) {
+  color: var(--bs-tactis-primary);
+
+  &:visited {
+    color: var(--bs-tactis-primary);
+  }
+
+  &:hover {
+    color: var(--bs-tactis-secondary);
+  }
+
+  &:active {
+    color: var(--bs-tactis-tertiary);
+  }
+}
+
+.bg-black {
+  a:not(.btn, .nav-link, .toolbar-icon) {
+    color: var(--bs-white);
+
+    &:visited {
+      color: var(--bs-white);
+    }
+
+    &:hover {
+      color: var(--bs-tactis-primary-light);
+    }
+
+    &:active {
+      color: var(--bs-white);
+    }
+  }
+}
+
+body.hero-dark header, .bg-tactis-secondary, .bg-tactis-tertiary {
+  a:not(.btn, .nav-link, .toolbar-icon) {
+    color: var(--bs-white);
+
+    &:hover {
+      color: var(--bs-white);
+    }
+
+    &:visited {
+      color: var(--bs-white);
+    }
+
+    &:active {
+      color: var(--bs-white);
+    }
+  }
+
+}

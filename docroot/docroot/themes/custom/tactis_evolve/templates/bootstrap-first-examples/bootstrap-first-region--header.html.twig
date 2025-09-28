@@ -1,0 +1,119 @@
+{#
+/**
+ * Bootstrap-First Header Template
+ * Uses Bootstrap utilities for responsive navigation, matches Figma design specs
+ */
+#}
+
+{% if content %}
+  <header class="fixed-top w-100 bg-white border-bottom shadow-sm">
+    <div class="container">
+      <nav class="navbar navbar-expand-lg navbar-light py-3">
+        {# Logo/Brand #}
+        <div class="navbar-brand">
+          {{ content }}
+        </div>
+
+        {# Mobile search and toggle button #}
+        <div class="d-lg-none d-flex align-items-center gap-3">
+          {# Mobile search icon #}
+          <a href="/search" class="text-dark text-decoration-none">
+            <i class="bi bi-search fs-5"></i>
+          </a>
+
+          {# Mobile menu toggle #}
+          <button class="navbar-toggler border-0 p-0" type="button"
+                  data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                  aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="d-flex flex-column gap-1">
+              <span class="bg-primary rounded-1" style="width: 25px; height: 3px;"></span>
+              <span class="bg-primary rounded-1" style="width: 25px; height: 3px;"></span>
+              <span class="bg-primary rounded-1" style="width: 25px; height: 3px;"></span>
+            </span>
+          </button>
+        </div>
+
+        {# Desktop Navigation #}
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav mx-auto d-flex gap-4">
+            <li class="nav-item">
+              <a class="nav-link text-uppercase fw-semibold text-dark px-0 py-2" href="/solutions">
+                Solutions
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link text-uppercase fw-semibold text-dark px-0 py-2" href="/our-work">
+                Work
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link text-uppercase fw-semibold text-dark px-0 py-2" href="/about">
+                About
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link text-uppercase fw-semibold text-dark px-0 py-2" href="/articles">
+                Articles
+              </a>
+            </li>
+          </ul>
+
+          {# Desktop right section - search + contact #}
+          <div class="d-none d-lg-flex align-items-center gap-3">
+            {# Desktop search icon #}
+            <a href="/search" class="text-dark text-decoration-none">
+              <i class="bi bi-search fs-5"></i>
+            </a>
+
+            {# Vertical separator #}
+            <div class="bg-dark align-self-center" style="width: 1px; height: 40px;"></div>
+
+            {# Contact button #}
+            <a href="/contact" class="btn btn-outline-primary text-uppercase fw-semibold px-4 py-2 border-0 bg-transparent">
+              Contact
+            </a>
+          </div>
+
+          {# Mobile menu items (shown when collapsed) #}
+          <div class="d-lg-none mt-3">
+            <ul class="navbar-nav gap-3">
+              <li class="nav-item">
+                <a class="nav-link text-uppercase fw-semibold text-dark" href="/solutions">Solutions</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link text-uppercase fw-semibold text-dark" href="/our-work">Work</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link text-uppercase fw-semibold text-dark" href="/about">About</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link text-uppercase fw-semibold text-dark" href="/articles">Articles</a>
+              </li>
+              <li class="nav-item mt-3">
+                <a href="/contact" class="btn btn-primary text-uppercase fw-semibold px-4 py-2 w-100">
+                  Contact
+                </a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  {# Add top padding to body content to account for fixed header #}
+  <style>
+    body {
+      padding-top: 88px; /* Adjust based on header height */
+    }
+
+    /* Admin toolbar adjustments */
+    body.toolbar-horizontal {
+      padding-top: 127px; /* 88px header + 39px toolbar */
+    }
+
+    body.toolbar-horizontal.toolbar-tray-open {
+      padding-top: 166px; /* 88px header + 78px expanded toolbar */
+    }
+  </style>
+{% endif %}

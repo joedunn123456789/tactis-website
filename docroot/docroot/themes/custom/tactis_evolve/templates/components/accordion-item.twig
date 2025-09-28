@@ -1,0 +1,59 @@
+{#
+/**
+ * @file
+ * Template to display an accordion item
+ *
+ * Available variables:
+ * - id: Use as unique identifier.
+ * - accordion_id: used as a unique id for the full accordion.
+ * - title: The title of the item.
+ * - body: The body of the accordion item.
+ * - button: If you need a button.
+ * - index: To determine the number of this accordion item.
+ * TO-DO:
+ * Add first-open as a var.
+ */
+#}
+
+{% set first_open = 0 %}
+
+{%
+    set classes = [
+    'accordion-item',
+    'border-0',
+    'border-bottom',
+    'border-tactis-secondary',
+]
+%}
+
+{% set attributes = create_attribute() %}
+
+{% if first_open %}
+<div{{ attributes.addClass(classes) }}>
+    <h2 class="accordion-header">
+        <button class="accordion-button{% if index > 0 %} collapsed{% endif %} fs-5 fw-semibold" type="button" data-bs-toggle="collapse" data-bs-target="#{{ id }}" aria-expanded="{% if index > 0 %}false{% else %}true{% endif %}" aria-controls="{{ id }}">
+            {{ title }}
+        </button>
+    </h2>
+    <div id="{{ id }}" class="accordion-collapse collapse{% if index == 0 %} show{% endif %}" data-bs-parent="#{{ accordion_id }}">
+        <div class="accordion-body">
+            {{ body|raw }}
+            {{ button|raw }}
+        </div>
+    </div>
+</div>
+{% else %}
+    <div{{ attributes.addClass(classes) }}>
+        <h2 class="accordion-header">
+            <button class="accordion-button collapsed fs-5 fw-semibold" type="button" data-bs-toggle="collapse" data-bs-target="#{{ id }}" aria-expanded="false" aria-controls="{{ id }}">
+                {{ title }}
+            </button>
+        </h2>
+        <div id="{{ id }}" class="accordion-collapse collapse" data-bs-parent="#{{ accordion_id }}">
+            <div class="accordion-body">
+                {{ body|raw }}
+                {{ button|raw }}
+            </div>
+        </div>
+    </div>
+{% endif %}

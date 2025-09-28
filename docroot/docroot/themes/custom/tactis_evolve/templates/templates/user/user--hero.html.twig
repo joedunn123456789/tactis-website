@@ -1,0 +1,70 @@
+{#
+/**
+ * @file
+ * Theme override to present all user data.
+ *
+ * This template is used when viewing a registered user's page,
+ * e.g., example.com/user/123. 123 being the user's ID.
+ *
+ * Available variables:
+ * - content: A list of content items. Use 'content' to print all content, or
+ *   print a subset such as 'content.field_example'. Fields attached to a user
+ *   such as 'user_picture' are available as 'content.user_picture'.
+ * - attributes: HTML attributes for the container element.
+ * - user: A Drupal User entity.
+ *
+ * @see template_preprocess_user()
+ */
+#}
+{%
+  set classes = [
+  'hero-dark',
+  'no-title',
+  'd-flex',
+  'flex-column',
+  'justify-content-end'
+]
+%}
+
+{% set newAttributes = create_attribute() %}
+
+{%
+  set titleTextClasses = [
+  'title-text',
+  'mt-5',
+  'mt-md-0',
+  'display-5',
+  'fw-semibold',
+  'pe-md-5',
+  'text-lowercase',
+  content.field_hero_image.0 is not empty ? 'order-md-1',
+]
+%}
+
+<div{{ attributes.addClass(classes) }}>
+  {% if content.field_hero_image.0 is not empty %}
+  <div class="d-md-flex flex-md-row justify-content-md-between align-items-md-center text-center text-md-start">
+    {% if user.field_use_animation.value and content.field_hero_image[0]['#media'].field_media_json.value %}
+      {% set titleTextClasses = titleTextClasses|merge(['animate-burst']) %}
+      {{ attach_library('tactis_evolve/lottie') }}
+      <div class="hero-image-container order-md-2 d-inline-block position-relative w-100 animate-header-lottie">
+        <div id="hero-image-animation" class="lottie-animation" data-animation="{{ content.field_hero_image[0]['#media'].field_media_json.value }}"></div>
+      </div>
+    {% else %}
+      <div class="hero-image-container order-md-2 d-inline-block">
+        {{ content.field_hero_image }}
+      </div>
+    {% endif %}
+    {% endif %}
+    <div{{ newAttributes.addClass(titleTextClasses) }}>
+      Welcome {{ user.field_first_name.value|raw }} to the new Employee Dashboard.
+    </div>
+    {% if content.field_hero_image.0 is not empty %}
+  </div>
+  {% endif %}
+  {% if user.field_show_arrow.value|raw == 1 %}
+    <div class="get-started d-flex align-items-center py-3">
+      <span>Let's get started</span><i class="bi bi-arrow-down-circle ps-1 fs-1"></i>
+    </div>
+  {% endif %}
+</div>

@@ -1,0 +1,115 @@
+// TAC-227: Complete SCSS - Ghost Button + Solutions View Block
+// ADAPTIVE GHOST BUTTON
+.adaptive-outline-btn {
+  background-color: transparent !important;
+  border: 2px solid $tactis-secondary !important;
+  color: $tactis-secondary !important;
+  padding: 0.75rem 2rem !important;
+  font-weight: 600 !important;
+  transition: transform 0.3s ease !important;
+
+  &:hover {
+    background-color: transparent !important;
+    border-color: $tactis-secondary !important;
+    color: $tactis-secondary !important;
+    transform: translateY(-2px) !important;
+  }
+
+  .bi-arrow-right {
+    transition: transform 0.3s ease !important;
+  }
+
+  &:hover .bi-arrow-right {
+    transform: translateX(4px) !important;
+  }
+}
+
+// WHITE BUTTON FOR DARK BACKGROUNDS
+.paragraph--type--section.text-light .adaptive-outline-btn {
+  background-color: transparent !important;
+  border: 2px solid $white !important;
+  color: #FFFFFF !important;
+  width: 342px !important;
+  height: 60px !important;
+  font-size: 20px !important;
+  font-weight: 600 !important;
+  font-family: "League Spartan", sans-serif !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  text-align: center !important;
+
+  &:hover,
+  &:focus,
+  &:active {
+    background-color: transparent !important;
+    border-color: $white !important;
+    color: #FFFFFF !important;
+    transform: translateY(-2px) !important;
+  }
+}
+
+// SOLUTIONS VIEW BLOCK
+.view-solutions-view-block {
+  width: min(1440px, 100vw);
+  min-height: 446px;
+  aspect-ratio: 1440/446;
+
+  display: flex; //flexbot
+  align-items: center; //center flexbot
+
+  @include media-breakpoint-down(lg) {
+    aspect-ratio: unset;
+    min-height: auto;
+  }
+
+  .view-content {
+    width: 100%;
+  }
+
+  // Solution links styling
+  .solutions-list {
+    .solution-item {
+      border-bottom: 2px solid rgba(255, 255, 255, 0.5) !important;
+      padding-bottom: 0.75rem !important;
+      margin-bottom: 0.75rem !important;
+
+      &:last-child {
+        border-bottom: none !important;
+        margin-bottom: 0 !important;
+      }
+    }
+
+    .solution-link {
+      transition: all 0.3s ease;
+      font-size: 1.25rem;
+      font-weight: 500;
+
+      &:hover {
+        text-decoration: underline !important;
+        text-underline-offset: 4px;
+        text-decoration-thickness: 2px;
+        padding-left: 0.5rem;
+      }
+
+      &:focus {
+        outline: 2px solid currentColor;
+        outline-offset: 2px;
+        text-decoration: underline !important;
+      }
+    }
+  }
+
+  // Responsive adjustments
+  @include media-breakpoint-down(md) {
+    .solution-link {
+      font-size: 1.1rem !important;
+    }
+  }
+
+  @include media-breakpoint-up(lg) {
+    .solution-link {
+      font-size: 1.3rem !important;
+    }
+  }
+}

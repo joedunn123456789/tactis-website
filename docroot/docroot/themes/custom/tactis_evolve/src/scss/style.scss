@@ -1,0 +1,190 @@
+// Bootstrap-First Tactis Evolve Theme
+// Uses Bootstrap utilities for 90% of styling, custom SCSS only where Figma specs require it
+
+@import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css");
+@import url('https://fonts.googleapis.com/css2?family=League+Spartan:wght@200;400;500;600;700&display=swap');
+
+// Bootstrap Functions (required first)
+@import "../../../../contrib/bootstrap5/dist/bootstrap/5.3.3/scss/functions";
+
+// Tactis Brand Variables - Override Bootstrap defaults to match Figma specs
+$tactis-primary: #AF0061;
+$tactis-secondary: #682145;
+$tactis-tertiary: #360B21;
+$tactis-quaternary: #0099A8;
+$tactis-light: #999;
+$tactis-dark: #333;
+
+// Override Bootstrap's color system with Tactis brand
+$primary: $tactis-primary;
+$secondary: $tactis-secondary;
+$info: $tactis-quaternary;
+
+// Typography to match Figma
+$font-family-sans-serif: "League Spartan", sans-serif;
+$font-size-base: 1.5rem;
+$line-height-base: 1.43;
+$body-color: #444;
+
+// Container max-widths from your design
+$container-max-widths: (
+  sm: 540px,
+  md: 720px,
+  lg: 960px,
+  xl: 1140px,
+  xxl: 1440px
+);
+
+// Import all of Bootstrap with our customizations
+@import "../../../../contrib/bootstrap5/dist/bootstrap/5.3.3/scss/variables";
+@import "../../../../contrib/bootstrap5/dist/bootstrap/5.3.3/scss/variables-dark";
+@import "../../../../contrib/bootstrap5/dist/bootstrap/5.3.3/scss/maps";
+@import "../../../../contrib/bootstrap5/dist/bootstrap/5.3.3/scss/mixins";
+@import "../../../../contrib/bootstrap5/dist/bootstrap/5.3.3/scss/root";
+@import "../../../../contrib/bootstrap5/dist/bootstrap/5.3.3/scss/utilities";
+@import "../../../../contrib/bootstrap5/dist/bootstrap/5.3.3/scss/reboot";
+@import "../../../../contrib/bootstrap5/dist/bootstrap/5.3.3/scss/type";
+@import "../../../../contrib/bootstrap5/dist/bootstrap/5.3.3/scss/images";
+@import "../../../../contrib/bootstrap5/dist/bootstrap/5.3.3/scss/containers";
+@import "../../../../contrib/bootstrap5/dist/bootstrap/5.3.3/scss/grid";
+@import "../../../../contrib/bootstrap5/dist/bootstrap/5.3.3/scss/nav";
+@import "../../../../contrib/bootstrap5/dist/bootstrap/5.3.3/scss/navbar";
+@import "../../../../contrib/bootstrap5/dist/bootstrap/5.3.3/scss/accordion";
+@import "../../../../contrib/bootstrap5/dist/bootstrap/5.3.3/scss/alert";
+@import "../../../../contrib/bootstrap5/dist/bootstrap/5.3.3/scss/button-group";
+@import "../../../../contrib/bootstrap5/dist/bootstrap/5.3.3/scss/buttons";
+@import "../../../../contrib/bootstrap5/dist/bootstrap/5.3.3/scss/close";
+@import "../../../../contrib/bootstrap5/dist/bootstrap/5.3.3/scss/card";
+@import "../../../../contrib/bootstrap5/dist/bootstrap/5.3.3/scss/forms";
+@import "../../../../contrib/bootstrap5/dist/bootstrap/5.3.3/scss/offcanvas";
+@import "../../../../contrib/bootstrap5/dist/bootstrap/5.3.3/scss/popover";
+@import "../../../../contrib/bootstrap5/dist/bootstrap/5.3.3/scss/transitions";
+@import "../../../../contrib/bootstrap5/dist/bootstrap/5.3.3/scss/helpers";
+@import "../../../../contrib/bootstrap5/dist/bootstrap/5.3.3/scss/utilities/api";
+
+// ============================================================================
+// CUSTOM SCSS - ONLY FOR FIGMA SPECS THAT BOOTSTRAP CAN'T HANDLE
+// ============================================================================
+
+// Custom CSS properties for Tactis brand colors
+:root {
+  --bs-tactis-primary: #{$tactis-primary};
+  --bs-tactis-secondary: #{$tactis-secondary};
+  --bs-tactis-tertiary: #{$tactis-tertiary};
+  --bs-tactis-quaternary: #{$tactis-quaternary};
+  --bs-tactis-light: #{$tactis-light};
+  --bs-tactis-dark: #{$tactis-dark};
+}
+
+// Hero gradient background (can't be achieved with Bootstrap utilities)
+.hero-gradient {
+  background: linear-gradient(135deg, #{$tactis-secondary} 0%, #{$tactis-tertiary} 100%);
+}
+
+// Alternative hero gradients
+.hero-gradient-bright {
+  background: linear-gradient(145deg, #dd0066 20%, #{$tactis-primary} 86%);
+}
+
+// Section background utilities for Figma design
+.section-purple {
+  background-color: var(--bs-tactis-secondary);
+  color: white;
+}
+
+.section-dark {
+  background-color: var(--bs-tactis-tertiary);
+  color: white;
+}
+
+// Logo sizing constraints from Figma specs
+.navbar-brand img {
+  max-width: 184px !important;
+  max-height: 50px !important;
+  height: auto;
+}
+
+// Custom button for Tactis primary (extends Bootstrap)
+.btn-tactis-primary {
+  --bs-btn-color: #fff;
+  --bs-btn-bg: var(--bs-tactis-primary);
+  --bs-btn-border-color: var(--bs-tactis-primary);
+  --bs-btn-hover-color: #fff;
+  --bs-btn-hover-bg: var(--bs-tactis-secondary);
+  --bs-btn-hover-border-color: var(--bs-tactis-secondary);
+  --bs-btn-focus-shadow-rgb: var(--bs-tactis-tertiary);
+  --bs-btn-active-color: #fff;
+  --bs-btn-active-bg: var(--bs-tactis-tertiary);
+  --bs-btn-active-border-color: var(--bs-tactis-tertiary);
+}
+
+// Header positioning and admin toolbar compatibility
+header {
+  top: 0;
+  z-index: 410;
+}
+
+#toolbar-administration {
+  z-index: 1050;
+}
+
+body.toolbar-horizontal header {
+  top: 39px;
+}
+
+body.toolbar-horizontal.toolbar-tray-open header {
+  top: 78px;
+}
+
+body.toolbar-vertical header {
+  top: 39px;
+}
+
+// Mobile hamburger menu styling (specific to Figma design)
+.navbar-toggler {
+  border: 0;
+
+  .navbar-toggler-icon {
+    width: 25px;
+    height: 3px;
+    background-color: var(--bs-tactis-primary);
+    border-radius: 2px;
+    display: block;
+    margin: 5px 0;
+  }
+}
+
+// Navigation hover effects
+.nav-link:hover {
+  color: var(--bs-tactis-primary) !important;
+}
+
+// Custom utilities for specific Figma spacing if needed
+.mw-70 {
+  max-width: 70%;
+}
+
+// Stats section styling from Figma
+.stats-section {
+  .stat-number {
+    font-size: 3rem;
+    font-weight: 700;
+    color: white;
+  }
+
+  .stat-label {
+    font-size: 1rem;
+    color: rgba(255, 255, 255, 0.8);
+  }
+}
+
+// Testimonial styling
+.testimonial-section {
+  background-color: #f8f9fa;
+
+  .testimonial-text {
+    font-style: italic;
+    font-size: 1.25rem;
+    line-height: 1.6;
+  }
+}

@@ -1,0 +1,27 @@
+{
+  "name": "Tactis Evolve",
+  "version": "1.0.0",
+  "description": "Gulp compiler for Tactis Evolve",
+  "main": "gulpfile.js",
+  "type": "module",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Tactis",
+  "license": "ISC",
+  "dependencies": {
+    "del": "^7.0.0",
+    "esm": "^3.2.25",
+    "gulp": "^4.0.2",
+    "gulp-babel": "^8.0.0",
+    "gulp-clean-css": "^4.3.0",
+    "gulp-concat": "^2.6.1",
+    "gulp-rename": "^2.0.0",
+    "gulp-sass": "^5.1.0",
+    "gulp-uglify": "^3.0.2",
+    "sass": "^1.63.6",
+    "@popperjs/core": "^2.11.8",
+    "bootstrap-icons": "^1.10.5",
+    "lottie-web": "^5.12.2"
+  }
+}

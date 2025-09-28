@@ -1,0 +1,15 @@
+
+// Some buttons
+.btn-tactis-primary, .btn-tactis-primary:visited {
+  --bs-btn-font-weight: 600;
+  --bs-btn-color: var(--bs-white);
+  --bs-btn-bg: var(--bs-tactis-primary);
+  --bs-btn-border-color: var(--bs-tactis-primary);
+  --bs-btn-hover-color: var(--bs-white);
+  --bs-btn-hover-bg: var(--bs-tactis-secondary);
+  --bs-btn-hover-border-color: var(--bs-tactis-secondary);
+  --bs-btn-focus-shadow-rgb: var(--bs-tactis-tertiary);
+  --bs-btn-active-color: var(--bs-white);
+  --bs-btn-active-bg: var(--bs-tactis-tertiary);
+  --bs-btn-active-border-color: var(--bs-tactis-tertiary);
+}
