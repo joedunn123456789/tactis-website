@@ -1,0 +1,13 @@
+/* REMOVED: CSS background logos to prevent duplication with HTML Site Branding block */
+/* Content authors control logos via Appearance → Theme Settings */
+/* Site logo now controlled via Drupal admin Site Branding block */
+/* This maintains content author control over logo changes */
+/* HTML img approach provides accessibility and admin flexibility */
+/* CSS background logos removed to prevent double display */
+
+
+header .navbar-brand {
+  min-height: 50px;
+  /* Removed background-image properties */
+  /* Removed background-position and background-repeat */
+}

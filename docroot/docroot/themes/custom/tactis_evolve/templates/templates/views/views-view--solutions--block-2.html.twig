@@ -1,0 +1,79 @@
+{# TAC-233: Fixed template using correct data structure #}
+<div class="solutions-cards-layout">
+  <div class="container mb-5">
+    <div class="text-center mb-4">
+      <div class="text-uppercase fw-semibold mb-3" style="color: var(--bs-tactis-primary); font-size: 0.875rem; letter-spacing: 0.1em;">
+        What We Do
+      </div>
+    </div>
+  </div>
+
+  {% if rows %}
+    <div class="view-content">
+      <div class="container">
+        <div class="row g-4">
+
+          {# Use the SAME data access as accordion template #}
+          {% for row in rows[0]['#rows'] %}
+            {% set term = row['#taxonomy_term'] %}
+
+            <div class="col-12 col-md-6 col-lg-4">
+              <div class="card h-100 border-0 shadow-sm" style="background-color: var(--bs-gray-100); border: 1px solid var(--bs-gray-300) !important;">
+                <div class="card-body d-flex flex-column p-4">
+
+                  {# Solution Title - Using same access as accordion #}
+                  <h5 class="card-title fw-semibold mb-3">
+                    <a href="{{ path('entity.taxonomy_term.canonical', {'taxonomy_term': term.id}) }}"
+                       class="text-decoration-none text-dark stretched-link">
+                      {{ term.name.value }}
+                    </a>
+                  </h5>
+
+                  {# Solution Description #}
+                  {% if term.field_teaser_text.value %}
+                    <p class="card-text mb-3 text-muted">
+                      {{ term.field_teaser_text.value|striptags|slice(0, 150) }}...
+                    </p>
+                  {% elseif term.description.0.value %}
+                    <p class="card-text mb-3 text-muted">
+                      {{ term.description.0.value|striptags|slice(0, 150) }}...
+                    </p>
+                  {% endif %}
+
+                  {# Services List #}
+                  {% if term.field_services and term.field_services|length > 0 %}
+                    <div class="mt-auto">
+                      <h6 class="fw-semibold mb-2 small" style="color: var(--bs-tactis-secondary);">Featured Services:</h6>
+                      <ul class="list-unstyled mb-0">
+                        {% for i in 0..3 %}
+                          {% if term.field_services[i] %}
+                            <li class="mb-1">
+                              <small class="text-muted">• {{ term.field_services[i].entity.name.value }}</small>
+                            </li>
+                          {% endif %}
+                        {% endfor %}
+
+                        {% if term.field_services|length > 4 %}
+                          <li class="mb-1">
+                            <small class="fw-semibold" style="color: var(--bs-tactis-primary);">• and more...</small>
+                          </li>
+                        {% endif %}
+                      </ul>
+                    </div>
+                  {% endif %}
+
+                </div>
+              </div>
+            </div>
+          {% endfor %}
+
+          {# Footer as last card #}
+          {% if footer %}
+            {{ footer }}
+          {% endif %}
+
+        </div>
+      </div>
+    </div>
+  {% endif %}
+</div>

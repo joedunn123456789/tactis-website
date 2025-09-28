@@ -1,0 +1,200 @@
+{#
+/**
+ * Bootstrap-First HTML Base Template
+ * Clean structure using Bootstrap utilities, matches Figma design specs
+ */
+#}
+
+{%
+  set body_classes = [
+    logged_in ? 'user-logged-in',
+    not root_path ? 'path-frontpage' : 'path-' ~ root_path|clean_class,
+    node_type ? 'page-node-type-' ~ node_type|clean_class,
+    db_offline ? 'db-offline',
+    'd-flex',
+    'flex-column',
+    'min-vh-100'
+  ]
+%}
+
+<!DOCTYPE html>
+<html{{ html_attributes.addClass('h-100') }} lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>{{ head_title|safe_join(' | ') }}</title>
+
+    <head-placeholder token="{{ placeholder_token }}">
+    <css-placeholder token="{{ placeholder_token }}">
+    <js-placeholder token="{{ placeholder_token }}">
+
+    {# Preload fonts for performance #}
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  </head>
+
+  <body{{ attributes.addClass(body_classes) }}>
+    {# Skip to main content for accessibility #}
+    <a href="#main-content" class="visually-hidden-focusable position-absolute top-0 start-0 z-3 p-3 bg-primary text-white text-decoration-none">
+      {{ 'Skip to main content'|t }}
+    </a>
+
+    {# Page top region #}
+    {{ page_top }}
+
+    {# Main page wrapper #}
+    <div class="page-wrapper d-flex flex-column min-vh-100">
+      {# Header #}
+      {% if page.header %}
+        {{ page.header }}
+      {% endif %}
+
+      {# Hero region (if exists) #}
+      {% if page.hero %}
+        {{ page.hero }}
+      {% endif %}
+
+      {# Main content area #}
+      <main id="main-content" class="main-content flex-grow-1" role="main">
+        {# Highlighted/Messages region #}
+        {% if page.highlighted %}
+          <div class="highlighted py-3">
+            <div class="container">
+              {{ page.highlighted }}
+            </div>
+          </div>
+        {% endif %}
+
+        {# Breadcrumb #}
+        {% if page.breadcrumb %}
+          <div class="breadcrumb-wrapper py-2 bg-light">
+            <div class="container">
+              {{ page.breadcrumb }}
+            </div>
+          </div>
+        {% endif %}
+
+        {# Page title #}
+        {% if page.page_title and not is_front %}
+          <div class="page-title-wrapper py-4">
+            <div class="container">
+              {{ page.page_title }}
+            </div>
+          </div>
+        {% endif %}
+
+        {# Content regions #}
+        <div class="content-wrapper">
+          {# Sidebar first #}
+          {% if page.sidebar_first %}
+            <aside class="sidebar-first bg-light py-4" role="complementary">
+              <div class="container">
+                <div class="row">
+                  <div class="col-md-3">
+                    {{ page.sidebar_first }}
+                  </div>
+                </div>
+              </div>
+            </aside>
+          {% endif %}
+
+          {# Main content #}
+          {% if page.content %}
+            <div class="main-content-wrapper py-4">
+              <div class="container">
+                <div class="row">
+                  <div class="col">
+                    {{ page.content }}
+                  </div>
+                </div>
+              </div>
+            </div>
+          {% endif %}
+
+          {# Sidebar second #}
+          {% if page.sidebar_second %}
+            <aside class="sidebar-second bg-light py-4" role="complementary">
+              <div class="container">
+                <div class="row">
+                  <div class="col-md-3 ms-auto">
+                    {{ page.sidebar_second }}
+                  </div>
+                </div>
+              </div>
+            </aside>
+          {% endif %}
+        </div>
+      </main>
+
+      {# Footer #}
+      {% if page.footer %}
+        <footer class="footer bg-dark text-white py-5 mt-auto" role="contentinfo">
+          <div class="container">
+            <div class="row">
+              <div class="col-md-6">
+                {{ page.footer }}
+              </div>
+              <div class="col-md-6">
+                {# Stay Connected section from Figma #}
+                <div class="stay-connected">
+                  <h5 class="text-white mb-3">Stay Connected</h5>
+                  <p class="text-white-50 mb-3">Join today and receive our quarterly Tactis newsletter discussing our latest stuff.</p>
+
+                  <form class="newsletter-form">
+                    <div class="input-group mb-3">
+                      <input type="email" class="form-control" placeholder="Enter email here" aria-label="Email">
+                      <button class="btn btn-primary" type="submit">
+                        <i class="bi bi-arrow-right"></i>
+                      </button>
+                    </div>
+                  </form>
+
+                  {# Social links #}
+                  <div class="social-links mt-4">
+                    <a href="#" class="text-white me-3" aria-label="LinkedIn">
+                      <i class="bi bi-linkedin fs-5"></i>
+                    </a>
+                    <a href="#" class="text-white" aria-label="Facebook">
+                      <i class="bi bi-facebook fs-5"></i>
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {# Footer bottom #}
+            <div class="row mt-5 pt-4 border-top border-secondary">
+              <div class="col-md-6">
+                <p class="text-white-50 mb-0">&copy; {{ "now"|date("Y") }} Tactis. All Rights Reserved.</p>
+              </div>
+              <div class="col-md-6">
+                <div class="footer-links d-flex gap-4 justify-content-md-end">
+                  <a href="/careers" class="text-white-50 text-decoration-none">Careers</a>
+                  <a href="/contact" class="text-white-50 text-decoration-none">Contact</a>
+                  <a href="/employee-login" class="text-white-50 text-decoration-none">Employee Login</a>
+                  <a href="/privacy-policy" class="text-white-50 text-decoration-none">Privacy Policy</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </footer>
+      {% endif %}
+    </div>
+
+    {# Page bottom region #}
+    {{ page_bottom }}
+
+    {# JavaScript at the end for performance #}
+    <js-bottom-placeholder token="{{ placeholder_token }}">
+
+    {# Analytics scripts from original template #}
+    <script>
+      (function(w,d,t,u,n,a,m){w['MauticTrackingObject']=n;
+        w[n]=w[n]||function(){(w[n].q=w[n].q||[]).push(arguments)},a=d.createElement(t),
+                m=d.getElementsByTagName(t)[0];a.async=1;a.src=u;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','https://mautic.tactis.com/mtc.js','mt');
+
+      mt('send', 'pageview');
+    </script>
+  </body>
+</html>

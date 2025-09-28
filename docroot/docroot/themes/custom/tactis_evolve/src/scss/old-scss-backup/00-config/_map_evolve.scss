@@ -1,0 +1,7 @@
+// Overrides for default maps
+
+$theme-colors: map-merge($theme-colors, $tactis-colors);
+//$theme-colors-border-subtle: map-merge($theme-colors-border-subtle, $tactis-colors);
+$font-sizes: map-merge($font-sizes, $tactis-font-sizes);
+$zindex-levels: map-merge($zindex-levels, $tactis-z-index);
+

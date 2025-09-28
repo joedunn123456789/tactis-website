@@ -1,0 +1,101 @@
+<?php
+
+use Drupal\file\Entity\File;
+use Drupal\image\Entity\ImageStyle;
+
+/**
+ * @file
+ * Evolve theme file.
+ */
+
+function tactis_evolve_preprocess_html(&$variables) {
+  $node = \Drupal::routeMatch()->getParameter('node');
+  if(is_object($node)) {
+    if (!empty($node->get('field_hero_options')->getValue())){
+      $variables['attributes']['class'][] = $node->get('field_hero_options')->value;
+    }else{
+      $variables['attributes']['class'][] = 'hero-dark';
+    }
+    if (!empty($node->get('field_show_title')->getValue())){
+      $variables['attributes']['class'][] = $node->get('field_show_title')->value;
+    }else{
+      $variables['attributes']['class'][] = 'hero-title';
+    }
+  }
+  $user = \Drupal::routeMatch()->getParameter('user');
+  if (is_object($user)){
+    $variables['attributes']['class'][] = 'hero-dark';
+    $variables['attributes']['class'][] = 'no-title';
+  }
+
+  $term = \Drupal::routeMatch()->getParameter('taxonomy_term');
+  if (is_object($term)){
+    $variables['attributes']['class'][] = 'hero-light';
+    $variables['attributes']['class'][] = 'hero-title';
+  }
+
+  $view_id = \Drupal::routeMatch()->getParameter('view_id');
+  if (!empty($view_id) and $view_id == 'search'){
+    $variables['attributes']['class'][] = 'hero-dark';
+    $variables['attributes']['class'][] = 'hero-title';
+  }
+
+}
+
+/**
+ * Implements hook_theme_suggestions_alter().
+ */
+function tactis_evolve_theme_suggestions_alter(array &$suggestions, array $variables, $hook) {
+  if ($hook == 'user'){
+      $suggestions[] =  $hook . '__' . $variables['elements']['#view_mode'];
+  }
+
+  if ($hook == 'taxonomy_term'){
+    $suggestions[] = $hook . '__' . $variables['elements']['#view_mode'];
+    /**
+     * @var \Drupal\taxonomy\Entity\Term $term
+     */
+    $term = $variables['elements']['#taxonomy_term'];
+    $suggestions[] = $hook . "__" . $term->bundle() . "__" . $variables['elements']['#view_mode'];
+  }
+}
+
+function tactis_evolve_preprocess_paragraph__section(&$variables){
+
+  /** @var \Drupal\paragraphs\Entity\Paragraph $paragraph */
+  $paragraph = $variables['paragraph'];
+  if ($paragraph->bundle() == 'section'){
+    $variables['id'] = $paragraph->id();
+    if ($paragraph->field_section_background->getString() == 'section-background-image'){
+      $media_entity = $paragraph->field_image[0]->entity;
+      if (is_object($media_entity)){
+        $file_id = $media_entity->getSource()->getSourceFieldValue($media_entity);
+        $url = File::load($file_id)->createFileUrl();
+        $variables['bg_xl'] = $url;
+        $variables['bg_xs'] = ImageStyle::load('background_x_small')
+          ->buildUrl($media_entity->field_media_image->entity->getFileUri());
+        $variables['bg_sm'] = ImageStyle::load('background_small')
+          ->buildUrl($media_entity->field_media_image->entity->getFileUri());
+        $variables['bg_md'] = ImageStyle::load('background_medium')
+          ->buildUrl($media_entity->field_media_image->entity->getFileUri());
+        $variables['bg_lg'] = ImageStyle::load('background_large')
+          ->buildUrl($media_entity->field_media_image->entity->getFileUri());
+      }
+    }
+  }
+}
+
+function tactis_evolve_preprocess_field__paragraph__field_cards(&$variables){
+
+  /** @var \Drupal\paragraphs\Entity\Paragraph $paragraph */
+  $paragraph = $variables['element']['#object'];
+  if ($paragraph->bundle() == 'cards'){
+    $displaySize = $paragraph->get('field_display_size')->getString();
+    $cardAnimation = $paragraph->get('field_card_animation')->getString();
+    foreach ($variables['items'] as $delta => $item) {
+      $variables['items'][$delta]['attributes']->setAttribute('data-title-display', $displaySize);
+      $variables['items'][$delta]['attributes']->setAttribute('data-card-animation', $cardAnimation);
+    }
+  }
+}
+

@@ -1,0 +1,128 @@
+{#
+/**
+ * Bootstrap-First Hero Template
+ * Uses Bootstrap utilities for 90% of styling, matches Figma design specs
+ */
+#}
+
+{{ attach_library('bootstrap5/node') }}
+
+{# Hero section with gradient background from Figma #}
+<section class="hero-gradient min-vh-100 d-flex align-items-center position-relative">
+  <div class="container">
+    {% if node.field_hero_options.value|raw == 'hero-split' %}
+      {# 50/50 Split Layout from Figma #}
+      <div class="row align-items-center g-5">
+        <div class="col-lg-6">
+          {# Welcome tag #}
+          <p class="text-uppercase fw-semibold text-white-50 mb-3 fs-6">
+            Welcome to Tactis
+          </p>
+
+          {# Hero headline #}
+          <div class="hero-content mb-4">
+            {% if node.bundle == 'article' %}
+              <div class="mb-4">
+                <a class="text-decoration-none text-white-50 fw-semibold d-inline-flex align-items-center" href="/articles">
+                  <i class="bi bi-arrow-left me-2"></i> Back to articles
+                </a>
+              </div>
+            {% endif %}
+
+            {% if node.field_show_title.value|raw == "hero-title" %}
+              <h1 class="display-3 fw-bold text-white mb-4">{{ label }}</h1>
+            {% endif %}
+
+            <div class="lead text-white">
+              {{ content.body }}
+            </div>
+          </div>
+
+          {# CTA Button #}
+          {% if node.field_show_arrow.value|raw == 1 %}
+            <a href="/articles" class="btn btn-primary btn-lg fw-semibold d-inline-flex align-items-center">
+              View Full Series
+              <i class="bi bi-arrow-right ms-2"></i>
+            </a>
+          {% endif %}
+        </div>
+
+        <div class="col-lg-6">
+          {% if content.field_hero_image.0 is not empty %}
+            <div class="text-center">
+              {% if node.field_use_animation.value and content.field_hero_image[0]['#media'].field_media_json.value %}
+                {{ attach_library('tactis_evolve/lottie') }}
+                <div id="hero-image-animation" class="lottie-animation w-100"
+                     data-animation="{{ content.field_hero_image[0]['#media'].field_media_json.value }}">
+                </div>
+              {% else %}
+                <div class="w-100">
+                  {{ content.field_hero_image }}
+                </div>
+              {% endif %}
+            </div>
+          {% endif %}
+        </div>
+      </div>
+
+    {% else %}
+      {# Traditional Hero Layout #}
+      <div class="row align-items-center">
+        {% if content.field_hero_image.0 is not empty %}
+          <div class="col-lg-6 order-lg-2 text-center mb-5 mb-lg-0">
+            {% if node.field_use_animation.value and content.field_hero_image[0]['#media'].field_media_json.value %}
+              {{ attach_library('tactis_evolve/lottie') }}
+              <div id="hero-image-animation" class="lottie-animation w-100"
+                   data-animation="{{ content.field_hero_image[0]['#media'].field_media_json.value }}">
+              </div>
+            {% else %}
+              <div class="w-100">
+                {{ content.field_hero_image }}
+              </div>
+            {% endif %}
+          </div>
+        {% endif %}
+
+        <div class="col-lg-6 order-lg-1 text-center text-lg-start">
+          {# Welcome tag #}
+          <p class="text-uppercase fw-semibold text-white-50 mb-3 fs-6">
+            Welcome to Tactis
+          </p>
+
+          {% if node.bundle == 'article' %}
+            <div class="mb-4">
+              <a class="text-decoration-none text-white-50 fw-semibold d-inline-flex align-items-center" href="/articles">
+                <i class="bi bi-arrow-left me-2"></i> Back to articles
+              </a>
+            </div>
+          {% endif %}
+
+          {% if node.field_show_title.value|raw == "hero-title" %}
+            <h1 class="display-3 fw-bold text-white mb-4">{{ label }}</h1>
+          {% endif %}
+
+          <div class="lead text-white mb-4">
+            {{ content.body }}
+          </div>
+
+          {% if node.field_show_arrow.value|raw == 1 %}
+            <a href="/articles" class="btn btn-primary btn-lg fw-semibold d-inline-flex align-items-center">
+              View Full Series
+              <i class="bi bi-arrow-right ms-2"></i>
+            </a>
+          {% endif %}
+        </div>
+      </div>
+    {% endif %}
+
+    {# Scroll indicator #}
+    {% if node.field_show_arrow.value|raw == 1 %}
+      <div class="position-absolute bottom-0 start-50 translate-middle-x mb-4">
+        <div class="d-flex align-items-center text-white-50">
+          <span class="me-3">Let's get started</span>
+          <i class="bi bi-arrow-down-circle fs-4"></i>
+        </div>
+      </div>
+    {% endif %}
+  </div>
+</section>

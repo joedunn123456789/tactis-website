@@ -1,0 +1,196 @@
+{#
+/**
+ * @file
+ * TAC-230: Hardcoded title, description, and button positioning
+ *
+ * EXACT FIGMA MATCH:
+ * - Hardcoded "Articles" title
+ * - Hardcoded description text
+ * - Button positioned to right of description (not below articles)
+ * - Articles in their own row below
+ *
+ * Template: views-view--duplicate-of-articles--block.html.twig
+ */
+#}
+{%
+  set classes = [
+  'view',
+  'view-' ~ id|clean_class,
+  'view-id-' ~ id,
+  'view-display-id-' ~ display_id,
+  'articles-with-button-tac230',
+  dom_id ? 'js-view-dom-id-' ~ dom_id,
+]
+%}
+<div{{ attributes.addClass(classes) }}>
+  {{ title_prefix }}
+  {% if title %}
+    {{ title }}
+  {% endif %}
+  {{ title_suffix }}
+  {% if header %}
+    <div class="view-header">
+      {{ header }}
+    </div>
+  {% endif %}
+  {% if exposed %}
+    <div class="view-filters">
+      {{ exposed }}
+    </div>
+  {% endif %}
+  {% if attachment_before %}
+    <div class="attachment attachment-before">
+      {{ attachment_before }}
+    </div>
+  {% endif %}
+
+  {% if rows %}
+    <div class="container">
+
+      {# TITLE SECTION #}
+      <div class="row mb-4">
+        <div class="col-12">
+          <h2 style="font-family: 'League Spartan'; font-weight: 600; font-size: 42px; line-height: 39px; color: #FFFFFF; margin: 0;">
+            Articles
+          </h2>
+        </div>
+      </div>
+
+      {# DESCRIPTION AND BUTTON ROW - Side by side as per Figma #}
+      <div class="row mb-5">
+        <div class="col-12">
+          <div class="d-flex align-items-start justify-content-between">
+
+            {# DESCRIPTION - Left side (800px width as per Figma) #}
+            <div style="width: 800px; max-width: 800px; flex-shrink: 0;">
+              <p style="font-family: 'League Spartan'; font-weight: 400; font-size: 20px; line-height: 28px; color: #FFFFFF; margin: 0;">
+                As the world evolves, so do its technology, practices, and people. Our selection of thought-leadership posts, profiles, and press releases offer a snapshot of our ideas and views on the issues of the day.
+              </p>
+            </div>
+
+            {# BUTTON - Right side (237px width as per Figma) #}
+            <div class="flex-shrink-0 ms-4">
+              <a href="/articles"
+                 class="btn d-inline-flex align-items-center justify-content-center"
+                 style="width: 237px; height: 60px; border: 2px solid #FFFFFF; background: transparent; font-family: 'League Spartan'; font-weight: 600; font-size: 20px; line-height: 18px; color: #FFFFFF; text-decoration: none;">
+                View All Articles
+                <i class="bi bi-arrow-right ms-2" style="color: #FFFFFF;"></i>
+              </a>
+            </div>
+
+          </div>
+        </div>
+      </div>
+
+      {# ARTICLES SECTION - Full row below with transparent card backgrounds #}
+      <div class="row">
+        <div class="col-12">
+          <div class="view-content d-md-flex flex-row justify-content-between flex-wrap animation-container">
+            {{ rows }}
+          </div>
+        </div>
+      </div>
+
+    </div>
+  {% elseif empty %}
+    <div class="view-empty">
+      {{ empty }}
+    </div>
+  {% endif %}
+
+  {% if pager %}
+    {{ pager }}
+  {% endif %}
+  {% if attachment_after %}
+    <div class="attachment attachment-after">
+      {{ attachment_after }}
+    </div>
+  {% endif %}
+  {% if more %}
+    {{ more }}
+  {% endif %}
+  {% if footer %}
+    <div class="view-footer">
+      {{ footer }}
+    </div>
+  {% endif %}
+  {% if feed_icons %}
+    <div class="feed-icons">
+      {{ feed_icons }}
+    </div>
+  {% endif %}
+</div>
+
+{# CSS to make article cards transparent with white text and hide date/authors #}
+<style>
+  .articles-with-button-tac230 .view-content .views-row {
+    background: transparent !important;
+    background-color: transparent !important;
+    color: #FFFFFF !important;
+  }
+
+  .articles-with-button-tac230 .view-content .node {
+    background: transparent !important;
+    background-color: transparent !important;
+    color: #FFFFFF !important;
+  }
+
+  .articles-with-button-tac230 .view-content .card {
+    background: transparent !important;
+    background-color: transparent !important;
+    border: none !important;
+    color: #FFFFFF !important;
+  }
+
+  .articles-with-button-tac230 .view-content .card-body {
+    background: transparent !important;
+    background-color: transparent !important;
+    color: #FFFFFF !important;
+  }
+
+  /* Target article titles and text specifically */
+  .articles-with-button-tac230 .view-content h3,
+  .articles-with-button-tac230 .view-content h4,
+  .articles-with-button-tac230 .view-content h5,
+  .articles-with-button-tac230 .view-content .card-title,
+  .articles-with-button-tac230 .view-content .card-text,
+  .articles-with-button-tac230 .view-content .node-title,
+  .articles-with-button-tac230 .view-content p,
+  .articles-with-button-tac230 .view-content a {
+    color: #FFFFFF !important;
+  }
+
+  /* Ensure links stay white */
+  .articles-with-button-tac230 .view-content a:hover,
+  .articles-with-button-tac230 .view-content a:visited,
+  .articles-with-button-tac230 .view-content a:focus {
+    color: #FFFFFF !important;
+  }
+
+  /* TAC-230: Hide date and author information from article cards */
+  .articles-with-button-tac230 .view-content .field--name-created,
+  .articles-with-button-tac230 .view-content .field--name-changed,
+  .articles-with-button-tac230 .view-content .field--name-field-date,
+  .articles-with-button-tac230 .view-content .field--name-field-created,
+  .articles-with-button-tac230 .view-content .field--name-field-published-date,
+  .articles-with-button-tac230 .view-content .field--name-uid,
+  .articles-with-button-tac230 .view-content .field--name-field-author,
+  .articles-with-button-tac230 .view-content .field--name-field-authors,
+  .articles-with-button-tac230 .view-content .node__submitted,
+  .articles-with-button-tac230 .view-content .submitted,
+  .articles-with-button-tac230 .view-content .node__meta,
+  .articles-with-button-tac230 .view-content .author,
+  .articles-with-button-tac230 .view-content .date,
+  .articles-with-button-tac230 .view-content time,
+  .articles-with-button-tac230 .view-content .datetime {
+    display: none !important;
+  }
+
+  /* Hide any "By Author" text */
+  .articles-with-button-tac230 .view-content .views-field-name,
+  .articles-with-button-tac230 .view-content .views-field-uid,
+  .articles-with-button-tac230 .view-content .views-field-created,
+  .articles-with-button-tac230 .view-content .views-field-changed {
+    display: none !important;
+  }
+</style>

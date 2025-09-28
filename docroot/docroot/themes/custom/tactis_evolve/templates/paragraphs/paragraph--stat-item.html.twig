@@ -1,0 +1,39 @@
+{#
+/**
+ * @file
+ * Template for individual Stat Item paragraph - TAC-229
+ *
+ * This template is used by the main Stats component
+ * Individual stat with number/title and description
+ */
+#}
+
+{# Set up CSS classes for the stat item #}
+{%
+  set classes = [
+  'paragraph',
+  'paragraph--type--' ~ paragraph.bundle|clean_class,
+  view_mode ? 'paragraph--view-mode--' ~ view_mode|clean_class,
+  not paragraph.isPublished() ? 'paragraph--unpublished',
+  'stat-item-component'
+]
+%}
+
+{# Individual stat item wrapper #}
+<div{{ attributes.addClass(classes) }}>
+
+  {# Stat title (big number or headline) #}
+  {% if paragraph.field_stat_title.value %}
+    <div class="stat-title">
+      {{ paragraph.field_stat_title.value }}
+    </div>
+  {% endif %}
+
+  {# Stat description (what it means) #}
+  {% if paragraph.field_stat_description.value %}
+    <div class="stat-description">
+      {{ paragraph.field_stat_description.value|raw }}
+    </div>
+  {% endif %}
+
+</div>

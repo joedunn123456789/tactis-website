@@ -1,0 +1,24 @@
+{#
+/**
+ * @file
+ * Theme override for Stats field on Section paragraph.
+ *
+ * This template handles the display of Stats paragraphs within a Section.
+ * It provides the two-column layout for the Stats component.
+ */
+#}
+{%
+  set classes = [
+  'field',
+  'field--name-' ~ field_name|clean_class,
+  'field--type-' ~ field_type|clean_class,
+  'field--label-' ~ label_display,
+  label_display == 'inline' ? 'clearfix',
+]
+%}
+
+<div{{ attributes.addClass(classes) }}>
+  {% for item in items %}
+    {{ item.content }}
+  {% endfor %}
+</div>

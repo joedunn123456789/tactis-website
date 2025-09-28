@@ -1,0 +1,46 @@
+{#
+/**
+ * @file
+ * Theme override to display a taxonomy term.
+ *
+ * Available variables:
+ * - url: URL of the current term.
+ * - name: (optional) Name of the current term.
+ * - content: Items for the content of the term (fields and description).
+ *   Use 'content' to print them all, or print a subset such as
+ *   'content.description'. Use the following code to exclude the
+ *   printing of a given child element:
+ *   @code
+ *   {{ content|without('description') }}
+ *   @endcode
+ * - attributes: HTML attributes for the wrapper.
+ * - page: Flag for the full page state.
+ * - term: The taxonomy term entity, including:
+ *   - id: The ID of the taxonomy term.
+ *   - bundle: Machine name of the current vocabulary.
+ * - view_mode: View mode, e.g. 'full', 'teaser', etc.
+ *
+ * @see template_preprocess_taxonomy_term()
+ */
+#}
+
+{%
+    set classes = [
+    'taxonomy-term',
+    'vocabulary-' ~ term.bundle|clean_class,
+    'container',
+]
+%}
+<div{{ attributes.addClass(classes) }}>
+    <div class="row">
+        <div class="col-12 col-md-4 fs-5 mt-5" id="solution-{{ term.id }}">{{ term.name.value }}</div>
+        <div class="col-12 col-md-8 mt-5">
+            {{ content.field_intro_text.0['#text']|raw }}
+            {% if content.description.0['#text'] is not empty %}
+                <div class="collapse collapse-{{ term.id }}">{{ content.description.0['#text']|raw }}</div>
+                <a href="#solution-{{ term.id }}" class="collapse collapse-{{ term.id }} link-tactis-primary link-underline-opacity-0 show" data-bs-toggle="collapse" data-bs-target=".collapse-{{ term.id }}" aria-expanded="false" aria-controls="multiCollapseExample2">Read More <i class="bi bi-chevron-down"></i></a>
+                <a href="#solution-{{ term.id }}" class="collapse collapse-{{ term.id }} link-tactis-primary link-underline-opacity-0" data-bs-toggle="collapse" data-bs-target=".collapse-{{ term.id }}" aria-expanded="false" aria-controls="multiCollapseExample2">Read Less <i class="bi bi-chevron-up"></i></a>
+            {% endif %}
+        </div>
+    </div>
+</div>

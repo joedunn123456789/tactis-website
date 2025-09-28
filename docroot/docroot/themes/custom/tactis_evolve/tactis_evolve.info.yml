@@ -1,0 +1,24 @@
+name: Evolve
+type: theme
+description: 'Evolve: A Tactis subtheme based on Bootstrap 5 theme.'
+core_version_requirement: '^9.4 || ^10'
+'base theme': bootstrap5
+logo: images/logo_header/logo.png
+libraries:
+  - tactis_evolve/global-styling
+  - tactis_evolve/bootstrap
+ckeditor_stylesheets:
+  - css/style.min.css
+ckeditor5-stylesheets:
+  - css/ck5style.min.css
+regions:
+  header: Header
+  hero: Hero
+  navigation: Navigation
+  breadcrumb: Breadcrumbs
+  content: 'Main content'
+  footer_top_left: 'Footer Top Left'
+  footer_top_right: 'Footer Top Right'
+  footer_bottom: 'Footer Bottom'
+libraries-override:
+  bootstrap5/global-styling: false

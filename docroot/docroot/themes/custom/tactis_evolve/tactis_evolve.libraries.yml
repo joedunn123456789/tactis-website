@@ -1,0 +1,19 @@
+global-styling:
+  css:
+    theme:
+      css/style.min.css: { minified: true }
+  js:
+    js/tactis-evolve.min.js: { minified: true }
+
+  dependencies:
+    - core/drupal
+    - core/once
+
+bootstrap:
+  version: 5.3.0
+  js:
+    js/popper.min.js: { minified: true }
+
+lottie:
+  js:
+    "https://cdnjs.cloudflare.com/ajax/libs/bodymovin/5.12.2/lottie.min.js": { external: true, minified: true }

@@ -1,0 +1,15 @@
+
+.tactis-logo-white {
+  background-image: $tactis-all-white-logo;
+  background-repeat: no-repeat;
+  min-height: 50px;
+  min-width: 120px;
+  background-position: center;
+
+  &> a {
+    display: inline-block;
+    width: 100%;
+    padding-top: 50%;
+    text-indent: -999px;
+  }
+}
