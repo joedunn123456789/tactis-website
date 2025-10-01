@@ -1,31 +1,72 @@
+// CUSTOM BOOTSTRAP UTILITIES
+// Extends Bootstrap's utility API with Tactis-specific utilities
 $utilities: map-merge(
-  $utilities,
-  (
-    "min-viewport-height": map-merge(
-      map-get($utilities, "min-viewport-height"),
-      (
-        values: map-merge(
-          map-get(map-get($utilities, "min-viewport-height"), "values"),
-          (10: 10vh, 20: 10vh, 33: 33vh, 50: 50vh, 66: 66vh, 75: 75vh),
-        ),
-      ),
-    ),
-    "max-width": map-merge(
-      map-get($utilities, "max-width"),
-      (
-        responsive: true,
-        values: map-merge(
-          map-get(map-get($utilities, "max-width"), "values"),
+    $utilities,
+    (
+      // Custom viewport height utilities (10vh through 75vh)
+      // Usage: min-vh-10, min-vh-66, etc.
+      "min-viewport-height": map-merge(
+          map-get($utilities, "min-viewport-height"),
           (
-            sm: var(--bs-breakpoint-sm),
-            md: var(--bs-breakpoint-md),
-            lg: var(--bs-breakpoint-lg),
-            xl: var(--bs-breakpoint-xl),
-            xxl: var(--bs-breakpoint-xxl),
-            70: 70%
+            values: map-merge(
+                map-get(map-get($utilities, "min-viewport-height"), "values"),
+                (
+                  10: 10vh,
+                  20: 20vh,
+                  33: 33vh,
+                  50: 50vh,
+                  66: 66vh,
+                  75: 75vh
+                ),
+            ),
+          ),
+      ),
+
+      // Custom max-width utilities with responsive breakpoints
+      // Usage: mw-sm, mw-70, etc.
+      "max-width": map-merge(
+          map-get($utilities, "max-width"),
+          (
+            responsive: true,
+            values: map-merge(
+                map-get(map-get($utilities, "max-width"), "values"),
+                (
+                  sm: var(--bs-breakpoint-sm),
+                  md: var(--bs-breakpoint-md),
+                  lg: var(--bs-breakpoint-lg),
+                  xl: var(--bs-breakpoint-xl),
+                  xxl: var(--bs-breakpoint-xxl),
+                  70: 70%
+                )
+            )
+          ),
+      ),
+
+      // Tactis brand color border utilities
+      // Usage: border-tactis-light, border-tactis-primary, border-tactis-secondary
+      "border-color": map-merge(
+          map-get($utilities, "border-color"),
+          (
+            values: map-merge(
+                map-get(map-get($utilities, "border-color"), "values"),
+                (
+                  "tactis-light": $tactis-light,      // #999
+                  "tactis-primary": $tactis-primary,  // #AF0061
+                  "tactis-secondary": $tactis-secondary,  // #682145 (plum)
+                )
+            )
           )
+      ),
+
+
+      // Gradient background utilities; For hero sections and dark gradient backgrounds from Figma
+      // Usage: bg-gradient-plum
+      "gradient": (
+        property: background,
+        class: bg,
+        values: (
+          "gradient-plum": linear-gradient(39.09deg, #86084E 29.49%, #E81F76 93.25%),
         )
       ),
-    ),
-  ),
+    )
 );
