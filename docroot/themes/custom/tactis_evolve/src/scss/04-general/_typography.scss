@@ -1,7 +1,42 @@
+// ============================================
+// BOOTSTRAP DARK THEME SUPPORT
+// Must come first to allow data-bs-theme to work
+// ============================================
+
+[data-bs-theme="dark"] {
+  color: var(--bs-body-color-dark, #dee2e6);
+
+  p {
+    color: inherit;
+  }
+
+  h1,h2,h3,h4,h5,h6 {
+    color: $white;
+  }
+
+  a:not(.btn, .nav-link, .toolbar-icon) {
+    color: var(--bs-white);
+
+    &:hover {
+      color: rgba(255, 255, 255, 0.8);
+    }
+
+    &:visited {
+      color: var(--bs-white);
+    }
+
+    &:active {
+      color: var(--bs-white);
+    }
+  }
+}
+
+// Headings default to black
 h1,h2,h3,h4,h5,h6 {
   color: $black;
 }
 
+// Legacy dark hero support (keep for existing pages)
 .text-light, .hero-block .hero-dark {
   h1,h2,h3,h4,h5,h6 {
     color: $white;
@@ -53,7 +88,7 @@ h1,h2,h3,h4,h5,h6 {
     color: var(--bs-tactis-primary);
     display: inline-block;
     width: 1em;
-    margin-left: -1em
+    margin-left: -1em;
   }
 
   &.list-unstyled {
@@ -65,8 +100,7 @@ h1,h2,h3,h4,h5,h6 {
   }
 }
 
-// Links
-
+// Links default to primary color
 a:not(.btn, .nav-link, .toolbar-icon) {
   color: var(--bs-tactis-primary);
 
@@ -83,24 +117,7 @@ a:not(.btn, .nav-link, .toolbar-icon) {
   }
 }
 
-.bg-black {
-  a:not(.btn, .nav-link, .toolbar-icon) {
-    color: var(--bs-white);
-
-    &:visited {
-      color: var(--bs-white);
-    }
-
-    &:hover {
-      color: var(--bs-tactis-primary-light);
-    }
-
-    &:active {
-      color: var(--bs-white);
-    }
-  }
-}
-
+// Legacy dark hero support (keep for existing pages)
 body.hero-dark header, .bg-tactis-secondary, .bg-tactis-tertiary {
   a:not(.btn, .nav-link, .toolbar-icon) {
     color: var(--bs-white);
@@ -117,5 +134,4 @@ body.hero-dark header, .bg-tactis-secondary, .bg-tactis-tertiary {
       color: var(--bs-white);
     }
   }
-
 }
