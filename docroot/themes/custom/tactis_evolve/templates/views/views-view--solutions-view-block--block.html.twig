@@ -22,7 +22,7 @@
   dom_id ? 'js-view-dom-id-' ~ dom_id,
 ]
 %}
-<div{{ attributes.setAttribute('id', dom_id).addClass(classes) }}>
+<div{{ attributes.setAttribute('id', dom_id).setAttribute('data-bs-theme', 'dark').addClass(classes) }}>
   {{ title_prefix }}
   {% if title %}
     {{ title }}
@@ -75,7 +75,7 @@
                 {% set term = row['#taxonomy_term'] %}
                 <div class="solution-item mb-3">
                   <a href="{{ path('entity.taxonomy_term.canonical', {'taxonomy_term': term.id}) }}"
-                     class="solution-link text-decoration-none fs-5 fw-bold d-block py-2 text-white">
+                     class="solution-link text-decoration-none fs-5 fw-bold d-block py-2">
                     {{ term.name.value }}
                   </a>
                 </div>
