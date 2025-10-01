@@ -1,12 +1,10 @@
 // Theme variable overrides.
-
 :root {
   --section-bg-color: $white;
   --section-text-color: $black
 }
 
 // Some Colors
-
 $tactis-primary-light: #E81F76;
 $tactis-primary: #AF0061;
 $tactis-secondary: #682145;
@@ -14,6 +12,13 @@ $tactis-tertiary: #360B21;
 $tactis-quaternary: #0099A8;
 $tactis-light: #999;
 $tactis-dark: #333;
+
+
+// ADAPTIVE BACKGROUND SYSTEM - BOOTSTRAP INTEGRATION
+$secondary: $tactis-secondary;  // Override Bootstrap's secondary color to be plum. This makes bg-secondary = #682145
+$primary: $tactis-primary;  // Override Bootstrap's secondary color to be plum. This makes bg-primary = #AF0061
+$body-color: #222222;  // Set default text color on light backgrounds. Your requirement for white backgrounds
+$border-color: $tactis-light;  // Default border color. Ensure these are available for border utilities
 
 // Accordions
 $accordion-color:                         var(--section-text-color);
@@ -37,10 +42,9 @@ $font-family-sans-serif: "League Spartan", sans-serif;
 $font-size-base: 1.5rem;
 $line-height-base: 1.43;
 $font-size-18: $font-size-base * 1.125;
-$body-color: #444;
+//$body-color: #444; Commented out. body-color moved to ADS.
 
 // Spacers:
-
 $spacer: 1rem;
 $spacers: (
         0: 0,
@@ -54,15 +58,13 @@ $spacers: (
         5: $spacer * 3,
 );
 
-
 // scss-docs-start font-sizes
 $tactis-font-sizes: (
         small: 1.25rem
 );
 
 // specific heights
-// Header
-$header-height: 88px;
+$header-height: 88px; // Header height
 $hero-height-sm: 375px; // from top of screen
 $hero-height-md: 450px; // from top of screen
 
@@ -101,7 +103,6 @@ $container-max-widths: (
 );
 
 /* Z-indexes */
-
 $tactis-z-index: (
   405: 405, //hero
   410: 410, //header
@@ -109,7 +110,6 @@ $tactis-z-index: (
 );
 
 /* Defaults set by bootstrap contributed theme */
-
 $navbar-brand-image-height: 36px !default;
 $navbar-brand-image-height-lg: 60px !default;
 $navbar-brand-image-width: auto !default;
