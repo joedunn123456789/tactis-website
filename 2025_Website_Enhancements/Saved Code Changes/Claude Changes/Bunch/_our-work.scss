@@ -1,0 +1,118 @@
+// TAC-228: Our Work Block - Bootstrap CSS Custom Properties
+.our-work-block {
+  // Use Bootstrap's CSS custom properties for better theme integration
+  --bs-font-family-base: "League Spartan", sans-serif;
+
+  .our-work-title {
+    font-family: var(--bs-font-family-base);
+    font-weight: var(--bs-font-weight-semibold);
+    font-size: 42px;
+    color: var(--section-text-color, var(--bs-dark));
+    line-height: 1.2;
+  }
+
+  .our-work-teaser {
+    font-family: var(--bs-font-family-base);
+    font-weight: var(--bs-font-weight-normal);
+    font-size: 20px;
+    color: var(--section-text-color, var(--bs-dark));
+    line-height: 36px;
+    max-width: 800px;
+    margin-bottom: 0;
+  }
+
+  .client-logos-grid {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+    gap: 2rem;
+    width: 1159px;
+    height: 197px;
+    margin: 4rem auto 0;
+
+    .views-row {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      .views-field .field-content img {
+        max-width: 100%;
+        max-height: 100%;
+        width: auto;
+        height: auto;
+      }
+    }
+  }
+
+  .our-work-cta .btn {
+    // Override Bootstrap button custom properties
+    --bs-btn-bg: var(--bs-primary);
+    --bs-btn-border-color: var(--bs-primary);
+    --bs-btn-hover-bg: var(--bs-secondary);
+    --bs-btn-hover-border-color: var(--bs-secondary);
+    --bs-btn-active-bg: var(--bs-secondary);
+    --bs-btn-active-border-color: var(--bs-secondary);
+    --bs-btn-font-family: var(--bs-font-family-base);
+    --bs-btn-font-weight: var(--bs-font-weight-semibold);
+    --bs-btn-border-radius: 0;
+
+    width: 330px;
+    height: 60px;
+    font-size: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+
+    .bi-arrow-right {
+      margin-left: 0.5rem;
+    }
+  }
+}
+
+// Responsive Design
+@include media-breakpoint-down(lg) {
+  .our-work-block {
+    .client-logos-grid {
+      grid-template-columns: repeat(3, 1fr);
+      grid-template-rows: auto;
+    }
+
+    .our-work-cta .btn {
+      width: 100%;
+      max-width: 330px;
+    }
+  }
+}
+
+@include media-breakpoint-down(md) {
+  .our-work-block {
+    .our-work-title {
+      font-size: 24px;                          // FIGMA mobile: 24px (was 32px)
+    }
+
+    .our-work-teaser {
+      font-size: 16px;                          // FIGMA mobile: 16px (was 18px)
+      line-height: 22px;                        // FIGMA mobile: 22px line-height
+    }
+
+    .client-logos-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    .our-work-cta .btn {
+      width: 252px;                             // FIGMA mobile: 252px (was 100%/330px)
+      height: 40px;                             // FIGMA mobile: 40px (was 60px)
+      font-size: 16px;                          // FIGMA mobile: 16px (was 20px)
+    }
+  }
+}
+
+// Component-specific logo adaptation
+.paragraph--type--section.text-white {
+  .our-work-block {
+    .client-logos-grid img {
+      filter: brightness(0) invert(1); // Only TAC-228 logos turn white
+    }
+  }
+}

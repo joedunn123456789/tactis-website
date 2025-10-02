@@ -1,0 +1,15 @@
+# Use official Python image — Debian + OpenSSL
+FROM python:3.11-slim
+
+# Set work directory
+WORKDIR /app
+
+# Install requests
+RUN pip install requests
+
+# Copy your script into container
+COPY sam_gov_monitor.py .
+
+# Run the script when container starts
+CMD [ "python", "sam_gov_monitor.py" ]
+

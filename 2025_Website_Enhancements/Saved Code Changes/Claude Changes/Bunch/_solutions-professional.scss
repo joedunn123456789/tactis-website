@@ -1,0 +1,138 @@
+// TAC-227: Solutions Block - Bootstrap CSS Custom Properties
+// ADAPTIVE GHOST BUTTON
+.adaptive-outline-btn {
+  // Use Bootstrap button custom properties
+  --bs-btn-bg: transparent;
+  --bs-btn-border-color: var(--bs-secondary);
+  --bs-btn-hover-bg: transparent;
+  --bs-btn-hover-border-color: var(--bs-secondary);
+  --bs-btn-color: var(--bs-secondary);
+  --bs-btn-hover-color: var(--bs-secondary);
+  --bs-btn-font-weight: var(--bs-font-weight-semibold);
+  --bs-btn-padding-x: 2rem;
+  --bs-btn-padding-y: 0.75rem;
+
+  border-width: 2px !important;
+  transition: transform 0.3s ease !important;
+
+  &:hover {
+    background-color: transparent !important;
+    border-color: $tactis-secondary !important;
+    color: $tactis-secondary !important;
+    transform: translateY(-2px) !important;
+  }
+
+  .bi-arrow-right {
+    transition: transform 0.3s ease !important;
+  }
+
+  &:hover .bi-arrow-right {
+    transform: translateX(4px) !important;
+  }
+}
+
+// WHITE BUTTON FOR DARK BACKGROUNDS - Bootstrap CSS custom properties
+.paragraph--type--section.text-light .adaptive-outline-btn {
+  // Override button variables for dark themes
+  --bs-btn-bg: transparent;
+  --bs-btn-border-color: var(--bs-white);
+  --bs-btn-hover-bg: transparent;
+  --bs-btn-hover-border-color: var(--bs-white);
+  --bs-btn-color: var(--bs-white);
+  --bs-btn-hover-color: var(--bs-white);
+  --bs-btn-font-family: "League Spartan", sans-serif;
+  --bs-btn-font-weight: var(--bs-font-weight-semibold);
+  --bs-btn-padding-x: var(--bs-btn-padding-x-lg);
+  --bs-btn-padding-y: var(--bs-btn-padding-y-lg);
+
+  border-width: 2px !important;
+  min-width: 258px;                          // FIGMA mobile: 258px width
+
+  @include media-breakpoint-up(md) {
+    min-width: 320px;                        // Larger on desktop (unchanged)
+  }
+
+  &:hover,
+  &:focus,
+  &:active {
+    background-color: transparent !important;
+    border-color: $white !important;
+    color: #FFFFFF !important;
+    transform: translateY(-2px) !important;
+  }
+}
+
+// SOLUTIONS VIEW BLOCK
+.view-solutions-view-block {
+  width: min(1440px, 100vw);
+  min-height: 446px;
+  aspect-ratio: 1440/446;
+
+  display: flex; //flexbot
+  align-items: center; //center flexbot
+
+  @include media-breakpoint-down(lg) {
+    aspect-ratio: unset;
+    min-height: auto;
+  }
+
+  .view-content {
+    width: 100%;
+  }
+
+  // TAC-227: Mobile title sizing per Figma
+  h2 {
+    font-size: 1.5rem !important;               // FIGMA mobile: 24px (1.5rem)
+
+    @include media-breakpoint-up(md) {
+      font-size: 2.5rem !important;             // Desktop size (unchanged)
+    }
+  }
+
+  // Solution links styling
+  .solutions-list {
+    .solution-item {
+      border-bottom: 2px solid rgba(255, 255, 255, 0.5) !important;
+      padding-bottom: 0.75rem !important;
+      margin-bottom: 0.75rem !important;
+
+      &:last-child {
+        border-bottom: none !important;
+        margin-bottom: 0 !important;
+      }
+    }
+
+    .solution-link {
+      transition: all 0.3s ease;
+      font-size: 1.25rem;
+      font-weight: 500;
+      position: relative;                      // For transform animation
+
+      &:hover {
+        text-decoration: underline !important;
+        text-underline-offset: 4px;
+        text-decoration-thickness: 2px;
+        transform: translateX(0.5rem);         // Use transform instead of padding to prevent layout jump
+      }
+
+      &:focus {
+        outline: 2px solid currentColor;
+        outline-offset: 2px;
+        text-decoration: underline !important;
+      }
+    }
+  }
+
+  // Responsive adjustments
+  @include media-breakpoint-down(md) {
+    .solution-link {
+      font-size: 1.1rem !important;
+    }
+  }
+
+  @include media-breakpoint-up(lg) {
+    .solution-link {
+      font-size: 1.3rem !important;
+    }
+  }
+}

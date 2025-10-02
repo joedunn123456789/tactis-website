@@ -1,0 +1,188 @@
+/**
+ * Stats Component Styling - TAC-229
+ * Bootstrap CSS Custom Properties Implementation
+ */
+
+.paragraph--type--stats {
+  // Use Bootstrap CSS custom properties for better theme integration
+  --bs-font-family-base: "League Spartan", sans-serif;
+
+  // Component spacing - based on Figma height of 513px
+  padding: 4rem 0; // ~64px top/bottom for 513px total
+
+  // ================================
+  // LEFT COLUMN: Content
+  // ================================
+  .stats-content {
+
+    // Title styling - Bootstrap CSS custom properties
+    .stats-title {
+      color: var(--section-text-color, var(--bs-dark));
+      font-family: var(--bs-font-family-base);
+      font-weight: var(--bs-font-weight-semibold);
+      font-size: 1.5rem;                         // FIGMA mobile: 24px (1.5rem)
+      line-height: 1.1;
+      text-transform: none;
+      margin-bottom: var(--bs-spacer-4);
+
+      @include media-breakpoint-up(md) {
+        font-size: clamp(2rem, 4vw, 2.625rem);   // Desktop: responsive 32px-42px (unchanged)
+      }
+    }
+
+    // Description text - Bootstrap CSS custom properties
+    .stats-description {
+      color: var(--section-text-color, var(--bs-dark));
+      font-family: var(--bs-font-family-base);
+      font-weight: var(--bs-font-weight-normal);
+      font-size: var(--bs-font-size-lg);
+      line-height: 1.4;
+      margin-bottom: var(--bs-spacer-4);
+    }
+
+    // Button container
+    .stats-button {
+      margin-bottom: 2rem;
+
+      @include media-breakpoint-up(md) {
+        margin-bottom: 0;
+      }
+
+      // Button - Bootstrap CSS custom properties
+      .btn {
+        // Override Bootstrap button custom properties
+        --bs-btn-bg: var(--bs-primary);
+        --bs-btn-border-color: var(--bs-primary);
+        --bs-btn-hover-bg: var(--bs-secondary);
+        --bs-btn-hover-border-color: var(--bs-secondary);
+        --bs-btn-active-bg: var(--bs-secondary);
+        --bs-btn-active-border-color: var(--bs-secondary);
+        --bs-btn-color: var(--bs-white);
+        --bs-btn-hover-color: var(--bs-white);
+        --bs-btn-font-family: var(--bs-font-family-base);
+        --bs-btn-font-weight: var(--bs-font-weight-semibold);
+        --bs-btn-border-radius: 0;
+
+        width: 225px;                               // FIGMA mobile: 225px width
+        height: 40px;                               // FIGMA mobile: 40px height
+        font-size: 16px;                            // FIGMA mobile: 16px font
+        line-height: 15px;                          // FIGMA mobile: 15px line-height
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        text-decoration: none;
+        transition: all 0.2s ease;
+
+        @include media-breakpoint-up(md) {
+          width: 300px;                             // Desktop: 300px (unchanged)
+          height: 60px;                             // Desktop: 60px (unchanged)
+          font-size: 20px;                          // Desktop: 20px (unchanged)
+          line-height: 18px;                        // Desktop: 18px (unchanged)
+        }
+
+        // Hover state - darker pink
+        &:hover, &:focus {
+          background-color: $tactis-secondary; // #682145 (darker)
+          color: #FFFFFF;
+          transform: translateY(-1px);
+          box-shadow: 0 4px 12px rgba(175, 0, 97, 0.3);
+        }
+
+        // Arrow icon
+        .bi-arrow-right {
+          margin-left: 0.75rem;
+          transition: transform 0.2s ease;
+        }
+
+        &:hover .bi-arrow-right {
+          transform: translateX(3px);
+        }
+
+        // Mobile responsive
+        @include media-breakpoint-down(sm) {
+          width: 100%;
+          max-width: 300px;
+        }
+      }
+    }
+  }
+
+  // ================================
+  // RIGHT COLUMN: "Add A Stat" Items
+  // ================================
+  .stats-list {
+
+    @include media-breakpoint-down(md) {
+      margin-top: 3rem;
+    }
+
+    // Grid for stat items - matches Figma positioning
+    .stats-grid {
+      display: flex;
+      flex-direction: column;
+      gap: 2.5rem; // Vertical spacing between stats
+
+      @include media-breakpoint-down(md) {
+        gap: 2rem;
+      }
+    }
+
+    // Individual stat item styling
+    .stat-item {
+
+      // Stat title (big number/headline) - Bootstrap CSS custom properties
+      .stat-title {
+        color: var(--section-text-color, var(--bs-white));
+        font-family: var(--bs-font-family-base);
+        font-weight: var(--bs-font-weight-bold);
+        font-size: 2.5rem;                         // FIGMA mobile: 40px (2.5rem)
+        line-height: 1.25;                         // FIGMA mobile: 50px line-height (50/40 = 1.25)
+        margin-bottom: var(--bs-spacer-2);
+
+        @include media-breakpoint-up(md) {
+          font-size: clamp(2.5rem, 6vw, 3.75rem);  // Desktop: responsive 40px-60px (unchanged)
+          line-height: 1.1;                        // Desktop: better scaling ratio (unchanged)
+        }
+
+        // Special case: on dark sections, ensure visibility
+        .paragraph--type--section.bg-black &,
+        .paragraph--type--section.bg-plum & {
+          color: var(--bs-white) !important;
+        }
+      }
+
+      // Stat description - Bootstrap CSS custom properties
+      .stat-description {
+        color: var(--section-text-color, var(--bs-dark));
+        font-family: var(--bs-font-family-base);
+        font-weight: var(--bs-font-weight-normal);
+        font-size: var(--bs-font-size-lg);
+        line-height: 1.4;
+      }
+    }
+  }
+}
+
+/**
+ * Special handling for black sections to match Figma exactly
+ * In Figma, this component appears on a black background (#000000)
+ * with all text white except stat numbers which are also white
+ */
+.paragraph--type--section.bg-black {
+  .paragraph--type--stats {
+
+    // Override stat titles to be white on black sections (matching Figma)
+    .stat-title {
+      color: #FFFFFF !important; // White stat numbers on black background
+    }
+  }
+}
+
+/**
+ * Integration with Existing _sections.scss System
+ *
+ * This component relies on your established section system:
+ * - Light sections: --section-text-color is set to black
+ * - Dark sections: --section-text-color is set to white
+ * - Black sections: All text including stats should be white
+ */

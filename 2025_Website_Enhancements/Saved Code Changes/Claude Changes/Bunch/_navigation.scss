@@ -1,0 +1,22 @@
+
+.region-navigation {
+  // Use Figma mobile nav gradient - Bootstrap doesn't have this specific gradient
+  background: $mobile-nav-gradient;
+
+  .menu-header {
+    height: $header-height;
+  }
+
+  .nav-contact-container {
+    height: calc(100vh - $header-height);
+
+    .contact-container {
+      .menu--let-s-connect {
+        a {
+          @extend .p-0;                           // Bootstrap utility
+          @extend .text-decoration-underline;    // Bootstrap utility
+        }
+      }
+    }
+  }
+}

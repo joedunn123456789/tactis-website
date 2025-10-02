@@ -1,116 +1,246 @@
 {#
 /**
- * @file
- * Default theme implementation to display a paragraph.
+ * SECTION PARAGRAPH - ADAPTIVE BACKGROUND SYSTEM
  *
- * Available variables:
- * - paragraph: Full paragraph entity.
- *   Only method names starting with "get", "has", or "is" and a few common
- *   methods such as "id", "label", and "bundle" are available. For example:
- *   - paragraph.getCreatedTime() will return the paragraph creation timestamp.
- *   - paragraph.id(): The paragraph ID.
- *   - paragraph.bundle(): The type of the paragraph, for example, "image" or "text".
- *   - paragraph.getOwnerId(): The user ID of the paragraph author.
- *   See Drupal\paragraphs\Entity\Paragraph for a full list of public properties
- *   and methods for the paragraph object.
- * - content: All paragraph items. Use {{ content }} to print them all,
- *   or print a subset such as {{ content.field_example }}. Use
- *   {{ content|without('field_example') }} to temporarily suppress the printing
- *   of a given child element.
- * - attributes: HTML attributes for the containing element.
- *   The attributes.class element may contain one or more of the following
- *   classes:
- *   - paragraphs: The current template type (also known as a "theming hook").
- *   - paragraphs--type-[type]: The current paragraphs type. For example, if the paragraph is an
- *     "Image" it would result in "paragraphs--type--image". Note that the machine
- *     name will often be in a short form of the human readable label.
- *   - paragraphs--view-mode--[view_mode]: The View Mode of the paragraph; for example, a
- *     preview would result in: "paragraphs--view-mode--preview", and
- *     default: "paragraphs--view-mode--default".
- * - view_mode: View mode; for example, "preview" or "full".
- * - logged_in: Flag for authenticated user status. Will be true when the
- *   current user is a logged-in member.
- * - is_admin: Flag for admin user status. Will be true when the current user
- *   is an administrator.
+ * Uses Bootstrap 5.3+ data-bs-theme for automatic color adaptation.
+ * Content authors select a background, system handles all text/link/button colors automatically.
  *
- * @see template_preprocess_paragraph()
+ * Background Options:
+ * - section-background-white: White BG (#FFFFFF) + Light theme (text: #222222)
+ * - section-background-black: Black BG (#000000) + Dark theme (text: white)
+ * - section-background-plum: Plum BG (#682145) + Dark theme (text: white)
+ * - section-background-gradient: Gradient BG (pink to plum) + Dark theme (text: white)
+ * - section-background-image: Custom image + Dark theme (text: white overlay)
  *
- * @ingroup themeable
+ * Bootstrap Classes Used:
+ * - py-5: Padding top/bottom (3rem = 48px vertical spacing)
+ * - border-bottom: Bottom border for section separation
+ * - border-tactis-light: Brand color for borders (#999) - Custom utility
+ * - position-relative: Positioning context for absolute children (parallax)
+ * - min-vh-66: Custom utility for 66% viewport height (parallax sections)
+ * - container: Max-width responsive container (1140px at xl breakpoint)
+ * - row: Flexbox row for grid system
+ * - w-100: Width 100%
+ * - h-100: Height 100%
+ * - position-absolute: Absolute positioning
+ * - z-3: Z-index layer (for image backgrounds)
+ * - g-0: Remove gutter spacing
+ * - data-bs-theme: Bootstrap's adaptive theming (light/dark) - THE MAGIC!
+ *
+ * How data-bs-theme Works:
+ * When set to "dark": All headings, text, links, buttons, and form controls
+ * automatically adapt to white/light colors with proper contrast and hover states.
+ * When set to "light": Everything uses dark text colors on light backgrounds.
+ * No manual color classes needed on child elements!
+ */
+#}{#
+/**
+ * SECTION PARAGRAPH - ADAPTIVE BACKGROUND SYSTEM
+ *
+ * Uses Bootstrap 5.3+ data-bs-theme for automatic color adaptation.
+ * Content authors select a background, system handles all text/link/button colors automatically.
+ *
+ * Background Options:
+ * - section-background-white: White BG (#FFFFFF) + Light theme (text: #222222)
+ * - section-background-black: Black BG (#000000) + Dark theme (text: white)
+ * - section-background-plum: Plum BG (#682145) + Dark theme (text: white)
+ * - section-background-gradient: Gradient BG (pink to plum) + Dark theme (text: white)
+ * - section-background-image: Custom image + Dark theme (text: white overlay)
+ *
+ * Bootstrap Classes Used:
+ * - py-5: Padding top/bottom (3rem = 48px vertical spacing)
+ * - border-bottom: Bottom border for section separation
+ * - border-tactis-light: Brand color for borders (#999) - Custom utility
+ * - position-relative: Positioning context for absolute children (parallax)
+ * - min-vh-66: Custom utility for 66% viewport height (parallax sections)
+ * - container: Max-width responsive container (1140px at xl breakpoint)
+ * - row: Flexbox row for grid system
+ * - w-100: Width 100%
+ * - h-100: Height 100%
+ * - position-absolute: Absolute positioning
+ * - z-3: Z-index layer (for image backgrounds)
+ * - g-0: Remove gutter spacing
+ * - data-bs-theme: Bootstrap's adaptive theming (light/dark) - THE MAGIC!
+ *
+ * How data-bs-theme Works:
+ * When set to "dark": All headings, text, links, buttons, and form controls
+ * automatically adapt to white/light colors with proper contrast and hover states.
+ * When set to "light": Everything uses dark text colors on light backgrounds.
+ * No manual color classes needed on child elements!
  */
 #}
-{%
-    set classes = [
-    'paragraph',
-    'paragraph--type--' ~ paragraph.bundle|clean_class,
-    view_mode ? 'paragraph--view-mode--' ~ view_mode|clean_class,
-    not paragraph.isPublished() ? 'paragraph--unpublished',
-    'py-5',
-    paragraph.field_parallax.value ? 'is_parallax',
-    paragraph.field_parallax.value ? 'min-vh-66',
-    'bg-' ~ paragraph.field_section_background.value|replace({'section-background-': ''}),
-    (paragraph.field_section_background.value == "section-background-black") ? 'text-light',
-    (paragraph.field_section_background.value == "section-background-plum") ? 'text-light',
-    (paragraph.field_section_background.value == "section-background-image") ? 'z-3',
-    'border-bottom',
-    'border-tactis-light',
-    'position-relative',
-]
-%}
 
-{%  block paragraph %}
+{# Get the background selection from field #}
+{% set bg_value = paragraph.field_section_background.value %}
 
-{% if paragraph.field_section_background.value == 'section-background-image' %}
-    <style>
-      .bg-{{ id }} {
-        background-image: url('{{ bg_lg }}');
-      }
+{# ============================================
+   MAP DRUPAL VALUES TO BOOTSTRAP CLASSES
+   This determines which bg class and theme to use
+   ============================================ #}
+{% if bg_value == 'section-background-white' %}
+  {% set bg_class = 'bg-white' %}
+  {% set theme = 'light' %}
+  {# Light theme = dark text (#222) on white background #}
 
-      .is_parallax .bg-{{ id }} {
-        background-position-y: calc(50% - 1px);
-        position: absolute;
-        background-attachment: fixed;
-        background-size: cover;
-        width: 100%;
-        height: 100%;
-      }
+{% elseif bg_value == 'section-background-black' %}
+  {% set bg_class = 'bg-black' %}
+  {% set theme = 'dark' %}
+  {# Dark theme = white text on black background #}
 
-      @media screen and (min-width: 1140px){
-        .bg-{{ id }} {
-          background-image: url('{{ bg_xl }}');
-        }
+{% elseif bg_value == 'section-background-plum' %}
+  {% set bg_class = 'bg-secondary' %}
+  {# bg-secondary = plum (#682145) from _variables_evolve.scss #}
+  {% set theme = 'dark' %}
+  {# Dark theme = white text on plum background #}
 
-      }
-    </style>
-    {% if paragraph.field_parallax.value %}
-        <div{{ attributes.addClass(classes) }}>
-            <div class="img-container position-absolute w-100 h-100">
-                <div class="bg-{{ id }}"></div>
-            </div>
-            <div class="content-container container position-absolute w-100 h-100">
-                <div class="row h-100 animate-scroll animate">
-                    {{ content|without('field_parallax', 'field_section_background', 'field_image') }}
-                </div>
-            </div>
-        </div>
-    {% else %}
-        <div class="container-fluid g-0 bg-{{ id }}">
-            <div{{ attributes.addClass(classes) }}>
-                <div class="container">
-                    <div class="row animate-scroll animate">
-                        {{ content|without('field_parallax', 'field_section_background', 'field_image') }}
-                    </div>
-                </div>
-            </div>
-        </div>
-    {% endif %}
+{% elseif bg_value == 'section-background-gradient' %}
+  {% set bg_class = 'bg-gradient-plum' %}
+  {# bg-gradient-plum = pink to plum gradient from utilities #}
+  {% set theme = 'dark' %}
+  {# Dark theme = white text on gradient background #}
+
+{% elseif bg_value == 'section-background-image' %}
+  {% set bg_class = 'bg-image-' ~ id %}
+  {# Custom class for dynamic image backgrounds #}
+  {% set theme = 'dark' %}
+  {# Dark theme = white text overlay on images #}
+
 {% else %}
-    <div{{ attributes.addClass(classes) }}>
-        <div class="container">
-            <div class="row animate-scroll animate">
-                {{ content|without('field_parallax', 'field_section_background', 'field_image') }}
-            </div>
-        </div>
-    </div>
+  {# Fallback to white if no selection #}
+  {% set bg_class = 'bg-white' %}
+  {% set theme = 'light' %}
 {% endif %}
 
+{# ============================================
+   BUILD CSS CLASSES ARRAY
+   All Bootstrap utility classes for layout/spacing
+   ============================================ #}
+{% set classes = [
+  'paragraph',
+  'paragraph--type--' ~ paragraph.bundle|clean_class,
+  view_mode ? 'paragraph--view-mode--' ~ view_mode|clean_class,
+  not paragraph.isPublished() ? 'paragraph--unpublished',
+  'py-5',
+  'border-bottom',
+  'border-tactis-light',
+  'position-relative',
+  bg_class,
+  paragraph.field_parallax.value ? 'is_parallax',
+  paragraph.field_parallax.value ? 'min-vh-66',
+  bg_value == 'section-background-image' ? 'z-3',
+] %}
+
+  {% block paragraph %}
+
+  {# ============================================
+   BACKGROUND IMAGE SECTIONS
+   Requires inline CSS for dynamic image URLs
+   ============================================ #}
+  {% if bg_value == 'section-background-image' %}
+
+  {# Inline CSS required - Bootstrap can't handle dynamic background image URLs #}
+  <style>
+  /* Dynamic background image URL */
+  .bg-{{ id }} {
+  background-image: url('{{ bg_lg }}');
+    }
+
+/* Parallax effect calculations - custom CSS required */
+.is_parallax .bg-{{ id }} {
+  background-position-y: calc(50% - 1px);
+  position: absolute;
+  background-attachment: fixed;
+  background-size: cover;
+  width: 100%;
+  height: 100%;
+}
+
+/* Responsive image for larger screens */
+@media screen and (min-width: 1140px) {
+  .bg-{{ id }} {
+    background-image: url('{{ bg_xl }}');
+  }
+}
+  </style>
+
+  {# PARALLAX IMAGE LAYOUT #}
+{% if paragraph.field_parallax.value %}
+  {#
+  data-bs-theme="dark" makes:
+  - All headings white
+  - All text white
+  - All links white with proper hover
+  - All buttons get light/outline styling
+  - All form controls get light borders
+  AUTOMATICALLY - no manual classes needed!
+  #}
+  <div{{ attributes.addClass(classes) }} data-bs-theme="{{ theme }}">
+
+    {# Image layer - absolutely positioned behind content #}
+    <div class="img-container position-absolute w-100 h-100">
+      <div class="bg-{{ id }}"></div>
+    </div>
+
+    {# Content layer - absolutely positioned, centered, in front #}
+    <div class="content-container container position-absolute w-100 h-100">
+      <div class="row h-100 animate-scroll animate">
+        {{ content|without('field_parallax', 'field_section_background', 'field_image') }}
+      </div>
+    </div>
+
+  </div>
+
+  {# STANDARD IMAGE LAYOUT (no parallax) #}
+{% else %}
+  <div class="container-fluid g-0 bg-{{ id }}">
+    <div{{ attributes.addClass(classes) }} data-bs-theme="{{ theme }}">
+      <div class="container">
+        <div class="row animate-scroll animate">
+          {{ content|without('field_parallax', 'field_section_background', 'field_image') }}
+        </div>
+      </div>
+    </div>
+  </div>
+{% endif %}
+
+  {# ============================================
+   SOLID COLOR SECTIONS (White, Black, Plum, Gradient)
+   100% Bootstrap classes - NO custom CSS!
+   ============================================ #}
+{% else %}
+  {#
+  data-bs-theme="{{ theme }}" is the MAGIC that makes everything work!
+
+  When theme="light" (white background):
+  - Text becomes #222222
+  - Links become blue with standard hover
+  - Buttons get primary styling
+
+  When theme="dark" (black, plum, or gradient background):
+  - Text becomes white
+  - Links become white with proper hover (lighter on hover)
+  - Buttons get outline/light styling
+
+  Content authors just pick background - Bootstrap does the rest!
+  #}
+  <div{{ attributes.addClass(classes) }} data-bs-theme="{{ theme }}">
+    <div class="container">
+      <div class="row animate-scroll animate">
+        {#
+        Everything in here automatically adapts:
+        - <h1> through <h6> get proper color
+        - <p> and all text gets proper color
+        - <a> links get proper color and hover states
+        - <button> and .btn get proper styling
+        - <form> controls get proper borders/colors
+        - <card>, <alert>, etc. all adapt
+
+        Author changes background → Everything updates automatically!
+        NO manual classes needed on child elements!
+        #}
+        {{ content|without('field_parallax', 'field_section_background', 'field_image') }}
+      </div>
+    </div>
+  </div>
+{% endif %}
 {% endblock paragraph %}

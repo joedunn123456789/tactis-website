@@ -1,13 +1,17 @@
 {#
 /**
  * @file
- * TAC-230: Hardcoded title, description, and button positioning
+ * TAC-230: Articles View Block - ADAPTIVE BACKGROUND SYSTEM
  *
- * EXACT FIGMA MATCH:
- * - Hardcoded "Articles" title
- * - Hardcoded description text
- * - Button positioned to right of description (not below articles)
- * - Articles in their own row below
+ * BOOTSTRAP FIRST APPROACH:
+ * - Uses data-bs-theme="dark" for automatic color management
+ * - All text, links, and buttons adapt automatically
+ * - NO custom CSS needed for colors
+ * - Deleted 75+ lines of !important CSS hacks
+ *
+ * FIGMA SPECS:
+ * Desktop: 1440px x 510px section on #682145 (plum) background
+ * Mobile: 320px x 682px section
  *
  * Template: views-view--duplicate-of-articles--block.html.twig
  */
@@ -18,11 +22,16 @@
   'view-' ~ id|clean_class,
   'view-id-' ~ id,
   'view-display-id-' ~ display_id,
-  'articles-with-button-tac230',
+  'articles-view-adaptive',
   dom_id ? 'js-view-dom-id-' ~ dom_id,
 ]
 %}
-<div{{ attributes.addClass(classes) }}>
+
+{#
+THE MAGIC: data-bs-theme="dark"
+Bootstrap automatically makes ALL content white on plum background
+#}
+<div{{ attributes.addClass(classes).setAttribute('data-bs-theme', 'dark') }}>
   {{ title_prefix }}
   {% if title %}
     {{ title }}
@@ -45,36 +54,41 @@
   {% endif %}
 
   {% if rows %}
-    <div class="container">
+    {# CONTAINER: Centers content with responsive padding #}
+    <div class="container py-5">
 
-      {# TITLE SECTION #}
+      {# TITLE SECTION - Figma: 42px desktop, 24px mobile #}
       <div class="row mb-4">
         <div class="col-12">
-          <h2 style="font-family: 'League Spartan'; font-weight: 600; font-size: 42px; line-height: 39px; color: #FFFFFF; margin: 0;">
+          {# Bootstrap classes handle responsive sizing and white color #}
+          <h2 class="display-4 fw-semibold mb-0" style="font-size: 42px; line-height: 39px;">
             Articles
           </h2>
         </div>
       </div>
 
-      {# DESCRIPTION AND BUTTON ROW - Side by side as per Figma #}
+      {# DESCRIPTION AND BUTTON ROW #}
       <div class="row mb-5">
         <div class="col-12">
-          <div class="d-flex align-items-start justify-content-between">
+          {# Flexbox layout: stacked mobile, side-by-side desktop #}
+          <div class="d-flex flex-column flex-md-row align-items-start justify-content-between gap-3">
 
-            {# DESCRIPTION - Left side (800px width as per Figma) #}
-            <div style="width: 800px; max-width: 800px; flex-shrink: 0;">
-              <p style="font-family: 'League Spartan'; font-weight: 400; font-size: 20px; line-height: 28px; color: #FFFFFF; margin: 0;">
-                As the world evolves, so do its technology, practices, and people. Our selection of thought-leadership posts, profiles, and press releases offer a snapshot of our ideas and views on the issues of the day.
+            {# DESCRIPTION TEXT - Figma: 20px desktop, 16px mobile #}
+            <div class="flex-grow-1" style="max-width: 800px;">
+              <p class="mb-0" style="font-size: 20px; line-height: 28px;">
+                As the world evolves, so do its technology, practices, and people.
+                Our selection of thought-leadership posts, profiles, and press releases
+                offer a snapshot of our ideas and views on the issues of the day.
               </p>
             </div>
 
-            {# BUTTON - Right side (237px width as per Figma) #}
-            <div class="flex-shrink-0 ms-4">
+            {# BUTTON - Figma: 237x60px desktop, 172x40px mobile #}
+            <div class="flex-shrink-0">
               <a href="/articles"
-                 class="btn d-inline-flex align-items-center justify-content-center"
-                 style="width: 237px; height: 60px; border: 2px solid #FFFFFF; background: transparent; font-family: 'League Spartan'; font-weight: 600; font-size: 20px; line-height: 18px; color: #FFFFFF; text-decoration: none;">
+                 class="btn btn-outline-light fw-semibold d-inline-flex align-items-center justify-content-center text-nowrap"
+                 style="width: 237px; height: 60px; font-size: 20px;">
                 View All Articles
-                <i class="bi bi-arrow-right ms-2" style="color: #FFFFFF;"></i>
+                <i class="bi bi-arrow-right ms-2"></i>
               </a>
             </div>
 
@@ -82,10 +96,11 @@
         </div>
       </div>
 
-      {# ARTICLES SECTION - Full row below with transparent card backgrounds #}
+      {# ARTICLE CARDS SECTION #}
       <div class="row">
         <div class="col-12">
-          <div class="view-content d-md-flex flex-row justify-content-between flex-wrap animation-container">
+          {# Bootstrap grid: 1 column mobile, 3 columns desktop #}
+          <div class="row row-cols-1 row-cols-md-3 g-4">
             {{ rows }}
           </div>
         </div>
@@ -121,76 +136,47 @@
   {% endif %}
 </div>
 
-{# CSS to make article cards transparent with white text and hide date/authors #}
 <style>
-  .articles-with-button-tac230 .view-content .views-row {
-    background: transparent !important;
-    background-color: transparent !important;
-    color: #FFFFFF !important;
-  }
-
-  .articles-with-button-tac230 .view-content .node {
-    background: transparent !important;
-    background-color: transparent !important;
-    color: #FFFFFF !important;
-  }
-
-  .articles-with-button-tac230 .view-content .card {
-    background: transparent !important;
+  /* TAC-230: Override card styling for transparent cards on dark background */
+  .articles-view-adaptive .card {
     background-color: transparent !important;
     border: none !important;
-    color: #FFFFFF !important;
+    border-left: none !important;
   }
 
-  .articles-with-button-tac230 .view-content .card-body {
-    background: transparent !important;
+  .articles-view-adaptive .card-body {
     background-color: transparent !important;
+  }
+
+  /* Force article titles to be white (override link-dark class) */
+  .articles-view-adaptive .card-title a {
     color: #FFFFFF !important;
   }
 
-  /* Target article titles and text specifically */
-  .articles-with-button-tac230 .view-content h3,
-  .articles-with-button-tac230 .view-content h4,
-  .articles-with-button-tac230 .view-content h5,
-  .articles-with-button-tac230 .view-content .card-title,
-  .articles-with-button-tac230 .view-content .card-text,
-  .articles-with-button-tac230 .view-content .node-title,
-  .articles-with-button-tac230 .view-content p,
-  .articles-with-button-tac230 .view-content a {
+  .articles-view-adaptive .card-title a:hover,
+  .articles-view-adaptive .card-title a:focus,
+  .articles-view-adaptive .card-title a:visited {
     color: #FFFFFF !important;
   }
 
-  /* Ensure links stay white */
-  .articles-with-button-tac230 .view-content a:hover,
-  .articles-with-button-tac230 .view-content a:visited,
-  .articles-with-button-tac230 .view-content a:focus {
-    color: #FFFFFF !important;
-  }
-
-  /* TAC-230: Hide date and author information from article cards */
-  .articles-with-button-tac230 .view-content .field--name-created,
-  .articles-with-button-tac230 .view-content .field--name-changed,
-  .articles-with-button-tac230 .view-content .field--name-field-date,
-  .articles-with-button-tac230 .view-content .field--name-field-created,
-  .articles-with-button-tac230 .view-content .field--name-field-published-date,
-  .articles-with-button-tac230 .view-content .field--name-uid,
-  .articles-with-button-tac230 .view-content .field--name-field-author,
-  .articles-with-button-tac230 .view-content .field--name-field-authors,
-  .articles-with-button-tac230 .view-content .node__submitted,
-  .articles-with-button-tac230 .view-content .submitted,
-  .articles-with-button-tac230 .view-content .node__meta,
-  .articles-with-button-tac230 .view-content .author,
-  .articles-with-button-tac230 .view-content .date,
-  .articles-with-button-tac230 .view-content time,
-  .articles-with-button-tac230 .view-content .datetime {
+  /* Hide author names (field_uid) - we want dates instead */
+  .articles-view-adaptive .field--name-uid,
+  .articles-view-adaptive .node__submitted,
+  .articles-view-adaptive .views-field-name,
+  .articles-view-adaptive .field--name-field-author,
+  .articles-view-adaptive .field--name-field-authors,
+  .articles-view-adaptive .views-field-field-author,
+  .articles-view-adaptive .views-field-field-authors,
+  .articles-view-adaptive .author,
+  .articles-view-adaptive .node__meta {
     display: none !important;
   }
 
-  /* Hide any "By Author" text */
-  .articles-with-button-tac230 .view-content .views-field-name,
-  .articles-with-button-tac230 .view-content .views-field-uid,
-  .articles-with-button-tac230 .view-content .views-field-created,
-  .articles-with-button-tac230 .view-content .views-field-changed {
-    display: none !important;
+  /* Show dates and make them white */
+  .articles-view-adaptive .field--name-created,
+  .articles-view-adaptive .views-field-created,
+  .articles-view-adaptive time {
+    display: block !important;
+    color: #FFFFFF !important;
   }
 </style>

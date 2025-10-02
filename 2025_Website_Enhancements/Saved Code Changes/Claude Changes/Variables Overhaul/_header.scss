@@ -1,0 +1,250 @@
+header {
+  @extend .bg-white;
+  position: fixed;                        // Revert to fixed for admin toolbar compatibility
+  top: 0;
+  width: 100%;
+  z-index: 410;                           // Use direct value to avoid map issues
+}
+
+// Header behavior that changes based on hero type
+body.hero-dark, body.hero-light {
+  header {
+    background: $tactis-gradient;
+    height: calc($header-height + $hero-height-sm);
+
+    @include media-breakpoint-up(md){
+      height: calc($header-height + $hero-height-md);
+    }
+
+    .region-header {
+      @extend .bg-white;
+    }
+  }
+}
+
+body.hero-split {
+  header {
+    background: $white; // White background for split hero
+    height: $header-height; // Just the header, no extra space
+
+    @include media-breakpoint-up(md){
+      height: $header-height; // Just the header, no extra space
+    }
+
+    .region-header {
+      @extend .bg-white;
+    }
+  }
+
+  // Header container sizing for split layout
+  .region-header .logo-menu-container {
+    @extend .py-1;
+    min-height: $header-height;
+
+    @include media-breakpoint-up(md){
+      min-height: $header-height;
+    }
+  }
+}
+
+// Header region styling and navigation - BOOTSTRAP-FIRST + VARIABLES
+.region-header {
+  @extend .bg-white;
+  @extend .border-bottom;
+  @extend .shadow-sm;                     // Bootstrap shadow instead of custom z-index
+  border-bottom-color: $figma-border-rgba !important; // Use Figma variable
+  z-index: 410;
+
+  .logo-menu-container {
+    @extend .container-fluid;
+    @extend .d-flex;
+    @extend .justify-content-between;
+    @extend .align-items-center;
+    @extend .py-2;
+    min-height: $header-height;           // Use existing variable
+
+    // Desktop navigation styling - BOOTSTRAP-FIRST
+    .desktop-nav {
+      @extend .navbar-nav;
+      @extend .flex-row;
+      @extend .d-none;
+      @extend .d-lg-flex;                 // Bootstrap responsive utilities
+
+      .nav-link {
+        @extend .px-3;
+        @extend .text-dark;
+        @extend .fw-normal;
+
+        &:hover {
+          color: var(--bs-tactis-primary) !important;
+        }
+      }
+    }
+
+    // Desktop right section (search + contact) - BOOTSTRAP-FIRST
+    .desktop-right {
+      @extend .d-none;
+      @extend .d-lg-flex;
+      @extend .align-items-center;
+      @extend .gap-3;                     // Bootstrap gap
+
+      .search-icon {
+        .bi-search {
+          @extend .text-dark;
+          @extend .fs-5;                  // Bootstrap font size
+
+          &:hover {
+            color: var(--bs-tactis-primary);
+          }
+        }
+      }
+
+      .vertical-separator {
+        width: 1px;
+        height: 60px;                     // Keep specific height
+        @extend .bg-dark;
+        @extend .align-self-center;
+      }
+
+      // EXACT FIGMA CONTACT BUTTON STYLING
+      .btn-outline-dark {
+        // Exact Figma dimensions and positioning
+        width: $header-contact-width;        // FIGMA: 175px
+        height: $header-contact-height;      // FIGMA: 100px
+        box-sizing: border-box;
+
+        // Figma background and border
+        background: $figma-white;            // FIGMA: #FFFFFF
+        border-left: 1px solid #DDDDDD;     // FIGMA: exact border color
+        border-right: 0;
+        border-top: 0;
+        border-bottom: 0;
+        @extend .rounded-0;                  // Square corners
+
+        // Figma typography
+        font-family: 'League Spartan';
+        font-style: normal;
+        font-weight: 600;
+        font-size: $header-contact-font-size;     // FIGMA: 22px
+        line-height: $header-contact-line-height; // FIGMA: 20px
+        text-align: center;
+        @extend .text-uppercase;
+        color: $figma-primary !important;        // FIGMA: #AF0061
+
+        // Remove Bootstrap button defaults
+        padding: 0;
+        margin: 0;
+        @extend .d-flex;
+        @extend .align-items-center;
+        @extend .justify-content-center;
+
+        &:hover, &:focus, &:active {
+          background-color: $figma-primary !important;
+          border-color: $figma-primary !important;
+          color: $figma-white !important;
+        }
+      }
+    }
+
+    .block-system-branding-block {
+      @extend .align-self-center;
+    }
+
+    // Mobile navigation styling
+    .navbar {
+      .search-icon {
+        @extend .mx-4;
+
+        .bi-search {
+          @extend .text-dark;
+        }
+      }
+
+      .navbar-toggler {
+        #navbar-hamburger {
+          width: 38px;
+          height: 32px;
+
+          span {
+            height: 3px;
+            @extend .rounded-1;
+            width: 25px;
+            background-color: var(--bs-tactis-primary) !important;
+          }
+        }
+      }
+    }
+  }
+}
+
+// Header icon colors that change based on hero background
+body.hero-dark, body.hero-light {
+  .region-header {
+    .bi-search {
+      color: $white !important;
+    }
+    #navbar-hamburger span {
+      background-color: $white !important;
+    }
+  }
+}
+
+body.hero-split {
+  .region-header {
+    .bi-search {
+      color: $black !important;
+    }
+    #navbar-hamburger span {
+      background-color: $black !important;
+
+      &:nth-child(2) {
+        background-color: var(--bs-tactis-primary) !important;
+      }
+    }
+  }
+}
+
+// Admin toolbar integration - FIXED FOR STICKY-TOP
+#toolbar-administration {
+  z-index: 501;
+}
+
+// Admin toolbar header positioning for fixed header
+body {
+  &.toolbar-horizontal {
+    header {
+      top: $admin-toolbar-height-collapsed;
+    }
+
+    &.toolbar-tray-open {
+      header {
+        top: calc($admin-toolbar-height-collapsed + $admin-toolbar-horizontal);
+      }
+    }
+  }
+
+  &.toolbar-vertical {
+    header {
+      top: $admin-toolbar-height-collapsed;
+    }
+  }
+}
+
+.toolbar .toolbar-bar {
+  position: fixed !important;
+}
+
+// Logo styling within header
+.navbar-brand {
+  @extend .p-0;
+  @extend .m-0;
+  @extend .d-flex;
+  @extend .align-items-center;
+
+  img {
+    @extend .img-fluid;
+    max-width: 184px !important;
+    max-height: 50px !important;
+    height: auto;
+  }
+}

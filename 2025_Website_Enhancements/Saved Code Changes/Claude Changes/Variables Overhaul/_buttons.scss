@@ -1,0 +1,39 @@
+
+// Some buttons
+// BUTTONS WITH EXACT FIGMA SPECS + BOOTSTRAP BASE
+.btn-tactis-primary, .btn-tactis-primary:visited {
+  @extend .btn;
+  @extend .text-uppercase;
+  @extend .fw-semibold;
+
+  // Exact Figma measurements
+  width: $button-primary-width;             // FIGMA: 200px -> variable
+  height: $button-primary-height;           // FIGMA: 60px -> variable
+  border-radius: 0;                         // FIGMA: square corners
+
+  // Bootstrap CSS custom properties for consistency
+  --bs-btn-font-weight: 600;
+  --bs-btn-color: #{$figma-white};          // Use Figma variable
+  --bs-btn-bg: #{$figma-primary};           // FIGMA: #AF0061 -> variable
+  --bs-btn-border-color: #{$figma-primary};
+  --bs-btn-hover-color: #{$figma-white};
+  --bs-btn-hover-bg: var(--bs-tactis-secondary);
+  --bs-btn-hover-border-color: var(--bs-tactis-secondary);
+  --bs-btn-focus-shadow-rgb: var(--bs-tactis-tertiary);
+  --bs-btn-active-color: #{$figma-white};
+  --bs-btn-active-bg: var(--bs-tactis-tertiary);
+  --bs-btn-active-border-color: var(--bs-tactis-tertiary);
+}
+
+// Secondary button variant with different width
+.btn-tactis-secondary, .btn-tactis-secondary:visited {
+  @extend .btn-tactis-primary;
+  width: $button-secondary-width;           // FIGMA: 237px -> variable
+}
+
+// Small button variant for specific contexts
+.btn-tactis-small, .btn-tactis-small:visited {
+  @extend .btn-tactis-primary;
+  width: $footer-button-width;              // FIGMA: 60px -> variable
+  height: $footer-button-height;            // FIGMA: 60.28px -> variable
+}

@@ -1,0 +1,121 @@
+
+// MOBILE NAVIGATION - FIGMA-COMPLIANT WITH BOOTSTRAP-FIRST
+.region-navigation {
+  // Use Bootstrap collapse with Figma specifications
+  @extend .collapse;
+  @extend .position-fixed;
+  @extend .top-0;
+  @extend .start-0;
+  @extend .w-100;
+  @extend .h-100;
+  z-index: 500;                           // Use direct z-index value
+
+  // Figma background - can't use Bootstrap for gradient
+  background: $mobile-nav-gradient;        // FIGMA: exact gradient
+  width: $mobile-nav-width;               // FIGMA: 484px
+  height: $mobile-nav-height;             // FIGMA: 828px
+  border: 1px solid $figma-white;         // FIGMA: exact border
+
+  .container {
+    @extend .h-100;
+    @extend .d-flex;
+    @extend .flex-column;
+    @extend .p-3;
+
+    .row {
+      @extend .h-100;
+      @extend .d-flex;
+      @extend .flex-column;
+    }
+  }
+
+  .menu-header {
+    @extend .d-flex;
+    @extend .justify-content-between;
+    @extend .align-items-center;
+    @extend .mb-4;
+    height: $mobile-nav-logo-height;      // FIGMA: 70px -> variable
+
+    .tactis-logo-white {
+      a {
+        width: $mobile-nav-logo-width;      // FIGMA: 130px -> variable
+        height: $mobile-nav-logo-height;    // FIGMA: 70px -> variable
+        background-image: $tactis-white-colormark-logo;
+        background-size: $mobile-nav-logo-width $mobile-nav-logo-height;
+        background-repeat: no-repeat;        // Replace .bg-no-repeat
+        background-position: center left;    // Replace .bg-start
+        @extend .d-block;
+        text-indent: -9999px;               // Replace .text-hide
+      }
+    }
+  }
+
+  .nav-contact-container {
+    @extend .d-flex;
+    @extend .flex-column;
+    flex: 1;                              // Replace .flex-grow-1
+    @extend .text-white;
+    @extend .overflow-auto;
+
+    // Primary navigation - Figma typography
+    .nav-container {
+      font-family: $mobile-nav-primary-font-family;  // FIGMA: League Spartan
+      font-weight: $mobile-nav-primary-font-weight;  // FIGMA: 600
+      font-size: $mobile-nav-primary-font-size;      // FIGMA: 24px
+      line-height: $mobile-nav-primary-line-height;  // FIGMA: 53px
+      @extend .fs-3;
+      @extend .fw-bold;
+      @extend .text-lowercase;
+      @extend .text-center;
+      @extend .text-md-start;
+
+      ul {
+        @extend .list-unstyled;
+        @extend .mb-0;
+
+        li {
+          @extend .mb-2;
+
+          a {
+            @extend .text-white;
+            @extend .text-decoration-none;
+            color: $figma-white;
+          }
+        }
+      }
+    }
+
+    .contact-container {
+      @extend .text-center;
+      @extend .text-md-end;
+      @extend .mt-5;
+      @extend .mt-md-0;
+
+      // Address/contact info - Figma specs
+      .tactis-address, .address-info {
+        font-family: $mobile-nav-primary-font-family;
+        font-weight: $mobile-nav-address-font-weight;    // FIGMA: 600
+        font-size: $mobile-nav-address-font-size;        // FIGMA: 20px
+        line-height: $mobile-nav-address-line-height;    // FIGMA: 28px
+        color: $figma-white;
+        @extend .mb-5;
+      }
+
+      // Secondary links (Contact, Careers, etc.) - Figma specs
+      .menu--let-s-connect {
+        font-family: $mobile-nav-primary-font-family;
+        font-weight: $mobile-nav-secondary-font-weight;  // FIGMA: 400
+        font-size: $mobile-nav-secondary-font-size;      // FIGMA: 20px
+        line-height: $mobile-nav-secondary-line-height;  // FIGMA: 40px
+        color: $figma-white;
+        @extend .mb-5;
+
+        a {
+          @extend .text-white;
+          @extend .text-decoration-underline;
+          padding: 0;
+        }
+      }
+    }
+  }
+}

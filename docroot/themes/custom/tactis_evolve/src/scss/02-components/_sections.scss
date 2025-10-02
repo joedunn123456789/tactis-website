@@ -1,17 +1,18 @@
+// ============================================
+// SECTION PARAGRAPH - ADAPTIVE BACKGROUNDS
+// Bootstrap 5.3+ handles ALL color adaptation via data-bs-theme
+// Only custom SCSS for features Bootstrap can't do
+// ============================================
+
 .paragraph--type--section {
-  &.text-white {
-    --section-text-color: $white ;
-    //--section-logo-filter: brightness(0) invert(1); // Turn ALL SVGs turn white
-  }
-  &.bg-black {
-    --section-bg-color: $black;
-  }
-  &.bg-plum {
-    background-color: #682145 !important;
+
+  // Custom minimum height utility - Bootstrap doesn't have vh-66
+  &.min-vh-66 {
+    min-height: 66vh;
   }
 
+  // Parallax positioning - Bootstrap utilities can't do this
   &.is_parallax {
-
     .img-container {
       top: 0;
       left: 0;
@@ -26,8 +27,7 @@
   }
 }
 
-// Remove the last section break line above the footer.
-
+// Remove bottom border from last section before footer
 .field--name-field-custom-content .field__item:last-child .paragraph--type--section {
-  border-bottom: none !important;
+  border-bottom: 0;
 }

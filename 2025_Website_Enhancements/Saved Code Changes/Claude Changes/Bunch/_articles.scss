@@ -1,0 +1,136 @@
+/**
+ * Articles Block Styling - TAC-230
+ * Bootstrap CSS Custom Properties Implementation
+ * Following Anthony's guidance: don't mess with existing cards, use duplicate view
+ */
+
+.articles-with-button-tac230 {
+  // Use Bootstrap CSS custom properties for theme integration
+  --bs-font-family-base: "League Spartan", sans-serif;
+
+  // Article cards transparency and white text for dark backgrounds
+  .view-content {
+
+    .views-row,
+    .node,
+    .card,
+    .card-body {
+      background: transparent !important;
+      background-color: transparent !important;
+      border: none !important;
+      color: var(--section-text-color, var(--bs-white)) !important;
+    }
+
+    // Typography - Bootstrap CSS custom properties
+    h3, h4, h5,
+    .card-title,
+    .card-text,
+    .node-title,
+    p, a {
+      color: var(--section-text-color, var(--bs-white)) !important;
+      font-family: var(--bs-font-family-base);
+    }
+
+    // Link states - maintain consistency
+    a {
+      &:hover,
+      &:visited,
+      &:focus {
+        color: var(--section-text-color, var(--bs-white)) !important;
+      }
+
+      // TAC-230: Only titles should underline on hover
+      &:hover {
+        .card-title {
+          text-decoration: underline !important;
+          text-underline-offset: 4px;
+          text-decoration-thickness: 2px;
+        }
+      }
+    }
+  }
+
+  // TAC-230: Hide date and author information from article cards
+  .view-content {
+    .field--name-created,
+    .field--name-changed,
+    .field--name-field-date,
+    .field--name-field-created,
+    .field--name-field-published-date,
+    .field--name-uid,
+    .field--name-field-author,
+    .field--name-field-authors,
+    .node__submitted,
+    .submitted,
+    .node__meta,
+    .author,
+    .date,
+    time,
+    .datetime {
+      @extend .d-none;                             // Bootstrap utility instead of display: none !important
+    }
+
+    // Hide Views field wrappers for date/author
+    .views-field-name,
+    .views-field-uid,
+    .views-field-created,
+    .views-field-changed {
+      @extend .d-none;                             // Bootstrap utility
+    }
+  }
+
+  // Button hover effects - Bootstrap CSS custom properties
+  .btn-outline-light {
+    --bs-btn-font-family: var(--bs-font-family-base);
+    --bs-btn-font-weight: var(--bs-font-weight-semibold);
+
+    transition: all 0.3s ease;
+
+    &:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 4px 12px rgba(255, 255, 255, 0.2);
+    }
+  }
+
+  // Responsive improvements for mobile - Figma-accurate sizing
+  @include media-breakpoint-down(lg) {
+    .btn {
+      width: 172px !important;                      // FIGMA mobile: 172px width
+      height: 40px !important;                      // FIGMA mobile: 40px height
+      min-width: unset !important;
+      margin-top: 1rem;
+      font-size: 16px !important;                   // FIGMA mobile: 16px font
+    }
+  }
+
+  // Title responsive sizing
+  h2 {
+    font-size: 1.5rem !important;                   // FIGMA mobile: 24px (1.5rem)
+
+    @include media-breakpoint-up(md) {
+      font-size: 2.5rem !important;                 // Desktop size (unchanged)
+    }
+  }
+}
+
+/**
+ * Integration with Section Background System
+ * Works with _sections.scss color inheritance
+ */
+.paragraph--type--section {
+
+  &.text-white .articles-with-button-tac230 {
+    // On dark sections, ensure all text is white
+    .view-content * {
+      color: var(--bs-white) !important;
+    }
+  }
+
+  &.bg-black .articles-with-button-tac230,
+  &.bg-plum .articles-with-button-tac230 {
+    // Ensure visibility on dark backgrounds
+    .view-content * {
+      color: var(--bs-white) !important;
+    }
+  }
+}
