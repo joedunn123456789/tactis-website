@@ -104,16 +104,16 @@
 <div{{ attributes.addClass(classes) }}>
   {% if node.field_hero_options.value|raw == 'hero-split' %}
     {# 50/50 Hero Layout #}
-    <div class="container">
+    <div class="container py-5" data-bs-theme="light">
       <div class="row align-items-center g-4">
         <div class="col-12 col-md-6">
           {# Hero Tag #}
-          <div class="hero-tag text-uppercase fw-semibold mb-4">
+          <div class="hero-tag text-primary text-uppercase fw-semibold mb-4">
             Welcome to Tactis
           </div>
 
           {# Hero Content #}
-          <div class="hero-headline">
+          <div class="hero-headline mb-4">
             {% if node.bundle == 'article' %}
               <div class="return-to-articles pb-5"><a class="link-tactis-primary link-underline-opacity-0 fw-semibold" href="/articles"><i class="bi bi-arrow-left"></i> Back to articles</a></div>
             {% endif %}
@@ -125,7 +125,7 @@
 
           {# Hero Button #}
           {% if node.field_show_arrow.value|raw == 1 %}
-            <a href="/articles" class="hero-button btn btn-lg fw-semibold d-inline-flex align-items-center text-white mt-3">
+            <a href="/articles" class="hero-button btn btn-primary btn-lg fw-semibold d-inline-flex align-items-center mt-3">
               View Full Series
               <img src="/themes/custom/tactis_evolve/images/asset_arrow/tactis-button-arrow.svg" class="ms-2" width="16" height="16" alt="Arrow">
             </a>
@@ -167,7 +167,7 @@
     {% endif %}
     <div{{ newAttributes.addClass(titleTextClasses) }}>
       {% if node.bundle == 'article' %}
-        <div class="return-to-articles pb-5"><a class="link-tactis-primary link-underline-opacity-0 fw-semibold" href="/articles"><i class="bi bi-arrow-left"></i> Back to articles</a></div>
+        <div class="return-to-articles pb-3"><a class="text-primary text-decoration-none fw-semibold" href="/articles"><i class="bi bi-arrow-left"></i> Back to articles</a></div>
       {% endif %}
       {% if node.field_show_title.value|raw == "hero-title" %}
         {{ label }}
